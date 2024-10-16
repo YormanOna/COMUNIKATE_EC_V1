@@ -99,8 +99,8 @@ export function FormInscripcion() {
               placeholder="Nombres"
               className="input-form name-input-form"
               name="nombres"
-              pattern="[A-Za-z\s]+"
-              title="Solo se permiten letras y espacios"
+              pattern="[A-Za-zÑñÁáÉéÍíÓóÚú\s]+"
+              title="Solo se permiten letras"
               required
             />
             <input
@@ -108,7 +108,7 @@ export function FormInscripcion() {
               placeholder="Apellidos"
               name="apellidos"
               className="input-form name-input-form"
-              pattern="[A-Za-z\s]+"
+              pattern="[A-Za-zÑñÁáÉéÍíÓóÚú\s]+"
               title="Solo se permiten letras y espacios"
               required
             />
