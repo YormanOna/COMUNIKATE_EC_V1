@@ -5,18 +5,73 @@ import '../styles/butterup-2.0.0/butterup.css';
 import "../styles/formInscripciones.css";
 
 export function FormInscripcion() {
+  const [selectCurso, setSelectCurso] = useState("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredCursos, setFilteredCursos] = useState([]);
+  const [comentarios, setComentarios] = useState("");
+  const [errorCurso, setErrorCurso] = useState(""); // Estado para el mensaje de error
 
-  function enviarEmail(e) {
+  const cursos = [
+    "CURSO DE ORATORIA Y LOCUCIÓN", 
+    "CURSO DE PRODUCCIÓN AUDIOVISUAL",
+    "CURSO DE FOTOGRAFÍA",
+    "CURSO DE PRESENTADOR DE TV Y MEDIOS DIGITALES",
+    "CURSO DE STREAMING",
+    "CURSO DE PERIODISMO DEPORTIVO",
+    "CURSO DE MEDIA TRAINING",
+    "CURSO DE RELACIONES PÚBLICAS",
+    "CURSO DE LOCUCIÓN COMERCIAL",
+    "CURSO DE REDACCIÓN PERIODÍSTICA",
+    "CURSO DE MARKETING DIGITAL",
+    "CURSO DE PODCAST",
+    "CURSO DE FOTOGRAFÍA DE PRODUCTOS Y ALIMENTOS",
+    "CURSO DE EDICIÓN Y GRABACIÓN DE AUDIO",
+    "CURSO DE VENTAS",
+    "OTROS",
+  ];
+
+  useEffect(() => {
+    setFilteredCursos(
+      cursos.filter((curso) =>
+        curso.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    );
+  }, [searchTerm]);
+
+  const handleSelectCurso = (curso) => {
+    setSelectCurso(curso);
+    setIsDropdownOpen(false);
+    setSearchTerm("");
+    setErrorCurso(""); // Limpiar error al seleccionar un curso
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+    setIsDropdownOpen(true);
+  };
+
+  const handleComentariosChange = (e) => {
+    setComentarios(e.target.value);
+  };
+
+  const enviarEmail = (e) => {
     e.preventDefault();
+    const form = e.target;
 
-  const form = e.target;
-
-  ['nombres', 'apellidos', 'estadoCivil', 'direccion','ciudad','ocupacion','comentarios'].forEach(field => {
-    const input = form.elements[field];
-    if (input) {
-      input.value = input.value.toUpperCase();
+    // Validar que se haya seleccionado un curso
+    if (!selectCurso) {
+      setErrorCurso("Por favor, selecciona un curso.");
+      return; // No enviar el formulario
     }
-  });
+
+    // Convertir campos a mayúsculas
+    ['nombres', 'apellidos', 'estadoCivil', 'direccion', 'ciudad', 'ocupacion', 'comentarios'].forEach(field => {
+      const input = form.elements[field];
+      if (input) {
+        input.value = input.value.toUpperCase();
+      }
+    });
 
     emailjs.sendForm('service_z16wqxr', 'template_1f1xxzk', form, 'M4F1fQNIYzBdmLfMW')
       .then((result) => {
@@ -45,54 +100,6 @@ export function FormInscripcion() {
       });
     e.target.reset();
   }
-
-  const [selectCurso, setSelectCurso] = useState("");
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filteredCursos, setFilteredCursos] = useState([]);
-  const [comentarios, setComentarios] = useState("");
-
-  const cursos = [
-    "CURSO DE ORATORIA Y LOCUCIÓN", 
-    "⁠CURSO DE PRODUCCIÓN AUDIOVISUAL",
-    "CURSO DE FOTOGRAFÍA",
-    "⁠CURSO DE PRESENTADOR DE TV Y MEDIOS DIGITALES",
-    "⁠CURSO DE STREAMING",
-    "⁠CURSO DE PERIODISMO DEPORTIVO",
-    "CURSO DE MEDIA TRAINING",
-    "⁠CURSO DE RELACIONES PÚBLICAS",
-    "⁠CURSO DE LOCUCIÓN COMERCIAL",
-    "CURSO DE REDACCIÓN PERIODÍSTICA",
-    "CURSO DE MARKETING DIGITAL",
-    "CURSO DE PODCAST",
-    "⁠CURSO DE FOROGRAFIA DE PRODUCTOS Y ALIMENTOS",
-    "CURSO DE EDICIÓN Y GRABACIÓN DE AUDIO",
-    "CURSO DE VENTAS",
-    "OTROS",
-  ];
-
-  useEffect(() => {
-    setFilteredCursos(
-      cursos.filter((curso) =>
-        curso.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    );
-  }, [searchTerm]);
-
-  const handleSelectCurso = (curso) => {
-    setSelectCurso(curso);
-    setIsDropdownOpen(false);
-    setSearchTerm("");
-  };
-
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-    setIsDropdownOpen(true);
-  };
-
-  const handleComentariosChange = (e) => {
-    setComentarios(e.target.value);
-  };
 
   return (
     <div className="container-form">
@@ -138,12 +145,12 @@ export function FormInscripcion() {
         <div className="input-group-form">
           <label className="label-form">Número Móvil</label>
           <input 
-          type="tel" 
-          placeholder="Ej: +09x XXX-XXXX"
-          className="input-form" 
-          name="movil"
-          pattern="^[0-9\+]{10,15}$"
-          title="Por favor ingrese un número de teléfono válido"
+            type="tel" 
+            placeholder="Ej: +09x XXX-XXXX"
+            className="input-form" 
+            name="movil"
+            pattern="^[0-9\+]{10,15}$"
+            title="Por favor ingrese un número de teléfono válido"
           />
         </div>
         <div className="input-group-form">
@@ -161,46 +168,46 @@ export function FormInscripcion() {
         <div className="input-group-form">
           <label className="label-form">Edad</label>
           <input 
-          type="number" 
-          placeholder="XX" 
-          className="input-form" 
-          name="edad"
-          min="5" 
-          max="80" 
-          title="Ingrese una edad válida"
-          required  
+            type="number" 
+            placeholder="XX" 
+            className="input-form" 
+            name="edad"
+            min="5" 
+            max="80" 
+            title="Ingrese una edad válida"
+            required  
           />
         </div>
         <div className="input-group-form">
           <label className="label-form">Estado Civil</label>
           <input 
-          type="text" 
-          placeholder="Soltero" 
-          className="input-form"
-          name="estadoCivil"
-          pattern="[A-Za-z\s]+"
-          title="Solo se permiten letras"
-          required 
+            type="text" 
+            placeholder="Soltero" 
+            className="input-form"
+            name="estadoCivil"
+            pattern="[A-Za-z\s]+"
+            title="Solo se permiten letras"
+            required 
           />
         </div>
         <div className="input-group-form">
           <label className="label-form">Ciudad</label>
           <input 
-          type="text" 
-          placeholder="Ciudad" 
-          className="input-form" 
-          name="ciudad"
-          required
+            type="text" 
+            placeholder="Ciudad" 
+            className="input-form" 
+            name="ciudad"
+            required
           />
         </div>
         <div className="input-group-form">
           <label className="label-form">Dirección Domicilio</label>
           <input 
-          type="text" 
-          placeholder="Domicilio" 
-          className="input-form" 
-          name="direccion"
-          required
+            type="text" 
+            placeholder="Domicilio" 
+            className="input-form" 
+            name="direccion"
+            required
           />
         </div>
         <div className="input-group-form">
@@ -214,58 +221,56 @@ export function FormInscripcion() {
           />
         </div>
         <div className="input-group-form">
-  <label className="label-form">Seleccionar un Curso</label>
-  <div className="custom-select-form">
-    <div
-      className="select-selected-form"
-      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-    >
-      {selectCurso || "CURSOS"}
-      <span className="select-arrow"></span>
-    </div>
-    {isDropdownOpen && (
-      <div className="select-items-form">
-        <div className="search-container-form">
-          <input
-            type="text"
-            placeholder="Buscar curso..."
-            value={searchTerm}
-            onChange={handleSearchChange}
-            className="search-input-form"
-            name="cursoSearch"
-          />
-        </div>
-        <div className="options-container-form">
-          {filteredCursos.map((curso) => (
+          <label className="label-form">Seleccionar un Curso</label>
+          <div className="custom-select-form">
             <div
-              key={curso}
-              onClick={() => {
-                handleSelectCurso(curso); // Manejar la selección del curso
-                setIsDropdownOpen(false); // Cerrar el dropdown al seleccionar un curso
-              }}
-              className="select-item-form"
+              className="select-selected-form"
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
-              {curso}
+              {selectCurso || "CURSOS"}
+              <span className="select-arrow"></span>
             </div>
-          ))}
+            {isDropdownOpen && (
+              <div className="select-items-form">
+                <div className="search-container-form">
+                  <input
+                    type="text"
+                    placeholder="Buscar curso..."
+                    value={searchTerm}
+                    onChange={handleSearchChange}
+                    className="search-input-form"
+                    name="cursoSearch"
+                  />
+                </div>
+                <div className="options-container-form">
+                  {filteredCursos.map((curso) => (
+                    <div
+                      key={curso}
+                      onClick={() => {
+                        handleSelectCurso(curso);
+                        setIsDropdownOpen(false);
+                      }}
+                      className="select-item-form"
+                    >
+                      {curso}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+          <input type="hidden" name="curso" value={selectCurso} required />
+          {errorCurso && <p className="error-message-form">{errorCurso}</p>} {/* Mostrar mensaje de error */}
         </div>
-      </div>
-    )}
-  </div>
-  <input type="hidden" name="curso" value={selectCurso} required /> {/* Campo oculto para enviar el valor del curso */}
-  {!selectCurso && <p className="error-message-form">Por favor, selecciona un curso.</p>} {/* Mensaje de error si no se selecciona un curso */}
-</div>
-
-
         <div className="input-group-form">
-          <label className="label-form">Comentarios Adicionales</label>
+          <label className="label-form">Comentarios (opcional)</label>
           <textarea
-            className="textarea-form"
+            className="input-form"
+            placeholder="Comentarios"
+            rows="4"
             name="comentarios"
-            placeholder="Ingrese sus comentarios aquí..."
             value={comentarios}
             onChange={handleComentariosChange}
-            rows="4"
           />
         </div>
         <button type="submit" className="submit-button-form">

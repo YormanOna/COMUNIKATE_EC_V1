@@ -173,6 +173,9 @@
   .container-form {
     padding: 20px;
   }
+  .label-form{
+    font-size: 20px;
+  }
 
   .title-form {
     font-size: 16px;
@@ -200,6 +203,9 @@
 
   .title-form {
     font-size: 14px;
+  }
+  .label-form{
+    font-size: 20px;
   }
 
   .input-form, 
