@@ -9,7 +9,18 @@ export function FormInscripcion() {
   function enviarEmail(e) {
     e.preventDefault();
 
-    emailjs.sendForm('service_z16wqxr', 'template_1f1xxzk', e.target, 'M4F1fQNIYzBdmLfMW')
+    // Obtener el formulario HTML
+  const form = e.target;
+
+  // Transformar los campos a mayúsculas directamente en el formulario HTML
+  ['nombres', 'apellidos', 'estadoCivil', 'direccion','ciudad','ocupacion','comentarios'].forEach(field => {
+    const input = form.elements[field];
+    if (input) {
+      input.value = input.value.toUpperCase();
+    }
+  });
+
+    emailjs.sendForm('service_z16wqxr', 'template_1f1xxzk', form, 'M4F1fQNIYzBdmLfMW')
       .then((result) => {
           console.log(result.text);
           butterup.toast({
@@ -58,6 +69,7 @@ export function FormInscripcion() {
     "CURSO DE PODCAST",
     "⁠CURSO DE FOROGRAFIA DE PRODUCTOS Y ALIMENTOS",
     "CURSO DE EDICIÓN Y GRABACIÓN DE AUDIO",
+    "CURSO DE VENTAS",
     "OTROS",
   ];
 
