@@ -8,7 +8,7 @@ export function FormInscripcion() {
 
   function enviarEmail(e) {
     e.preventDefault();
-    
+
   const form = e.target;
 
   ['nombres', 'apellidos', 'estadoCivil', 'direccion','ciudad','ocupacion','comentarios'].forEach(field => {
@@ -119,7 +119,7 @@ export function FormInscripcion() {
               name="apellidos"
               className="input-form name-input-form"
               pattern="[A-Za-zÑñÁáÉéÍíÓóÚú\s]+"
-              title="Solo se permiten letras y espacios"
+              title="Solo se permiten letras"
               required
             />
           </div>
@@ -131,6 +131,7 @@ export function FormInscripcion() {
             placeholder="Ejemplo@example.com"
             className="input-form"
             name="email"
+            title="Por favor ingrese un correo válido"
             required
           />
         </div>
@@ -138,11 +139,11 @@ export function FormInscripcion() {
           <label className="label-form">Número Móvil</label>
           <input 
           type="tel" 
-          placeholder="(09x)XXX-XXX" 
+          placeholder="Ej: +09x XXX-XXXX"
           className="input-form" 
           name="movil"
-          pattern="[0-9]{10}" 
-          required 
+          pattern="^[0-9\+]{10,15}$"
+          title="Por favor ingrese un número de teléfono válido"
           />
         </div>
         <div className="input-group-form">
@@ -154,7 +155,7 @@ export function FormInscripcion() {
             name="cedula"
             pattern="\d{10}"
             maxLength="10"
-            required
+            title="Por favor ingrese un número de cédula válido"
           />
         </div>
         <div className="input-group-form">
@@ -164,7 +165,7 @@ export function FormInscripcion() {
           placeholder="XX" 
           className="input-form" 
           name="edad"
-          min="1" 
+          min="5" 
           max="80" 
           title="Ingrese una edad válida"
           required  
@@ -178,7 +179,7 @@ export function FormInscripcion() {
           className="input-form"
           name="estadoCivil"
           pattern="[A-Za-z\s]+"
-          title="Solo se permiten letras y espacios"
+          title="Solo se permiten letras"
           required 
           />
         </div>
@@ -213,43 +214,48 @@ export function FormInscripcion() {
           />
         </div>
         <div className="input-group-form">
-          <label className="label-form">Seleccionar un Curso</label>
-          <div className="custom-select-form">
-            <div
-              className="select-selected-form"
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            >
-              {selectCurso || "CURSOS"}
-              <span className="select-arrow"></span>
-            </div>
-            {isDropdownOpen && (
-              <div className="select-items-form">
-                <div className="search-container-form">
-                  <input
-                    type="text"
-                    placeholder="Buscar curso..."
-                    value={searchTerm}
-                    onChange={handleSearchChange}
-                    className="search-input-form"
-                    name="cursoSearch"
-                  />
-                </div>
-                <div className="options-container-form">
-                  {filteredCursos.map((curso) => (
-                    <div
-                      key={curso}
-                      onClick={() => handleSelectCurso(curso)}
-                      className="select-item-form"
-                    >
-                      {curso}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-          <input type="hidden" name="curso" value={selectCurso} />
+  <label className="label-form">Seleccionar un Curso</label>
+  <div className="custom-select-form">
+    <div
+      className="select-selected-form"
+      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+    >
+      {selectCurso || "CURSOS"}
+      <span className="select-arrow"></span>
+    </div>
+    {isDropdownOpen && (
+      <div className="select-items-form">
+        <div className="search-container-form">
+          <input
+            type="text"
+            placeholder="Buscar curso..."
+            value={searchTerm}
+            onChange={handleSearchChange}
+            className="search-input-form"
+            name="cursoSearch"
+          />
         </div>
+        <div className="options-container-form">
+          {filteredCursos.map((curso) => (
+            <div
+              key={curso}
+              onClick={() => {
+                handleSelectCurso(curso); // Manejar la selección del curso
+                setIsDropdownOpen(false); // Cerrar el dropdown al seleccionar un curso
+              }}
+              className="select-item-form"
+            >
+              {curso}
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+  <input type="hidden" name="curso" value={selectCurso} required /> {/* Campo oculto para enviar el valor del curso */}
+  {!selectCurso && <p className="error-message-form">Por favor, selecciona un curso.</p>} {/* Mensaje de error si no se selecciona un curso */}
+</div>
+
 
         <div className="input-group-form">
           <label className="label-form">Comentarios Adicionales</label>
