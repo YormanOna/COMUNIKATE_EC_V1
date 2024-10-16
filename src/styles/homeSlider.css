@@ -17,11 +17,11 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%; /* Mantiene el ancho completo */
-    height: 120px; /* Ajusta la altura según sea necesario */
+    width: 100%; 
+    height: 120px; 
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="1" d="M0,128L80,106.7C160,85,320,43,480,53.3C640,64,800,128,960,128C1120,128,1280,64,1360,42.7L1440,21.3L1440,320L0,320Z"></path></svg>');
-    background-size: cover; /* Asegura que el SVG se ajuste al contenedor */
-    background-repeat: no-repeat; /* Evita la repetición del fondo */
+    background-size: cover; 
+    background-repeat: no-repeat; 
 }
 
 
@@ -91,6 +91,9 @@
     .home p {
         font-size: 1rem;
     }
+    .home::after {
+        height: 40px; 
+    }
     .home .btnHome {
         flex-direction: column;
         gap: 10px;
@@ -112,6 +115,9 @@
     .home .btnHome {
         gap: 15px;
     }
+    .home::after {
+        height: 150px; /* Ajusta la altura para móviles */
+    }
     .home a {
         font-size: 0.95rem;
         padding: 11px 25px;
@@ -128,6 +134,9 @@
     }
     .home .btnHome {
         gap: 20px;
+    }
+    .home::after {
+        height: 40px; 
     }
     .home a {
         font-size: 1rem;
