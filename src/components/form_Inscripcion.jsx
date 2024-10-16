@@ -8,11 +8,9 @@ export function FormInscripcion() {
 
   function enviarEmail(e) {
     e.preventDefault();
-
-    // Obtener el formulario HTML
+    
   const form = e.target;
 
-  // Transformar los campos a mayúsculas directamente en el formulario HTML
   ['nombres', 'apellidos', 'estadoCivil', 'direccion','ciudad','ocupacion','comentarios'].forEach(field => {
     const input = form.elements[field];
     if (input) {
