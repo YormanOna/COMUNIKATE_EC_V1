@@ -135,9 +135,6 @@
     .home .btnHome {
         gap: 20px;
     }
-    .home::after {
-        height: 40px; 
-    }
     .home a {
         font-size: 1rem;
         padding: 12px 30px;
