@@ -179,20 +179,18 @@
 
   .title-form {
     font-size: 16px;
-  }
-
-  .input-form, 
+  } 
   .select-selected-form, 
-  .submit-button-form, 
-  .search-input-form, 
-  .textarea-form {
-    font-size: 14px;
-    padding: 8px;
+  .submit-button-form,  
+  .search-input-form {
+    width: 100%; 
+    height: 50px; 
+    font-size: 16px; 
   }
 
   .name-inputs-form {
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
   }
 }
 
@@ -208,11 +206,9 @@
     font-size: 20px;
   }
 
-  .input-form, 
   .select-selected-form, 
   .submit-button-form, 
-  .search-input-form, 
-  .textarea-form {
+  .search-input-form {
     font-size: 12px;
     padding: 6px;
   }
@@ -220,5 +216,7 @@
   .name-inputs-form {
     flex-direction: column;
     gap: 5px;
+    width: 100%; 
+    height: 100px; 
   }
 }
