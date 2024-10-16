@@ -1,0 +1,98 @@
+.navMenu {
+    position: fixed;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vw 8vw;
+    z-index: 1;
+}
+
+.logoMenu {
+    width: 60px;
+    cursor: pointer;
+}
+.navegacionMenu {
+    display: flex;
+}
+
+.navMenu .navegacionMenu .selectMenu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.navMenu .navegacionMenu .selectMenu li {
+    list-style: none;
+    margin-left: 30px;
+}
+.navMenu .navegacionMenu .selectMenu li .Select {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s ease;
+    font-family: 'Lato';
+}
+.navMenu .navegacionMenu .selectMenu li a:hover {
+    color: #f72b1d;
+}
+
+.navMenu.scrolled {
+    background-color: rgba(46, 46, 51, 0.9); /* Color al hacer scroll */
+}
+
+.navMenu .navegacionMenu .selectMenu li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navMenu.scrolled .navegacionMenu .selectMenu li a {
+    color: #fff; /* Color del texto al hacer scroll */
+}
+
+.navMenu .navegacionMenu .selectMenu li a:hover {
+    color: #FDC93B; /* Color al pasar el ratón */
+}
+
+/* Media query para pantallas pequeñas (por ejemplo, móviles) */
+@media (max-width: 600px) {
+    .navMenu .navegacionMenu {
+        display: none; /* Ocultar el menú en dispositivos móviles */
+    }
+}
+/* Media query para pantallas medianas (por ejemplo, tablets) */
+@media (min-width: 601px) and (max-width: 900px) {
+    .navMenu {
+        padding: 1vw 6vw;
+    }
+    .logoMenu {
+        width: 55px;
+    }
+    .navMenu .navegacionMenu .selectMenu li {
+        margin-left: 20px;
+    }
+    .navMenu .navegacionMenu .selectMenu li .Select {
+        font-size: 15px;
+    }
+}
+
+/* Media query para pantallas grandes (por ejemplo, desktops) */
+@media (min-width: 901px) {
+    .navMenu {
+        padding: 1vw 8vw;
+    }
+    .logoMenu {
+        width: 60px;
+    }
+    .navMenu .navegacionMenu .selectMenu li {
+        margin-left: 30px;
+    }
+    .navMenu .navegacionMenu .selectMenu li .Select {
+        font-size: 16px;
+    }
+}

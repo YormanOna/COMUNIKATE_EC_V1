@@ -1,0 +1,218 @@
+/* Estilos base */
+.container-form {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px;
+  background-color: #f7f6f2;
+  border-radius: 8px;
+  font-family: "Lato";
+  line-height: 28.9px;
+}
+
+.title-form {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-group-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-Area-form {
+  background-color: rgb(100% 100% 100%);
+  border-color: rgb(80% 80% 80%);
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 1px;
+  color: rgb(20% 20% 20%);
+  font-family: Lato;
+  line-height: 20.8px;
+  padding: 6px 10px;
+}
+
+.label-form {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.input-form {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.select-selected-form {
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.select-arrow {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #333;
+  margin-left: 10px;
+}
+
+.select-items-form {
+  position: absolute;
+  background-color: white;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  display: flex;
+  flex-direction: column;
+  max-height: 300px;
+}
+
+.select-item-form {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.select-item-form:hover {
+  background-color: #f0f0f0;
+}
+
+.name-inputs-form {
+  display: flex;
+  gap: 10px;
+}
+
+.name-input-form {
+  flex: 1;
+}
+
+.submit-button-form {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  align-self: flex-start;
+}
+
+.submit-button-form:hover {
+  background-color: #0056b3;
+}
+
+.custom-select-form {
+  position: relative;
+  font-family: "Lato", sans-serif;
+}
+
+.search-input-form {
+  width: 100%;
+  height: 40px;
+  padding: 2.8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: "Lato", sans-serif;
+}
+
+.search-input-form:focus {
+  border-color: #3498db; 
+  outline: none; 
+}
+
+.search-container-form {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.options-container-form {
+  overflow-y: auto;
+  max-height: 250px;
+}
+
+.textarea-form {
+  width: 97%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: vertical;
+  min-height: 100px;
+  background-color: #f7f6f2;
+}
+
+.textarea-form:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+  .container-form {
+    padding: 20px;
+  }
+
+  .title-form {
+    font-size: 16px;
+  }
+
+  .input-form, 
+  .select-selected-form, 
+  .submit-button-form, 
+  .search-input-form, 
+  .textarea-form {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .name-inputs-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-form {
+    padding: 10px;
+  }
+
+  .title-form {
+    font-size: 14px;
+  }
+
+  .input-form, 
+  .select-selected-form, 
+  .submit-button-form, 
+  .search-input-form, 
+  .textarea-form {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .name-inputs-form {
+    flex-direction: column;
+    gap: 5px;
+  }
+}

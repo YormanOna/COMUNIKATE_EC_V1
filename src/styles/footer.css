@@ -1,0 +1,126 @@
+.footer-container {
+    background-color: #333;
+    color: #fff;
+    padding: 3rem 1rem 2rem;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-heading {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: #f0f0f0;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+  }
+  
+  .footer-contact, .footer-social {
+    flex: 1;
+    margin-right: 1rem;
+  }
+  
+  .footer-address, .footer-whatsapp, .footer-email {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .footer-icon {
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+    color: #ffffff;
+  }
+  
+  .footer-email a {
+    color: #e74c3c;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-email a:hover {
+    color: #c0392b;
+    text-decoration: underline;
+  }
+  
+  .footer-social-icons {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .footer-social-link {
+    color: #ecf0f1;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .footer-social-icon {
+    transition: transform 0.3s ease, color 0.3s ease;
+    font-size: 2.5rem;
+  }
+  
+  .footer-social-link:hover .footer-social-icon {
+    transform: scale(1.2);
+  }
+  
+  .footer-social-link:hover .fa-facebook {
+    color: #3b5998;
+  }
+  
+  .footer-social-link:hover .fa-instagram {
+    color: #e4405f;
+  }
+  
+  .footer-social-link:hover .fa-tiktok {
+    color: #69c9d0;
+  }
+  .footer-social-link:hover .fa-whatsapp{
+    color: #25D366;
+  }
+  
+  .footer-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #34495e;
+  }
+  
+  .footer-logo-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e74c3c;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .footer-copyright {
+    font-size: 0.9rem;
+    color: #bdc3c7;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+    }
+    
+    .footer-contact, .footer-social {
+      margin-right: 0;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .footer-logo {
+      margin-bottom: 1rem;
+    }
+  }

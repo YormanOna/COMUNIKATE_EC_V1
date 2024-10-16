@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Poppins", sans-serif;
+}
+.TituloQuitar {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin: 20px 0;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Media query para pantallas pequeñas (por ejemplo, móviles) */
+@media (max-width: 600px) {
+    .TituloQuitar {
+        font-size: 1.5rem; /* Reducir el tamaño de la fuente */
+    }
+}
+
+/* Media query para pantallas medianas (por ejemplo, tablets) */
+@media (min-width: 601px) and (max-width: 900px) {
+    .TituloQuitar {
+        font-size: 1.75rem; /* Ajustar el tamaño de la fuente */
+    }
+}
+
+/* Media query para pantallas grandes (por ejemplo, desktops) */
+@media (min-width: 901px) {
+    .TituloQuitar {
+        font-size: 2rem; /* Tamaño de fuente original */
+    }
+}
