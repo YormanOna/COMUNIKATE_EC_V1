@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import emailjs from "emailjs-com";
-import butterup from 'butteruptoasts';
-import '../styles/butterup-2.0.0/butterup.css';
+import swal from 'sweetalert';
 import "../styles/formInscripciones.css";
 
 export function FormInscripcion() {
@@ -76,27 +75,21 @@ export function FormInscripcion() {
     emailjs.sendForm('service_z16wqxr', 'template_1f1xxzk', form, 'M4F1fQNIYzBdmLfMW')
       .then((result) => {
           console.log(result.text);
-          butterup.toast({
-            title: `¡Gracias por escribirnos!`,
-            message: 'Estaremos en contacto con usted.',
-            location: 'top-right',
-            icon: true,
-            dismissable: true,
-            type: 'success',
-          });
+          swal({
+            title: "¡Gracias por tu interés!",
+            text: "Hemos recibido tus datos y te contactaremos a la brevedad.",
+            icon: "success",
+          })
           setSelectCurso("");
           setComentarios("");
           e.target.reset();
       }, (error) => {
           console.log(error.text);
-          butterup.toast({
-            title: `¡Oh existe un problema!`,
-            message: 'Intente de nuevo',
-            location: 'top-right',
-            icon: true,
-            dismissable: true,
-            type: 'error',
-          });
+          swal({
+            title: "¡Oops!",
+            text: "Ha ocurrido un error al enviar tus datos. Por favor, inténtalo de nuevo.",
+            icon: "error",
+          })
       });
     e.target.reset();
   }
