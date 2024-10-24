@@ -1,34 +1,53 @@
-import React, { useEffect } from "react";
-import Logo from "../img/LOGO-BLANCO.png";
-import "../styles/menuBar.css";
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import '../styles/menuBar.css';
+import Logo from '../img/LOGO_NEGRO.png';
 
-export function NavBar() {
+export function NavigationMenu() {
+    const [isScrolled, setIsScrolled] = useState(false);
+
     useEffect(() => {
         const handleScroll = () => {
-            const navMenu = document.querySelector('.navMenu');
-            if (window.scrollY > 50) {
-                navMenu.classList.add('scrolled');
-            } else {
-                navMenu.classList.remove('scrolled');
-            }
+            setIsScrolled(window.scrollY > 50);
         };
 
         window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     return (
-        <div className="navMenu">
-            <img src={Logo} className="logoMenu" alt="" />
-            <div className="navegacionMenu">
-                <ul className="selectMenu">
-                    <li><a href="#" className="Select">Inicio</a></li>
-                    <li><a href="#" className="Select">Contáctanos</a></li>
-                    <li><a href="#" className="Select">Galería</a></li>
-                </ul>
+        <nav className={`nav-container-menu ${isScrolled ? 'scrolled-menu' : ''}`}>
+            <ul className="nav-left-menu">
+                <li className="nav-item-menu">
+                    <a href="#cursos" className="nav-link-menu">Cursos</a>
+                </li>
+                <li className="nav-item-menu">
+                    <Link to="/inscripciones" className="nav-link-menu">Inscríbete Aquí</Link>
+                </li>
+                <li className="nav-item-menu">
+                    <Link to="/" className="nav-link-menu">Inicio</Link>
+                </li>
+            </ul>
+
+            <div className="logo-wrapper-menu">
+                <img 
+                    src={Logo} 
+                    alt="Logo" 
+                    className="logo-image-menu"
+                />
             </div>
-        </div>
+
+            <ul className="nav-right-menu">
+                <li className="nav-item-menu">
+                    <Link to="/nosotros" className="nav-link-menu">Nosotros</Link>
+                </li>
+                <li className="nav-item-menu">
+                    <a href="#servicios" className="nav-link-menu">Servicios</a>
+                </li>
+                <li className="nav-item-menu">
+                    <a href="#contacto" className="nav-link-menu">Contáctanos</a>
+                </li>
+            </ul>
+        </nav>
     );
-}
+};

@@ -1,0 +1,123 @@
+.container-instructores {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 40px;
+    background: linear-gradient(180deg, #f2f2f2 0%, #e6e6e6 100%);
+    font-family: Arial, sans-serif;
+}
+
+.titulo-instructores {
+    text-align: center;
+    font-size: 3rem;
+    color: #FF6B00;
+    font-weight: bold;
+    margin-bottom: 40px;
+    letter-spacing: 1.5px;
+}
+
+.grid-instructores {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.card-instructores {
+    background: rgba(0, 0, 0, 0.6); /* Fondo con transparencia */
+    border-radius: 20px;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    column-gap: 50px;
+    align-items: start;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.imagen-container-instructores {
+    background-color: #FF6B00;
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    margin-top: 30px;
+    width: 230px;  /* Ancho mayor */
+    height: 350px; /* Altura mayor */
+}
+
+.foto-instructores {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-top: 60px;
+}
+
+.nombre-instructores {
+    background-color: white;
+    color: #FF6B00;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-radius: 0 0 15px 15px; /* Bordes redondeados solo en la parte inferior */
+}
+
+.info-container-instructores {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.descripcion-instructores {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.seccion-instructores {
+    margin-bottom: 20px;
+}
+
+.subtitulo-instructores {
+    color: #FF6B00;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.lista-instructores {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.item-instructores {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    margin-bottom: 5px;
+    padding-left: 15px;
+    position: relative;
+}
+
+.item-instructores::before {
+    content: "•";
+    color: #FF6B00;
+    position: absolute;
+    left: 0;
+}
+
+@media (max-width: 768px) {
+    .card-instructores {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .imagen-container-instructores {
+        margin-bottom: 20px;
+    }
+}

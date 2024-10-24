@@ -1,142 +1,158 @@
-.home {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url("../img/INICIO-FDO1.png");
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: center center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 40px 20px;
-    position: relative;
+.slider-container-slider {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  clip-path: ellipse(90% 100% at 50% 0%);
 }
-.home::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%; 
-    height: 120px; 
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="1" d="M0,128L80,106.7C160,85,320,43,480,53.3C640,64,800,128,960,128C1120,128,1280,64,1360,42.7L1440,21.3L1440,320L0,320Z"></path></svg>');
-    background-size: cover; 
-    background-repeat: no-repeat; 
+
+.slide-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slide-slider.active-slider {
+  opacity: 1;
+}
+
+.slide-image-slider {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content-wrapper-slider {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+}
+
+.slide-title-slider {
+  background-color: rgba(235, 97, 17, 0.795);
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 2.5rem;
+  margin: 0;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.dots-container-slider {
+  position: absolute;
+  bottom: 120px; /* Ajustado para una mejor visibilidad en pantallas grandes */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  z-index: 2;
+}
+
+.dot-slider {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot-slider.active-dot-slider {
+  background-color: white;
+}
+
+@media (max-width: 768px) {
+  .slide-title-slider {
+    font-size: 2rem; /* Tamaño de fuente más pequeño */
+    padding: 0.5rem 1.5rem; /* Ajuste de padding */
+  }
+
+  .dots-container-slider {
+    bottom: 70px; /* Ajustado para ser más visible en pantallas pequeñas */
+  }
+
+  .slider-container-slider {
+    clip-path: ellipse(60% 70% at 50% 0%); /* Menos ovalado en pantallas más pequeñas */
+  }
+}
+
+/*Estilos Quienes somos*/
+.static-container-qS {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  clip-path: ellipse(90% 100% at 50% 0%);
+}
+
+.static-title-qS {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: orange;
+  font-size: 3.5rem;
+  z-index: 2;
+  text-transform: uppercase;
+}
+
+.static-image-container-qS {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.static-image-qS {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content-wrapper-qS {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+}
+
+.slide-title-qS {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  margin: 0;
+  border-radius: 4px;
 }
 
 
-.home h2 {
-    color: #fff;
-    font-size: 3rem;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px;
-}
+@media (max-width: 480px) {
+  .slide-title-slider {
+    font-size: 1.5rem; /* Tamaño de fuente aún más pequeño para dispositivos muy pequeños */
+    padding: 0.5rem 1rem; /* Ajuste de padding para pantallas pequeñas */
+  }
 
-.home p {
-    width: 80%;
-    max-width: 800px;
-    color: #f1f1f1;
-    font-size: 1.2rem;
-    line-height: 1.6;
-    font-weight: 400;
-    font-family: 'Lato', sans-serif;
-    margin-bottom: 30px;
-}
+  .dots-container-slider {
+    bottom: 50px; /* Menos espacio desde la parte inferior */
+    gap: 0.5rem; /* Espaciado más pequeño entre los puntos */
+  }
 
-.home .btnHome {
-    display: flex;
-    gap: 20px;
-}
+  .dot-slider {
+    width: 10px; /* Tamaño de puntos más pequeño */
+    height: 10px;
+  }
 
-.home a {
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 12px 30px;
-    font-weight: 600;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.home .btnOne {
-    color: #fff;
-    background: rgba(21, 21, 100, 0.9);
-    border: 2px solid transparent;
-}
-
-.home .btnOne:hover {
-    background: transparent;
-    border-color: #fff;
-}
-
-.home .btnTwo {
-    color: rgb(21, 21, 100);
-    background: rgba(253, 201, 56, 0.9);
-    border: 2px solid transparent;
-}
-
-.home .btnTwo:hover {
-    background: transparent;
-    color: #fdc938;
-    border-color: #fdc938;
-}
-
-/* Media query para pantallas pequeñas (por ejemplo, móviles) */
-@media (max-width: 600px) {
-    .home h2 {
-        font-size: 2rem;
-    }
-    .home p {
-        font-size: 1rem;
-    }
-    .home::after {
-        height: 40px; 
-    }
-    .home .btnHome {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .home a {
-        font-size: 0.9rem;
-        padding: 10px 20px;
-    }
-}
-
-/* Media query para pantallas medianas (por ejemplo, tablets) */
-@media (min-width: 601px) and (max-width: 900px) {
-    .home h2 {
-        font-size: 2.5rem;
-    }
-    .home p {
-        font-size: 1.1rem;
-    }
-    .home .btnHome {
-        gap: 15px;
-    }
-    .home::after {
-        height: 150px; /* Ajusta la altura para móviles */
-    }
-    .home a {
-        font-size: 0.95rem;
-        padding: 11px 25px;
-    }
-}
-
-/* Media query para pantallas grandes (por ejemplo, desktops) */
-@media (min-width: 901px) {
-    .home h2 {
-        font-size: 3rem;
-    }
-    .home p {
-        font-size: 1.2rem;
-    }
-    .home .btnHome {
-        gap: 20px;
-    }
-    .home a {
-        font-size: 1rem;
-        padding: 12px 30px;
-    }
+  .slider-container-slider {
+    clip-path: none; /* Sin elipse en pantallas móviles */
+  }
 }

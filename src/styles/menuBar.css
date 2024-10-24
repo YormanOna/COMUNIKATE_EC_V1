@@ -1,98 +1,107 @@
-.navMenu {
+.nav-container-menu {
     position: fixed;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0);
-    transition: background-color 0.3s ease;
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1vw 8vw;
-    z-index: 1;
+    padding: 1.5rem 2rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000;
+    background-color: transparent;
 }
 
-.logoMenu {
-    width: 60px;
-    cursor: pointer;
-}
-.navegacionMenu {
-    display: flex;
+.scrolled-menu {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.navMenu .navegacionMenu .selectMenu {
+.logo-wrapper-menu {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px; /* Ajustar margen superior para bajar un poco el logo */
+}
+
+.logo-image-menu {
+    height: 60px; /* Hacer el logo más grande */
+    width: auto;
+}
+
+.nav-left-menu,
+.nav-right-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
     align-items: center;
 }
-.navMenu .navegacionMenu .selectMenu li {
-    list-style: none;
-    margin-left: 30px;
-}
-.navMenu .navegacionMenu .selectMenu li .Select {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-size: 16px;
-    font-weight: bold;
-    transition: 0.3s ease;
-    font-family: 'Lato';
-}
-.navMenu .navegacionMenu .selectMenu li a:hover {
-    color: #f72b1d;
+
+.nav-left-menu {
+    margin-right: auto;
 }
 
-.navMenu.scrolled {
-    background-color: rgba(46, 46, 51, 0.9); /* Color al hacer scroll */
+.nav-right-menu {
+    margin-left: auto;
 }
 
-.navMenu .navegacionMenu .selectMenu li a {
+.nav-item-menu {
+    display: inline-block;
+}
+
+.nav-link-menu {
+    color: #333;
     text-decoration: none;
-    color: rgb(0, 0, 0);
-    font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     transition: color 0.3s ease;
+    font-size: 1rem; /* Hacer las letras más grandes */
+    text-transform: uppercase;
 }
 
-.navMenu.scrolled .navegacionMenu .selectMenu li a {
-    color: #fff; /* Color del texto al hacer scroll */
+.nav-link-menu:hover {
+    color: #ff6b00;
 }
 
-.navMenu .navegacionMenu .selectMenu li a:hover {
-    color: #FDC93B; /* Color al pasar el ratón */
+/* Estilos adicionales cuando el fondo es transparente */
+.nav-container-menu:not(.scrolled-menu) .nav-link-menu {
+    color: #fff; /* Hacer las letras más llamativas cuando el fondo es transparente */
 }
 
-/* Media query para pantallas pequeñas (por ejemplo, móviles) */
-@media (max-width: 600px) {
-    .navMenu .navegacionMenu {
-        display: none; /* Ocultar el menú en dispositivos móviles */
-    }
+.nav-container-menu:not(.scrolled-menu) .nav-link-menu:hover {
+    color: #ff6b00;
 }
-/* Media query para pantallas medianas (por ejemplo, tablets) */
-@media (min-width: 601px) and (max-width: 900px) {
-    .navMenu {
-        padding: 1vw 6vw;
+
+/* Aseguramos que el menú sea responsive */
+@media (max-width: 968px) {
+    .nav-container-menu {
+        padding: 1rem;
     }
-    .logoMenu {
-        width: 55px;
+
+    .nav-left-menu,
+    .nav-right-menu {
+        gap: 1rem;
     }
-    .navMenu .navegacionMenu .selectMenu li {
-        margin-left: 20px;
-    }
-    .navMenu .navegacionMenu .selectMenu li .Select {
-        font-size: 15px;
+
+    .nav-link-menu {
+        font-size: 0.9rem;
     }
 }
 
-/* Media query para pantallas grandes (por ejemplo, desktops) */
-@media (min-width: 901px) {
-    .navMenu {
-        padding: 1vw 8vw;
+/* Para pantallas muy pequeñas, podrías querer agregar un menú hamburguesa */
+@media (max-width: 768px) {
+    .nav-left-menu,
+    .nav-right-menu {
+        display: none;
     }
-    .logoMenu {
-        width: 60px;
-    }
-    .navMenu .navegacionMenu .selectMenu li {
-        margin-left: 30px;
-    }
-    .navMenu .navegacionMenu .selectMenu li .Select {
-        font-size: 16px;
+    
+    .logo-wrapper-menu {
+        position: relative;
+        left: 0;
+        transform: none;
     }
 }

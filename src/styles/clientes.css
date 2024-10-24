@@ -1,0 +1,109 @@
+.clients-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+  background-color: #ffffff;
+}
+
+.clients-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.client-card {
+  text-decoration: none;
+  display: block;
+  transition: transform 0.3s ease;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.client-card-inner {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.client-image-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.client-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+/* Hover Effects */
+.client-card:hover {
+  transform: translateY(-5px);
+}
+
+.client-card:hover .client-card-inner {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.client-card:hover .client-image {
+  filter: grayscale(0%);
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .clients-grid {
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas en móviles */
+  }
+}
+
+@media (min-width: 640px) and (max-width: 768px) {
+  .clients-grid {
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas en pantallas pequeñas */
+  }
+}
+
+@media (min-width: 768px) {
+  .clients-grid {
+    grid-template-columns: repeat(4, 1fr); /* Cuatro columnas en pantallas medianas */
+  }
+}
+
+/* Animation for smooth transitions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Focus states */
+.client-card:focus {
+  outline: none;
+}
+
+.client-card:focus .client-card-inner {
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}

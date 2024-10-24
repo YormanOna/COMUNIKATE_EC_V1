@@ -1,18 +1,29 @@
 import React from "react";
-import { FormInscripcion } from "../components/form_Inscripcion";
 import { Footer } from "../components/footer";
-import {HomeSlider} from "../components/HomeSlider";
-import {NavBar} from "../components/NavBar";
+import {ImageSlider} from "../components/HomeSlider";
+import {NavigationMenu} from "../components/NavBar";
+import {ClientLogos} from "../components/clientes";
+import {TestimonialsSlider} from "../components/testimonios";
+import {CartasEstadisticas} from "../components/estadisticas";
+import {ContactComponent} from "../components/contactanos";
 
 export function Home() {
   return (
     <div>
-      <NavBar/>
-      <HomeSlider/>
+      <NavigationMenu/>
+      <ImageSlider/>
       <br />
       <br />
-      <h1 className="TituloQuitar">¡Estamos trabajando en nuestra página! Si deseas contactarnos, completa el siguiente formulario.</h1>
-      <FormInscripcion />
+      <ClientLogos/>
+      <br />
+      <br />
+      <CartasEstadisticas/>
+      <br />
+      <br />
+      <TestimonialsSlider/>
+      <br />
+      <br />
+      <ContactComponent/>
       <br />
       <br />
       <Footer/>

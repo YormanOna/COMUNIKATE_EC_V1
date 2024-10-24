@@ -1,0 +1,78 @@
+.cards_container_qst {
+    display: flex;
+    gap: 30px; /* Disminuir la separación entre las tarjetas */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_item_qst {
+    display: flex;
+    justify-content: center; /* Centrar el contenido horizontalmente */
+    min-width: 400px;
+    max-width: 400px; /* Mantener el mismo tamaño para las tarjetas */
+}
+
+.card_content_qst {
+    position: relative;
+    width: 100%; /* Ajustar al 100% del ancho del contenedor padre */
+    height: 400px; /* Mantener una altura fija para las tarjetas */
+}
+
+.card_background_qst {
+    position: absolute;
+    width: 100%;
+    height: 70%;
+    background: #000;
+    transform: translate(-18px, -18px); /* Mover el fondo negro a la esquina superior derecha */
+}
+
+.card_front_qst {
+    position: relative;
+    background-color: #FF6B00;
+    padding: 25px;
+    height: 70%;
+    color: white;
+    z-index: 1;
+}
+
+.title_container_qst {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.title_container_qst h2 {
+    font-size: 52px;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.title_container_qst svg {
+    color: white;
+}
+
+.card_front_qst p {
+    margin: 0;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .cards_container_qst {
+        flex-direction: column;
+        align-items: center; /* Alinear al centro en dispositivos móviles */
+    }
+
+    .card_item_qst {
+        width: 90%; /* Ajuste del ancho en dispositivos móviles */
+        max-width: none;
+    }
+
+    .card_content_qst {
+        width: 100%;
+        height: auto; /* Permitir que la altura se ajuste automáticamente */
+    }
+}

@@ -72,7 +72,7 @@ export function FormInscripcion() {
       }
     });
 
-    emailjs.sendForm('service_z16wqxr', 'template_1f1xxzk', form, 'M4F1fQNIYzBdmLfMW')
+    emailjs.sendForm('service_2hfrmdm', 'template_n9lhc0t', form, '_tfhrpj8o8dDHmUD-')
       .then((result) => {
           console.log(result.text);
           swal({

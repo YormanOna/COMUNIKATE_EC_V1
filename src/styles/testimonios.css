@@ -1,0 +1,189 @@
+.section-testimonials {
+    background-color: #000;
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(50% 3%, 81% 6%, 100% 4%, 100% 93%, 81% 92%, 51% 94%, 20% 92%, 0 95%, 0 6%, 20% 8%);
+}
+
+.header-testimonials {
+    background-color: #FF6600;
+    padding: 2rem;
+    position: relative;
+    margin-bottom: 3rem;
+    top: 20px;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.title-testimonials {
+    color: white;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.container-testimonials {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4rem;
+    position: relative;
+}
+
+.slider-testimonials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100vh; /* Ajuste de altura para ver videos completos */
+    width: 100%;
+}
+
+.card-testimonials {
+    position: absolute;
+    width: 400px; /* Aumentar el tamaño de las tarjetas */
+    height: 600px;
+    background: #f89595;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: scale(0.8) translateX(100%);
+}
+
+.card-testimonials.active-testimonials {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+    z-index: 2;
+}
+
+.card-testimonials.prev-slide-testimonials {
+    transform: scale(0.8) translateX(-100%);
+    opacity: 0.7;
+    z-index: 1;
+}
+
+.card-testimonials.next-slide-testimonials {
+    transform: scale(0.8) translateX(100%);
+    opacity: 0.7;
+    z-index: 1;
+}
+
+.wrapper-video-testimonials {
+    position: relative;
+    width: 100%; /* Ancho completo del contenedor de la tarjeta */
+    height: 500px; /* Ajusta esta altura para controlar la altura del video */
+    overflow: hidden; /* Asegura que el video no sobresalga */
+}
+
+.video-testimonials {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-testimonials {
+    padding: 1.5rem;
+    text-align: center;
+    background: white;
+}
+
+.name-testimonials {
+    color: #FF6600;
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.role-testimonials {
+    color: #333;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.button-nav-testimonials {
+    background: rgba(255, 102, 0, 0.9);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    font-size: 2rem;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    transition: all 0.3s ease;
+}
+
+.button-nav-testimonials:hover {
+    background: rgba(255, 102, 0, 1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-testimonials {
+    left: 0;
+}
+
+.next-testimonials {
+    right: 0;
+}
+
+.container-dots-testimonials {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.dot-testimonials {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.active-dot-testimonials {
+    background: #FF6600;
+}
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 102, 0, 0.9);
+    border: none;
+    border-radius: 50%; /* Cambiar a un botón circular */
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10; /* Asegura que el botón esté encima del video */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .play-button:hover {
+    background-color: rgba(255, 102, 0, 1);
+    transform: translate(-50%, -50%) scale(1.1); /* Efecto de escala al pasar el ratón */
+  }
+
+
+  

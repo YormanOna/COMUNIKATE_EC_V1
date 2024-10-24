@@ -1,0 +1,128 @@
+.container-contacto {
+    display: flex;
+    background-color: black;
+    border-radius: 30px;
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 500px;
+  }
+  
+  .info-contacto {
+    flex: 1;
+    padding: 40px;
+    color: white;
+  }
+  
+  .titulo-contacto {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+  
+  .detalles-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  .item-contacto {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .icono-contacto {
+    color: #FF6B00;
+    font-size: 1.5rem;
+    margin-top: 5px;
+  }
+  
+  .ubicacion-contacto {
+    font-size: 2rem;
+  }
+  
+  .texto-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .texto-contacto p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .social-contacto {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  .social-icon-contacto {
+    color: white;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .social-icon-contacto:hover {
+    transform: scale(1.2);
+  }
+  
+  .social-handle-contacto {
+    margin-left: 10px;
+    font-size: 0.9rem;
+  }
+  
+  .boton-contacto {
+    background-color: #FF6B00;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    align-self: flex-start;
+  }
+  
+  .boton-contacto:hover {
+    background-color: #ff8533;
+  }
+  
+  .mapa-contacto {
+    flex: 1;
+    min-height: 500px;
+    position: relative;
+  }
+  
+  .mapa-contacto iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container-contacto {
+      flex-direction: column;
+      border-radius: 20px;
+    }
+  
+    .info-contacto {
+      padding: 30px;
+    }
+  
+    .titulo-contacto {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+  
+    .mapa-contacto {
+      min-height: 300px;
+    }
+  }
