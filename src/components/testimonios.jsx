@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import ReactPlayer from 'react-player';
 import '../styles/testimonios.css';
-import VIDEO1 from '../videos/Comunikate_testimonio_Jhomaira.mp4';
 import VIDEO2 from '../videos/testimonio_ailine_final.mp4';
 import VIDEO3 from '../videos/testimonio_Eriza_Final.mp4';
 
@@ -16,7 +15,7 @@ export function TestimonialsSlider() {
       id: 1,
       name: "NIETO",
       role: "Estudiante de Oratoria y Locución",
-      videoUrl: VIDEO1,
+      videoUrl: VIDEO2,
     },
     {
       id: 2,
