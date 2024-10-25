@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import '../styles/homeSlider.css';
-import INICIO_1 from '../img/HomeSlider/INICIO_1.png';
-import INICIO_2 from '../img/HomeSlider/INICIO_2.png';
-import INICIO_3 from '../img/HomeSlider/INICIO_3.png';
-import INICIO_4 from '../img/HomeSlider/INICIO_4.png';
+import INICIO_1 from '../img/HomeSlider/INICIO_1.webp';
+import INICIO_2 from '../img/HomeSlider/INICIO_2.webp';
+import INICIO_3 from '../img/HomeSlider/INICIO_3.webp';
+import INICIO_4 from '../img/HomeSlider/INICIO_4.webp';
 import useTypewriter from '../hook/useTypewriter';
 
 export function ImageSlider() {

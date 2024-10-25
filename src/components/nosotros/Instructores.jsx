@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../styles/InstructorCard.css';
-import Image1 from '../../img/Instructores/LEONARDO_BALSECA.png';
+import Image1 from '../../img/Instructores/LEONARDO_BALSECA.webp';
 
 // Componente InstructorCard
 function InstructorCard({ instructor }) {

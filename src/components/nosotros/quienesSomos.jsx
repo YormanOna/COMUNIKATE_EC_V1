@@ -1,5 +1,5 @@
 import '../../styles/homeSlider.css';
-import INICIO_1 from '../../img/HomeSlider/INICIO_1.png';
+import INICIO_1 from '../../img/HomeSlider/INICIO_1.webp';
 import useTypewriter from '../../hook/useTypewriter';
 
 export function QuienesSomos() {
