@@ -3,6 +3,8 @@ import {NavigationMenu} from "../components/NavBar";
 import {QuienesSomos} from "../components/nosotros/quienesSomos";
 import {InstructoresComponent} from "../components/nosotros/Instructores";
 import {MissionVisionStyled} from "../components/nosotros/MissionVision";
+import {Certificaciones} from "../components/nosotros/Certificaciones";
+import {Galeria} from "../components/nosotros/Galeria";
 
 export function Nosotros() {
     return (
@@ -15,7 +17,11 @@ export function Nosotros() {
             <br />
             <br />
             <MissionVisionStyled />
+            <Certificaciones />
             <InstructoresComponent />
+            <br />
+            <br />
+            <Galeria />
 
         </div>
     );

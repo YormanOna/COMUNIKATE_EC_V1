@@ -1,3 +1,4 @@
+// NavigationMenu.jsx
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/menuBar.css';
@@ -38,8 +39,15 @@ export function NavigationMenu() {
             </div>
 
             <ul className="nav-right-menu">
-                <li className="nav-item-menu">
-                    <Link to="/nosotros" className="nav-link-menu">Nosotros</Link>
+                <li className="nav-item-menu has-submenu">
+                    <Link to="/nosotros" className="nav-link-menu">
+                        Nosotros
+                    </Link>
+                    <ul className="submenu">
+                        <li><Link to="/historia" className="submenu-link">Instructores</Link></li>
+                        <li><Link to="/equipo" className="submenu-link">Certificados</Link></li>
+                        <li><Link to="/mision" className="submenu-link">Galeria</Link></li>
+                    </ul>
                 </li>
                 <li className="nav-item-menu">
                     <a href="#servicios" className="nav-link-menu">Servicios</a>
@@ -50,4 +58,4 @@ export function NavigationMenu() {
             </ul>
         </nav>
     );
-};
+}

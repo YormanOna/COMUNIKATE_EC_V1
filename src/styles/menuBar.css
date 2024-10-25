@@ -1,3 +1,4 @@
+/* Estilos existentes */
 .nav-container-menu {
     position: fixed;
     top: 0;
@@ -24,11 +25,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 5px; /* Ajustar margen superior para bajar un poco el logo */
+    margin-top: 5px;
 }
 
 .logo-image-menu {
-    height: 60px; /* Hacer el logo más grande */
+    height: 60px;
     width: auto;
 }
 
@@ -52,6 +53,7 @@
 
 .nav-item-menu {
     display: inline-block;
+    position: relative;
 }
 
 .nav-link-menu {
@@ -59,24 +61,65 @@
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
-    font-size: 1rem; /* Hacer las letras más grandes */
+    font-size: 1rem;
     text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+    list-style: none;
+}
+
+.has-submenu:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.submenu-link {
+    color: #333;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.submenu-link:hover {
+    background-color: #f5f5f5;
+    color: #ff6b00;
 }
 
 .nav-link-menu:hover {
     color: #ff6b00;
 }
 
-/* Estilos adicionales cuando el fondo es transparente */
+/* Estilos para fondo transparente */
 .nav-container-menu:not(.scrolled-menu) .nav-link-menu {
-    color: #fff; /* Hacer las letras más llamativas cuando el fondo es transparente */
+    color: #fff;
 }
 
 .nav-container-menu:not(.scrolled-menu) .nav-link-menu:hover {
     color: #ff6b00;
 }
 
-/* Aseguramos que el menú sea responsive */
+/* Responsive */
 @media (max-width: 968px) {
     .nav-container-menu {
         padding: 1rem;
@@ -92,7 +135,6 @@
     }
 }
 
-/* Para pantallas muy pequeñas, podrías querer agregar un menú hamburguesa */
 @media (max-width: 768px) {
     .nav-left-menu,
     .nav-right-menu {

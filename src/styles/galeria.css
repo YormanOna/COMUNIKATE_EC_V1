@@ -1,0 +1,91 @@
+.container-gallery {
+    width: 100%;
+    padding: 40px 20px;
+    background-color: white;
+    position: relative;
+}
+
+.header-gallery {
+    background-color: #FF6600;
+    height: 120px;
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.title-gallery {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.grid-container-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.image-box-gallery {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 75%; /* Proporción 4:3 */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.image-box-gallery:hover {
+    transform: translateY(-5px);
+}
+
+.image-item-gallery {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120%; /* Cambiar a 100% para llenar el contenedor */
+    height: 100%; /* Cambiar a 100% para llenar el contenedor */
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+    transition: transform 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .title-gallery {
+        font-size: 2rem;
+    }
+
+    .grid-container-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title-gallery {
+        font-size: 1.8rem;
+    }
+
+    .header-gallery {
+        height: 100px;
+        margin-bottom: 40px;
+    }
+
+    .grid-container-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+    }
+}
