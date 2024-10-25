@@ -16,13 +16,14 @@
 }
 
 .grid-instructores {
-    display: grid;
-    gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    flex-direction: column; /* Hace que las tarjetas se apilen verticalmente */
+    gap: 30px; /* Espacio entre tarjetas */
+    align-items: center; /* Centra las tarjetas horizontalmente */
 }
 
 .card-instructores {
-    background: rgba(0, 0, 0, 0.6); /* Fondo con transparencia */
+    background: rgba(0, 0, 0, 0.6);
     border-radius: 20px;
     padding: 20px;
     color: white;
@@ -31,7 +32,8 @@
     grid-template-columns: 220px 1fr;
     column-gap: 50px;
     align-items: start;
-    width: 1000px;
+    width: 100%;
+    max-width: 1000px; /* Limita el ancho máximo */
     margin: 0 auto;
 }
 
@@ -41,9 +43,8 @@
     overflow: hidden;
     text-align: center;
     position: relative;
-    margin-top: 30px;
-    width: 230px;  /* Ancho mayor */
-    height: 350px; /* Altura mayor */
+    width: 230px;
+    height: 350px;
 }
 
 .foto-instructores {
@@ -63,7 +64,7 @@
     width: 100%;
     position: absolute;
     bottom: 0;
-    border-radius: 0 0 15px 15px; /* Bordes redondeados solo en la parte inferior */
+    border-radius: 0 0 15px 15px;
 }
 
 .info-container-instructores {
@@ -106,9 +107,15 @@
 
 .item-instructores::before {
     content: "•";
-    color: #FF6B00;
+    color: #ffffff;
     position: absolute;
     left: 0;
+}
+
+@media (min-width: 768px) {
+    .grid-instructores {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
 }
 
 @media (max-width: 768px) {

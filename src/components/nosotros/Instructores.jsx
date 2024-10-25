@@ -1,27 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../styles/InstructorCard.css';
-import Image1 from '../../img/Instructores/LEONARDO_BALSECA.webp';
+import instructoresData from '../../data/instructores.json';
 
-// Componente InstructorCard
 function InstructorCard({ instructor }) {
-    return (
-      <div className="card-instructores">
-        <div className="imagen-container-instructores">
-          <img src={instructor.imagen} alt={instructor.nombre} className="foto-instructores" />
-          <h3 className="nombre-instructores">{instructor.titulo} {instructor.nombre}</h3>
+  return (
+    <div className="card-instructores">
+      <div className="imagen-container-instructores">
+        <img src={instructor.imagen} alt={instructor.nombre} className="foto-instructores" />
+        <h3 className="nombre-instructores">{instructor.titulo} {instructor.nombre}</h3>
+      </div>
+      <div className="info-container-instructores">
+        {instructor.descripcion.map((parrafo, index) => (
+          <p key={index} className="descripcion-instructores">{parrafo}</p>
+        ))}
+        <div className="seccion-instructores">
+          <h4 className="subtitulo-instructores">Experiencia y Logros:</h4>
+          <ul className="lista-instructores">
+            {instructor.experiencia.map((item, index) => (
+              <li key={index} className="item-instructores">{item}</li>
+            ))}
+          </ul>
         </div>
-        <div className="info-container-instructores">
-          <p className="descripcion-instructores">{instructor.descripcion}</p>
-  
-          <div className="seccion-instructores">
-            <h4 className="subtitulo-instructores">Experiencia y Logros:</h4>
-            <ul className="lista-instructores">
-              {instructor.experiencia.map((item, index) => (
-                <li key={index} className="item-instructores">{item}</li>
-              ))}
-            </ul>
-          </div>
-  
+        {/* Solo mostrar la sección de trayectoria si instructor.trayectoria existe y tiene elementos */}
+        {instructor.trayectoria && instructor.trayectoria.length > 0 && (
           <div className="seccion-instructores">
             <h4 className="subtitulo-instructores">Trayectoria en Medios:</h4>
             <ul className="lista-instructores">
@@ -30,46 +31,26 @@ function InstructorCard({ instructor }) {
               ))}
             </ul>
           </div>
-  
-          <div className="seccion-instructores">
-            <h4 className="subtitulo-instructores">Actualmente se desempeña como:</h4>
-            <ul className="lista-instructores">
-              {instructor.actual.map((item, index) => (
-                <li key={index} className="item-instructores">{item}</li>
-              ))}
-            </ul>
-          </div>
+        )}
+        <div className="seccion-instructores">
+          <h4 className="subtitulo-instructores">Actualmente se desempeña como:</h4>
+          <ul className="lista-instructores">
+            {instructor.actual.map((item, index) => (
+              <li key={index} className="item-instructores">{item}</li>
+            ))}
+          </ul>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
-// Componente principal
- export const InstructoresComponent = () => {
-  const instructores = [
-    {
-      titulo: "MSC.",
-      nombre: "LEONARDO BALSECA",
-      imagen: Image1,
-      descripcion: "Con más de 20 años de experiencia en la industria de la comunicación, Leonardo es un profesional reconocido por su talento y versatilidad.",
-      experiencia: [
-        "Presentador de televisión y eventos especiales.",
-        "Locutor y conductor de programas de renombre.",
-        "Media Training y coaching para personalidades públicas.",
-        "Instructor de Presentador de TV y medios digitales, y Media Training en Comunikate Ecuador.",
-        "Organizador de eventos y ceremonias."
-      ],
-      trayectoria: [
-        "Presentador de noticias en canales como Gama, Canal Uno y RTU.",
-        "Experto en comunicación efectiva y estratégica."
-      ],
-      actual: [
-        "Maestro de ceremonias.",
-        "Instructor en Comunikate Ecuador (Presentador de TV y medios digitales, y Media Training).",
-        "Community Manager."
-      ]
-    }
-  ]; // Agregué el corchete de cierre que faltaba
+export const InstructoresComponent = () => {
+  const [instructores, setInstructores] = useState([]);
+
+  useEffect(() => {
+    setInstructores(instructoresData);
+  }, []);
 
   return (
     <div className="container-instructores">

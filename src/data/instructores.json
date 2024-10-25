@@ -1,0 +1,153 @@
+[
+  {
+    "titulo": "MSC.",
+    "nombre": "LEONARDO BALSECA",
+    "imagen": "/src/img/Instructores/LEONARDO_BALSECA.webp",
+    "descripcion": [
+      "Con más de 20 años de experiencia en la industria de la comunicación. Leonardo es un profesional reconocido por su talento y versatilidad."
+    ],
+    "experiencia": [
+      "Presentador de televisión y eventos especiales.",
+      "Locutor y conductor de programas de renombre.",
+      "Media Training y coaching para personalidades públicas.",
+      "Instructor de Presentador de TV y medios digitales, y Media Training en Comunikate Ecuador.",
+      "Organizador de eventos y ceremonias."
+    ],
+    "trayectoria": [
+      "Presentador de noticias en canales como Gama, Canal Uno y RTU.",
+      "Experto en comunicación efectiva y estratégica."
+    ],
+    "actual": [
+      "Maestro de ceremonias.",
+      "Instructor en Comunikate Ecuador (Presentador de TV y medios digitales, y Media Training).",
+      "Community Manager."
+    ]
+  },
+  {
+    "titulo": "LIC.",
+    "nombre": "RAMIRO TORRES",
+    "imagen": "/src/img/Instructores/RAMIRO_TORRES.webp",
+    "descripcion": [
+      "Experto en Comunicación y Oratoria.",
+      "Con más de 5 años de experiencia en la industria de la comunicación."
+    ],
+    "experiencia": [
+      "Instructor en Comunikate Ecuador (2 años).",
+      "Trainer de Oratoria.",
+      "Maestro de Ceremonias.",
+      "Presentador y Animador de eventos."
+    ],
+    "actual": [
+      "Maestro de ceremonias.",
+      "Instructor en Comunikate Ecuador (Oratoria y Locución profesional)."
+    ]
+  },
+  {
+    "titulo": "LIC.",
+    "nombre": "CHRISTIAN BENAVIDES",
+    "imagen": "/src/img/Instructores/CHRISTIAN_BENAVIDES.webp",
+    "descripcion": [
+      "Comunicador y Experto en Locución, Oratoria y Periodismo Deportivo",
+      "Con más de 10 años de experiencia en la industria de la comunicación."
+    ],
+    "experiencia": [
+      "Radio 'El Sol' ",
+      "Radio Colón",
+      "Radio 'Positiva'",
+      "Ego Deportes",
+      "RTU - El Canal de las noticias ",
+      "Radio 'La Más Linda'"
+    ],
+    "actual": [
+      "Presentador del programa Planeta Fútbol FM en Radio Pública FM",
+      "Instructor de Oratoria y Locución en Comunikate Ecuador",
+      "Instructor de Periodismo deportivo."
+    ]
+  },
+  {
+    "titulo": "TNGO.",
+    "nombre": "CHRISTIAN BENAVIDES",
+    "imagen": "/src/img/Instructores/LUIS_ANDAGOYA.webp",
+    "descripcion": [
+      "Diseñador de sonido y  acústica.",
+      "Con más de 6 años de experiencia en diseño de sonido y acústica, experto en operación de sonido, producción audiovisual, capacitación y marketing."
+    ],
+    "experiencia": [
+      "Fundador y director de DJ FHEDER SONIDO E ILUMINACIÓN.",
+      "Operador de Sonido en EQ RADIO 593.",
+      "Técnico de Sonido en COMUNIKATE ECUADOR.",
+      "Operación de sonido y video para Live Streaming.",
+      "Producción y edición de contenido audiovisual.",
+      "Capacitación de personal.",
+      "Planificación y organización de eventos.",
+      "Montaje y desmontaje de equipos de sonido.",
+      "Control de sonido en espectáculos y eventos.",
+      "Creación y diseño de efectos sonoros.",
+      "Posproducción.",
+      "Marketing."
+    ],
+    "actual": [
+      "Técnico de Sonido / Marketing en Altamira Light & Sound.",
+      "Instructor de Streaming profesional con OBS."
+    ]
+  },
+  {
+    "titulo": "TNGA.",
+    "nombre": "JAHNAVA CAMACHO",
+    "imagen": "/src/img/Instructores/JAHNAVA_CAMACHO.webp",
+    "descripcion": [
+      "Productora Audiovisual y Fotógrafa.",
+      "Con más de 3 años de experiencia en producción audiovisual, creación de contenido, fotografía, edición de video y manejo de equipos."
+    ],
+    "experiencia": [
+      "Productora audiovisual en EQRadio 593 (más de 3 años).",
+      "Creación de contenido audiovisual.",
+      "Edición de video.",
+      "Manejo de equipos.",
+      "Cortometrajes:  'Lo complejo de lo simple' (Videoclip, 2024)",
+      "Productora; 'Indio y Michita' (Corto, Festival Ecuatoriano de Turismo, 2024). "
+    ],
+    "actual": [
+      "Instructora de Fotografía Profesional en Comunikate Ecuador.",
+      "Instructora de Producción Audiovisual en Comunikate Ecuador."
+    ]
+  },
+  {
+    "titulo": "LIC.",
+    "nombre": "JUAN CARLOS ONCE",
+    "imagen": "/src/img/Instructores/JUAN_CARLOS.webp",
+    "descripcion": [
+      "Con más de 20 años de experiencia en Marketing Digital y Comunicación.",
+      "Especialista en Marketing Digital con SEO completo (Método Gallardo) y amplia experiencia en comunicación, locución y dirección de programación."
+    ],
+    "experiencia": [
+      "Asistente de Comunicación, INSPI.",
+      "Locutor-Productor, Radio Fuego 106.5 FM.",
+      "Director de Programación-Locutor, Radio Corazón.",
+      "Coordinador de Aire, Radio Sol 95.",
+      "DJ, Radio Antena 3 y Radio Disney."
+    ],
+    "actual": ["Instructor de Oratoria y Locución en Comunikate Ecuador."]
+  },
+  {
+    "titulo": "TNGO.",
+    "nombre": "JULIO EDUARDO CANGO",
+    "imagen": "/src/img/Instructores/JULIO_EDUARDO.webp",
+    "descripcion": [
+      "Tecnólogo en Radiodifusión AER.",
+      "Con más de 18 años de experiencia en Locutor, productor, presentador y animador con amplia experiencia en radio y TV. Experto en voz comercial, eventos y maestría de ceremonias."
+    ],
+    "experiencia": [
+      "Radio Latina 88.1 FM.",
+      "Tele Andina Canal 23.",
+      "Radio La Rumbera 99.7 FM."
+    ],
+    "actual": [
+      "Manager - Promotor Artístico.",
+      "Vocal Couch en Locución.",
+      "Maestro de Ceremonias.",
+      "Radio La Rumbera 99.7 FM.",
+      "Instructor de Oratoria y Locución en Comunikate Ecuador."
+    ]
+  }
+]
