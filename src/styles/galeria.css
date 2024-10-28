@@ -30,9 +30,9 @@
 .grid-container-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 20px;
+    gap: 50px;
     padding: 0 20px;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
@@ -55,7 +55,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 120%; /* Cambiar a 100% para llenar el contenedor */
+    width: 100%; /* Cambiar a 100% para llenar el contenedor */
     height: 100%; /* Cambiar a 100% para llenar el contenedor */
     object-fit: cover; /* Mantiene la proporción de la imagen */
     transition: transform 0.3s ease;

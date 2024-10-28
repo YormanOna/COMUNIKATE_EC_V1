@@ -6,6 +6,7 @@ import { InstructoresComponent } from "../components/nosotros/Instructores";
 import { MissionVisionStyled } from "../components/nosotros/MissionVision";
 import { Certificaciones } from "../components/nosotros/Certificaciones";
 import { Galeria } from "../components/nosotros/Galeria";
+import { Footer } from "../components/footer";
 
 export function Nosotros() {
     useEffect(() => {
@@ -27,15 +28,17 @@ export function Nosotros() {
             <br />
             <br />
             <br />
-            <br />
             <MissionVisionStyled />
-            <Certificaciones />
-            <InstructoresComponent />
-            <br />
-            <br />
+            <div id= "instructores">
+                <InstructoresComponent />
+            </div>
+            <div id="certificados">
+                <Certificaciones />
+            </div>
             <div id="galeria">
                 <Galeria />
             </div>
+            <Footer/>  
         </div>
     );
 }

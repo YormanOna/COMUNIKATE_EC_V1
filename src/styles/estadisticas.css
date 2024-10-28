@@ -1,99 +1,112 @@
 .eduStats_container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.eduStats_card {
+  background-color: #000000;
+  width: 260px;
+  min-height: 170px;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: perspective(1000px) rotateX(0deg);
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+/* Elemento rectangular naranja detrás de cada tarjeta */
+.eduStats_card::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 100%;
+  height: 100%;
+  background-color: #FF6B00;
+  border-radius: 8px;
+  z-index: -1;
+}
+
+.eduStats_card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: 8px;
+}
+
+.eduStats_card:hover {
+  transform: perspective(1000px) rotateX(5deg);
+}
+
+.eduStats_iconWrapper {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.eduStats_icon {
+  color: white;
+}
+
+.eduStats_content {
+  text-align: center;
+}
+
+.eduStats_number {
+  color: white;
+  font-size: 2rem; /* Ajuste de tamaño */
+  font-weight: 700;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.eduStats_text {
+  color: white;
+  font-size: 0.95rem; /* Ajuste de tamaño */
+  line-height: 1.4;
+  font-weight: 500;
+  max-width: 180px;
+  margin: 0 auto;
+}
+
+/* Media Query para pantalla móvil con dos columnas y una tercera centrada */
+@media (max-width: 768px) {
+  .eduStats_container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    justify-items: center;
+    padding: 15px 8px;
   }
-  
+
   .eduStats_card {
-    background-color: #000000; /* Negro */
-    width: 280px;
-    min-height: 180px;
-    border-radius: 8px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transform: perspective(1000px) rotateX(0deg);
-    transition: transform 0.3s ease;
-    z-index: 1; /* El negro permanece en la tarjeta frontal */
+    width: 85%;
+    max-width: 300px; /* Ajuste para pantallas móviles */
+    padding: 16px; /* Reduciendo el padding */
   }
-  
-  /* Elemento rectangular naranja detrás de cada tarjeta */
-  .eduStats_card::after {
-    content: '';
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    width: 100%;
-    height: 100%;
-    background-color: #FF6B00; /* Naranja */
-    border-radius: 8px;
-    z-index: -1; /* Asegurar que el fondo naranja esté detrás */
-  }
-  
-  .eduStats_card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
-    border-radius: 8px;
-  }
-  
-  .eduStats_card:hover {
-    transform: perspective(1000px) rotateX(5deg);
-  }
-  
-  .eduStats_iconWrapper {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
-  }
-  
-  .eduStats_icon {
-    color: white;
-  }
-  
-  .eduStats_content {
-    text-align: center;
-  }
-  
+
   .eduStats_number {
-    color: white;
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1.8rem; /* Reducción para móviles */
   }
-  
+
   .eduStats_text {
-    color: white;
-    font-size: 0.875rem;
-    line-height: 1.4;
-    font-weight: 500;
-    max-width: 200px;
-    margin: 0 auto;
+    font-size: 0.75rem; /* Reducción para móviles */
   }
-  
-  @media (max-width: 768px) {
-    .eduStats_container {
-      gap: 16px;
-    }
-  
-    .eduStats_card {
-      width: 100%;
-      max-width: 280px;
-    }
-  }
-  
+}

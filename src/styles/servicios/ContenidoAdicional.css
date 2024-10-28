@@ -1,0 +1,36 @@
+.container-tarjetService {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .title-tarjetService {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .subtitle-tarjetService {
+    font-size: 30px;
+    color: #FF6600; /* Naranja */
+    margin-bottom: 20px;
+  }
+  
+  .services-tarjetService {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .service-item-tarjetService {
+    text-align: center;
+    color: #FF6600;
+  }
+  .service-item-tarjetService p{
+    color: black;
+  }
+  
+  .icon-tarjetService{
+    width: 54px;
+    height: 44px;
+  }
+  

@@ -15,8 +15,6 @@ export function Home() {
       <br />
       <br />
       <ClientLogos/>
-      <br />
-      <br />
       <CartasEstadisticas/>
       <br />
       <br />
@@ -24,8 +22,6 @@ export function Home() {
       <br />
       <br />
       <ContactComponent/>
-      <br />
-      <br />
       <Footer/>
     </div>
   );

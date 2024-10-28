@@ -1,128 +1,279 @@
-.container-contacto {
-    display: flex;
-    background-color: black;
-    border-radius: 30px;
-    overflow: hidden;
-    max-width: 1200px;
-    margin: 0 auto;
-    min-height: 500px;
+.contact-outer-container {
+  color: rgb(0, 0, 0);
+}
+
+.contact-inner-container {
+  width: 100%;
+  height: 560px;
+  background: rgb(255, 255, 255);
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-header {
+  background: black;
+  padding: 20px 30px;
+  border-radius: 0 0 100% 100%;
+  width: 300px;
+  margin: 30px;
+  margin-top: -10px;
+  text-align: center;
+}
+
+.contact-header h1 {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.contact-content {
+  display: flex;
+  padding: 40px;
+  gap: 40px;
+}
+
+.contact-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.contact-icon {
+  color: #FF6B00;
+  font-size: 1.5rem;
+  min-width: 24px;
+}
+
+.contact-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contact-text p,
+.contact-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #333;
+}
+
+.social-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  color: #333;
+  font-size: 1.8rem;
+  transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+  transform: scale(1.2);
+}
+
+.social-handle {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.consult-button {
+  background-color: #FF6B00;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+
+.consult-button:hover {
+  background-color: #ff8533;
+}
+
+.map-container {
+  flex: 1;
+  min-height: 550px;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-top: -140px;
+}
+
+.map-container iframe {
+  height: calc(100% - 50px); /* Ajusta este valor en proporción al margen superior */
+  width: 100%;
+  border: none;
+  position: absolute;
+  top: 0; /* Mantén esto en 0 para evitar que se mueva todo el contenedor */
+  left: 0;
+}
+
+
+/* Pantallas grandes y medianas */
+@media screen and (max-width: 1200px) {
+  .contact-content {
+    padding: 30px;
+    gap: 30px;
   }
-  
-  .info-contacto {
-    flex: 1;
-    padding: 40px;
-    color: white;
+
+  .map-container {
+    min-height: 400px;
   }
-  
-  .titulo-contacto {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 40px;
+}
+
+/* Tablets y pantallas medianas */
+@media screen and (max-width: 992px) {
+  .contact-header {
+    width: 280px;
+    margin: 20px;
+    padding: 15px 25px;
   }
-  
-  .detalles-contacto {
-    display: flex;
+
+  .contact-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .map-container {
+    min-height: 350px;
+  }
+}
+
+/* Tablets pequeñas y móviles grandes */
+@media screen and (max-width: 768px) {
+  .contact-outer-container {
+    padding: 15px;
+  }
+
+  .contact-inner-container {
+    border-radius: 20px;
+  }
+
+  .contact-content {
     flex-direction: column;
-    gap: 25px;
+    padding: 20px;
+    gap: 30px;
   }
-  
-  .item-contacto {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
+
+  .contact-header {
+    width: 250px;
+    padding: 15px 30px;
+    margin: 15px;
   }
-  
-  .icono-contacto {
-    color: #FF6B00;
-    font-size: 1.5rem;
-    margin-top: 5px;
-  }
-  
-  .ubicacion-contacto {
+
+  .contact-header h1 {
     font-size: 2rem;
   }
-  
-  .texto-contacto {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+
+  .contact-item {
+    gap: 10px;
   }
-  
-  .texto-contacto p {
+
+  .map-container {
+    min-height: 300px;
+  }
+
+  .contact-icon {
+    font-size: 1.3rem;
+  }
+
+  .social-link {
+    font-size: 1.3rem;
+  }
+}
+
+/* Móviles medianos */
+@media screen and (max-width: 576px) {
+  .contact-outer-container {
+    padding: 10px;
+  }
+
+  .contact-header {
+    width: 220px;
+    padding: 12px 25px;
+    margin: 10px;
+  }
+
+  .contact-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .contact-content {
+    padding: 15px;
+    gap: 25px;
+  }
+
+  .contact-text p,
+  .contact-item p {
+    font-size: 0.85rem;
+  }
+
+  .consult-button {
+    padding: 10px 25px;
     font-size: 0.9rem;
-    line-height: 1.4;
-  }
-  
-  .social-contacto {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-top: 10px;
-  }
-  
-  .social-icon-contacto {
-    color: white;
-    font-size: 1.5rem;
-    transition: transform 0.3s ease;
-  }
-  
-  .social-icon-contacto:hover {
-    transform: scale(1.2);
-  }
-  
-  .social-handle-contacto {
-    margin-left: 10px;
-    font-size: 0.9rem;
-  }
-  
-  .boton-contacto {
-    background-color: #FF6B00;
-    color: white;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
-    align-self: flex-start;
-  }
-  
-  .boton-contacto:hover {
-    background-color: #ff8533;
-  }
-  
-  .mapa-contacto {
-    flex: 1;
-    min-height: 500px;
-    position: relative;
-  }
-  
-  .mapa-contacto iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
+    text-align: center;
   }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .container-contacto {
-      flex-direction: column;
-      border-radius: 20px;
-    }
-  
-    .info-contacto {
-      padding: 30px;
-    }
-  
-    .titulo-contacto {
-      font-size: 2rem;
-      margin-bottom: 30px;
-    }
-  
-    .mapa-contacto {
-      min-height: 300px;
-    }
+
+  .map-container {
+    min-height: 250px;
   }
+}
+
+/* Móviles pequeños */
+@media screen and (max-width: 375px) {
+  .contact-header {
+    width: 200px;
+    padding: 10px 20px;
+  }
+
+  .contact-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .contact-content {
+    padding: 12px;
+    gap: 20px;
+  }
+
+  .contact-icon {
+    font-size: 1.2rem;
+    min-width: 20px;
+  }
+
+  .social-icons {
+    gap: 10px;
+  }
+
+  .social-link {
+    font-size: 1.2rem;
+  }
+
+  .map-container {
+    min-height: 200px;
+  }
+}

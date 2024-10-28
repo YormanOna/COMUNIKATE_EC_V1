@@ -1,0 +1,72 @@
+[
+  {
+    "title": "BASIC",
+    "price": "29.99",
+    "privateOfficeHours": 30,
+    "meetingRoomHours": 2,
+    "maxPrivatePersons": 2,
+    "maxMeetingPersons": 10,
+    "backgroundColor": "white",
+    "buttonColor": "#ff6b00",
+    "buttonTextColor": "white",
+    "priceColor": "#ff6b00",
+    "textColor": "black",
+    "lineColor": "black"
+  },
+  {
+    "title": "STANDARD",
+    "price": "69.99",
+    "privateOfficeHours": 50,
+    "meetingRoomHours": 3,
+    "maxPrivatePersons": 2,
+    "maxMeetingPersons": 10,
+    "backgroundColor": "#ff6b00",
+    "buttonColor": "white",
+    "buttonTextColor": "black",
+    "priceColor": "white",
+    "textColor": "black",
+    "lineColor": "rgba(255, 255, 255, 0.6)"
+  },
+  {
+    "title": "SPECIAL",
+    "price": "84.99",
+    "privateOfficeHours": 70,
+    "meetingRoomHours": 4,
+    "maxPrivatePersons": 2,
+    "maxMeetingPersons": 10,
+    "backgroundColor": "white",
+    "buttonColor": "#ff6b00",
+    "buttonTextColor": "white",
+    "priceColor": "#ff6b00",
+    "textColor": "black",
+    "lineColor": "black"
+  },
+  {
+    "title": "PREMIUM",
+    "price": "99.99",
+    "privateOfficeHours": 90,
+    "meetingRoomHours": 5,
+    "maxPrivatePersons": 2,
+    "maxMeetingPersons": 10,
+    "backgroundColor": "#ff6b00",
+    "buttonColor": "white",
+    "buttonTextColor": "black",
+    "priceColor": "white",
+    "textColor": "black",
+    "lineColor": "rgba(255, 255, 255, 0.6)"
+  },
+  {
+    "title": "GOLD",
+    "price": "119.99",
+    "privateOfficeHours": 160,
+    "meetingRoomHours": 6,
+    "maxPrivatePersons": 2,
+    "maxMeetingPersons": 10,
+    "backgroundColor": "white",
+    "buttonColor": "#ff6b00",
+    "buttonTextColor": "white",
+    "priceColor": "#ff6b00",
+    "textColor": "black",
+    "lineColor": "black"
+  }
+]
