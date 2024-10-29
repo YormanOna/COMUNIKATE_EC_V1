@@ -1,60 +1,89 @@
-// TestimonialsSlider.jsx
 import React, { useState, useEffect, useRef } from 'react';
-import { useInView } from 'react-intersection-observer';
+import YouTube from 'react-youtube';
 import '../styles/testimonios.css';
-import VIDEO2 from '../videos/testimonio_ailine_final.mp4';
-import VIDEO3 from '../videos/testimonio_Eriza_Final.mp4';
 
 export function TestimonialsSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const videoRefs = useRef([]);
+  const sectionRef = useRef(null);
+  const videoRefs = useRef({});
 
   const testimonials = [
     {
       id: 1,
       name: "NIETO",
       role: "Estudiante de Oratoria y Locución",
-      videoUrl: VIDEO2,
+      videoUrl: "https://youtube.com/shorts/bQarnlZwNvI",
     },
     {
       id: 2,
       name: "JHOMAIRA",
       role: "Estudiante de Producción Audiovisual",
-      videoUrl: VIDEO2,
+      videoUrl: "https://youtube.com/shorts/0sHXdNwM51Q",
     },
     {
       id: 3,
       name: "AYLIN",
       role: "Estudiante de Oratoria y Locución",
-      videoUrl: VIDEO3,
+      videoUrl: "https://youtube.com/shorts/TtB9snynuzc",
     },
   ];
 
-  // Avanzar automáticamente el slider cada 5 segundos
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((current) =>
-        current === testimonials.length - 1 ? 0 : current + 1
-      );
-    }, 100000);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            // Pausar todos los videos cuando la sección no está visible
+            Object.values(videoRefs.current).forEach((videoRef) => {
+              if (videoRef && videoRef.internalPlayer) {
+                videoRef.internalPlayer.pauseVideo();
+              }
+            });
+          }
+        });
+      },
+      {
+        threshold: 0.2, // Trigger cuando al menos 20% de la sección es visible
+      }
+    );
 
-    return () => clearInterval(interval);
-  }, [testimonials.length]);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   const nextSlide = () => {
+    // Pausar el video actual antes de cambiar
+    const currentVideo = videoRefs.current[testimonials[activeIndex].id];
+    if (currentVideo && currentVideo.internalPlayer) {
+      currentVideo.internalPlayer.pauseVideo();
+    }
+    
     setActiveIndex((current) =>
       current === testimonials.length - 1 ? 0 : current + 1
     );
   };
 
   const prevSlide = () => {
+    // Pausar el video actual antes de cambiar
+    const currentVideo = videoRefs.current[testimonials[activeIndex].id];
+    if (currentVideo && currentVideo.internalPlayer) {
+      currentVideo.internalPlayer.pauseVideo();
+    }
+    
     setActiveIndex((current) =>
       current === 0 ? testimonials.length - 1 : current - 1
     );
   };
 
   return (
-    <div className="section-testimonials">
+    <div className="section-testimonials" ref={sectionRef}>
       <div className="header-testimonials">
         <h2 className="title-testimonials">TESTIMONIOS</h2>
       </div>
@@ -81,10 +110,10 @@ export function TestimonialsSlider() {
               }`}
             >
               <div className="wrapper-video-testimonials">
-                <VideoComponent
+                <YouTubeVideo
                   videoUrl={testimonial.videoUrl}
                   isActive={index === activeIndex}
-                  ref={(el) => (videoRefs.current[index] = el)}
+                  ref={(el) => (videoRefs.current[testimonial.id] = el)}
                 />
               </div>
               <div className="info-testimonials">
@@ -113,78 +142,56 @@ export function TestimonialsSlider() {
   );
 }
 
-const VideoComponent = React.forwardRef(({ videoUrl, isActive, onVideoEnd }, ref) => {
-    const { ref: inViewRef, inView } = useInView({
-      threshold: 0.5,
-      triggerOnce: false,
-    });
-  
-    const [isPlaying, setIsPlaying] = useState(false);
-  
-    useEffect(() => {
-      if (ref.current) {
-        if (isActive && inView && isPlaying) {
-          ref.current.play().catch(error => {
-            console.error('Error reproduciendo el video:', error);
-          });
-        } else {
-          ref.current.pause();
-          ref.current.currentTime = 0; // Reiniciar video si está fuera de vista
-        }
-      }
-    }, [inView, isActive, ref, isPlaying]);
-  
-    const handlePlay = () => {
-      setIsPlaying(true);
-      if (ref.current) {
-        ref.current.muted = false; // Desactivar mute al iniciar reproducción
-        ref.current.play().catch(error => {
-          console.error('Error reproduciendo el video:', error);
-        });
-      }
-    };
-  
-    const handlePause = () => {
-      setIsPlaying(false);
-      if (ref.current) {
-        ref.current.pause(); // Pausar el video
-      }
-    };
-  
-    const handleVideoEnd = () => {
-      setIsPlaying(false);
-      onVideoEnd(); // Llama a la función para indicar que el video ha terminado
-    };
-  
-    return (
-      <div className="video-wrapper">
-        <video
-          ref={(node) => {
-            ref.current = node;
-            inViewRef(node); // Conectar ambos refs
-          }}
-          className="video-testimonials"
-          muted={isPlaying ? false : true} // Muted solo si no se está reproduciendo
-          onEnded={handleVideoEnd} // Llama a handleVideoEnd cuando el video termina
-        >
-          <source src={videoUrl} type="video/mp4" />
-        </video>
-        {!isPlaying && (
-          <button className="play-button" onClick={handlePlay}>
-            {/* SVG del icono de reproducción */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="white"
-              width="60"
-              height="60"
-            >
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </button>
-        )}
-      </div>
-    );
-  });
+const YouTubeVideo = React.forwardRef(({ videoUrl, isActive }, ref) => {
+  const getVideoId = (url) => {
+    const urlObj = new URL(url);
+    if (urlObj.hostname === 'youtube.com' || urlObj.hostname === 'youtu.be') {
+      return urlObj.pathname.split('/').pop();
+    }
+    return null;
+  };
+
+  const videoId = getVideoId(videoUrl);
+  if (!videoId) {
+    return <div>Error: Invalid YouTube URL</div>;
+  }
+
+  const opts = {
+    height: '480',
+    width: '270',
+    playerVars: {
+      autoplay: 0,
+      mute: 0,
+      modestbranding: 1,
+      showinfo: 0,
+      controls: 0,
+      rel: 0,
+      loop: 1, // Habilita el loop del video
+      playlist: videoId, // Necesario para que el loop funcione
+      endmode: 0, // Desactiva la pantalla de finalización
+      version: 3,
+      playsinline: 1,
+      enablejsapi: 1,
+    },
+  };
+
+  const onEnd = (event) => {
+    // Cuando el video termine, reiniciarlo
+    event.target.seekTo(0);
+    event.target.playVideo();
+  };
+
+  return (
+    <div className="video-container">
+      <YouTube 
+        videoId={videoId} 
+        opts={opts} 
+        className="video-testimonials"
+        ref={ref}
+        onEnd={onEnd}
+      />
+    </div>
+  );
+});
 
 export default TestimonialsSlider;
