@@ -2,7 +2,7 @@
   {
     "titulo": "MSC.",
     "nombre": "LEONARDO BALSECA",
-    "imagen": "/src/img/Instructores/LEONARDO_BALSECA.webp",
+    "imagen": "/img/Instructores/LEONARDO_BALSECA.webp",
     "descripcion": [
       "Con más de 20 años de experiencia en la industria de la comunicación. Leonardo es un profesional reconocido por su talento y versatilidad."
     ],
@@ -26,7 +26,7 @@
   {
     "titulo": "LIC.",
     "nombre": "RAMIRO TORRES",
-    "imagen": "/src/img/Instructores/RAMIRO_TORRES.webp",
+    "imagen": "/img/Instructores/RAMIRO_TORRES.webp",
     "descripcion": [
       "Experto en Comunicación y Oratoria.",
       "Con más de 5 años de experiencia en la industria de la comunicación."
@@ -45,7 +45,7 @@
   {
     "titulo": "LIC.",
     "nombre": "CHRISTIAN BENAVIDES",
-    "imagen": "/src/img/Instructores/CHRISTIAN_BENAVIDES.webp",
+    "imagen": "/img/Instructores/CHRISTIAN_BENAVIDES.webp",
     "descripcion": [
       "Comunicador y Experto en Locución, Oratoria y Periodismo Deportivo",
       "Con más de 10 años de experiencia en la industria de la comunicación."
@@ -67,7 +67,7 @@
   {
     "titulo": "TNGO.",
     "nombre": "LUIS ANDAGOYA",
-    "imagen": "/src/img/Instructores/LUIS_ANDAGOYA.webp",
+    "imagen": "/img/Instructores/LUIS_ANDAGOYA.webp",
     "descripcion": [
       "Diseñador de sonido y  acústica.",
       "Con más de 6 años de experiencia en diseño de sonido y acústica, experto en operación de sonido, producción audiovisual, capacitación y marketing."
@@ -89,7 +89,7 @@
   {
     "titulo": "TNGA.",
     "nombre": "JAHNAVA CAMACHO",
-    "imagen": "/src/img/Instructores/JAHNAVA_CAMACHO.webp",
+    "imagen": "/img/Instructores/JAHNAVA_CAMACHO.webp",
     "descripcion": [
       "Productora Audiovisual y Fotógrafa.",
       "Con más de 3 años de experiencia en producción audiovisual, creación de contenido, fotografía, edición de video y manejo de equipos."
@@ -110,7 +110,7 @@
   {
     "titulo": "LIC.",
     "nombre": "JUAN CARLOS ONCE",
-    "imagen": "/src/img/Instructores/JUAN_CARLOS.webp",
+    "imagen": "/img/Instructores/JUAN_CARLOS.webp",
     "descripcion": [
       "Con más de 20 años de experiencia en Marketing Digital y Comunicación.",
       "Especialista en Marketing Digital con SEO completo (Método Gallardo) y amplia experiencia en comunicación, locución y dirección de programación."
@@ -127,7 +127,7 @@
   {
     "titulo": "TNGO.",
     "nombre": "JULIO EDUARDO CANGO",
-    "imagen": "/src/img/Instructores/JULIO_EDUARDO.webp",
+    "imagen": "/img/Instructores/JULIO_EDUARDO.webp",
     "descripcion": [
       "Tecnólogo en Radiodifusión AER.",
       "Con más de 18 años de experiencia en Locutor, productor, presentador y animador con amplia experiencia en radio y TV. Experto en voz comercial, eventos y maestría de ceremonias."

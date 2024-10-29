@@ -4,6 +4,7 @@ import '../styles/testimonios.css';
 
 export function TestimonialsSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [playersReady, setPlayersReady] = useState({});
   const sectionRef = useRef(null);
   const videoRefs = useRef({});
 
@@ -28,24 +29,31 @@ export function TestimonialsSlider() {
     },
   ];
 
+  // Manejar la intersección de manera más eficiente
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
-            // Pausar todos los videos cuando la sección no está visible
-            Object.values(videoRefs.current).forEach((videoRef) => {
-              if (videoRef && videoRef.internalPlayer) {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.2,
+    };
+
+    const handleIntersection = (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          Object.entries(videoRefs.current).forEach(([id, videoRef]) => {
+            if (videoRef?.internalPlayer && playersReady[id]) {
+              try {
                 videoRef.internalPlayer.pauseVideo();
+              } catch (error) {
+                console.warn('Error al pausar video:', error);
               }
-            });
-          }
-        });
-      },
-      {
-        threshold: 0.2, // Trigger cuando al menos 20% de la sección es visible
-      }
-    );
+            }
+          });
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, options);
 
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
@@ -56,30 +64,36 @@ export function TestimonialsSlider() {
         observer.unobserve(sectionRef.current);
       }
     };
-  }, []);
+  }, [playersReady]);
 
-  const nextSlide = () => {
-    // Pausar el video actual antes de cambiar
+  const handleSlideChange = async (direction) => {
     const currentVideo = videoRefs.current[testimonials[activeIndex].id];
-    if (currentVideo && currentVideo.internalPlayer) {
-      currentVideo.internalPlayer.pauseVideo();
+    if (currentVideo?.internalPlayer && playersReady[testimonials[activeIndex].id]) {
+      try {
+        await currentVideo.internalPlayer.pauseVideo();
+      } catch (error) {
+        console.warn('Error al pausar video durante cambio de slide:', error);
+      }
     }
-    
-    setActiveIndex((current) =>
-      current === testimonials.length - 1 ? 0 : current + 1
-    );
+
+    setActiveIndex((current) => {
+      if (direction === 'next') {
+        return current === testimonials.length - 1 ? 0 : current + 1;
+      }
+      return current === 0 ? testimonials.length - 1 : current - 1;
+    });
   };
 
-  const prevSlide = () => {
-    // Pausar el video actual antes de cambiar
+  const handleDotClick = async (index) => {
     const currentVideo = videoRefs.current[testimonials[activeIndex].id];
-    if (currentVideo && currentVideo.internalPlayer) {
-      currentVideo.internalPlayer.pauseVideo();
+    if (currentVideo?.internalPlayer && playersReady[testimonials[activeIndex].id]) {
+      try {
+        await currentVideo.internalPlayer.pauseVideo();
+      } catch (error) {
+        console.warn('Error al pausar video al hacer clic en dot:', error);
+      }
     }
-    
-    setActiveIndex((current) =>
-      current === 0 ? testimonials.length - 1 : current - 1
-    );
+    setActiveIndex(index);
   };
 
   return (
@@ -89,7 +103,12 @@ export function TestimonialsSlider() {
       </div>
 
       <div className="container-testimonials">
-        <button className="button-nav-testimonials prev-testimonials" onClick={prevSlide}>
+        <button 
+          className="button-nav-testimonials prev-testimonials" 
+          onClick={() => handleSlideChange('prev')}
+          type="button"
+          aria-label="Previous testimonial"
+        >
           &#8249;
         </button>
 
@@ -114,6 +133,7 @@ export function TestimonialsSlider() {
                   videoUrl={testimonial.videoUrl}
                   isActive={index === activeIndex}
                   ref={(el) => (videoRefs.current[testimonial.id] = el)}
+                  onReady={() => setPlayersReady(prev => ({...prev, [testimonial.id]: true}))}
                 />
               </div>
               <div className="info-testimonials">
@@ -124,17 +144,24 @@ export function TestimonialsSlider() {
           ))}
         </div>
 
-        <button className="button-nav-testimonials next-testimonials" onClick={nextSlide}>
+        <button 
+          className="button-nav-testimonials next-testimonials" 
+          onClick={() => handleSlideChange('next')}
+          type="button"
+          aria-label="Next testimonial"
+        >
           &#8250;
         </button>
       </div>
 
       <div className="container-dots-testimonials">
         {testimonials.map((_, index) => (
-          <span
+          <button
             key={index}
+            type="button"
+            aria-label={`Go to testimonial ${index + 1}`}
             className={`dot-testimonials ${index === activeIndex ? 'active-dot-testimonials' : ''}`}
-            onClick={() => setActiveIndex(index)}
+            onClick={() => handleDotClick(index)}
           />
         ))}
       </div>
@@ -142,13 +169,18 @@ export function TestimonialsSlider() {
   );
 }
 
-const YouTubeVideo = React.forwardRef(({ videoUrl, isActive }, ref) => {
+const YouTubeVideo = React.forwardRef(({ videoUrl, isActive, onReady }, ref) => {
   const getVideoId = (url) => {
-    const urlObj = new URL(url);
-    if (urlObj.hostname === 'youtube.com' || urlObj.hostname === 'youtu.be') {
-      return urlObj.pathname.split('/').pop();
+    try {
+      const urlObj = new URL(url);
+      if (urlObj.hostname === 'youtube.com' || urlObj.hostname === 'youtu.be') {
+        return urlObj.pathname.split('/').pop();
+      }
+      return null;
+    } catch (error) {
+      console.error('Error al parsear URL del video:', error);
+      return null;
     }
-    return null;
   };
 
   const videoId = getVideoId(videoUrl);
@@ -166,19 +198,30 @@ const YouTubeVideo = React.forwardRef(({ videoUrl, isActive }, ref) => {
       showinfo: 0,
       controls: 0,
       rel: 0,
-      loop: 1, // Habilita el loop del video
-      playlist: videoId, // Necesario para que el loop funcione
-      endmode: 0, // Desactiva la pantalla de finalización
-      version: 3,
-      playsinline: 1,
+      loop: 1,
+      playlist: videoId,
+      origin: window.location.origin,
       enablejsapi: 1,
+      widget_referrer: window.location.href,
+      playsinline: 1
     },
   };
 
-  const onEnd = (event) => {
-    // Cuando el video termine, reiniciarlo
-    event.target.seekTo(0);
-    event.target.playVideo();
+  const handleReady = (event) => {
+    if (onReady) {
+      onReady(event);
+    }
+  };
+
+  const handleStateChange = (event) => {
+    // Manejar cambios de estado del video
+    if (event.data === YouTube.PlayerState.ENDED) {
+      try {
+        event.target.seekTo(0);
+      } catch (error) {
+        console.warn('Error al reiniciar video:', error);
+      }
+    }
   };
 
   return (
@@ -188,7 +231,9 @@ const YouTubeVideo = React.forwardRef(({ videoUrl, isActive }, ref) => {
         opts={opts} 
         className="video-testimonials"
         ref={ref}
-        onEnd={onEnd}
+        onReady={handleReady}
+        onStateChange={handleStateChange}
+        onError={(error) => console.warn('Error en el player de YouTube:', error)}
       />
     </div>
   );
