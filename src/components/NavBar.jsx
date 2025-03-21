@@ -56,7 +56,7 @@ export function NavigationMenu() {
                     <Link to="/servicios" className="nav-link-menu">Servicios</Link>
                 </li>
                 <li className="nav-item-menu">
-                    <a href="#contacto" className="nav-link-menu">Contáctanos</a>
+                    <a href="/contacto" className="nav-link-menu">Contáctanos</a>
                 </li>
                 <li className="nav-item-menu">
                     <Link to="/inscripciones" className="nav-link-menu">Inscríbete Aquí</Link>

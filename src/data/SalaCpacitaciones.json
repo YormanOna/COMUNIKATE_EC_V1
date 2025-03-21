@@ -1,0 +1,33 @@
+[
+    {
+      "title": "PARA 10 PERSONAS",
+      "price": "7.99",
+      "Contenido 1": "Wifi de alta velocidad",
+      "Contenido 2": "Sonido",
+      "Contenido 3": "Pantalla de TV",
+      "Contenido 4": "Pizarra",
+      "Contenido 5": "Mesas y sillas",
+      "backgroundColor": "#ff6b00",
+      "buttonColor": "white",
+      "buttonTextColor": "black",
+      "priceColor": "white",
+      "textColor": "black",
+      "lineColor": "rgba(255, 255, 255, 0.6)"
+    },
+    {
+      "title": "PARA 20 PERSONAS",
+      "price": "11.99",
+      "Contenido 1": "Wifi de alta velocidad",
+      "Contenido 2": "Sonido",
+      "Contenido 3": "Pantalla de TV",
+      "Contenido 4": "Pizarra",
+      "Contenido 5": "Sillas",
+      "backgroundColor": "white",
+      "buttonColor": "#ff6b00",
+      "buttonTextColor": "white",
+      "priceColor": "#ff6b00",
+      "textColor": "black",
+      "lineColor": "black"
+    }
+  ]
+  

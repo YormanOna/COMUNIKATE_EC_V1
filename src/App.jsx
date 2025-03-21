@@ -14,6 +14,7 @@ import{ProduccionAudiovisual} from './pages/Cursos/Audiovisual/ProduccionAudiovi
 import{Fotografia} from './pages/Cursos/Audiovisual/Fotografia';
 import{CreacionDePodcast} from './pages/Cursos/Audiovisual/CreacionPodcast';
 import{LiveStreaming} from './pages/Cursos/Audiovisual/LiveStreaming';
+import {PageContac} from './pages/PageContac';
 import ScrollToTop from './hook/ScrollToTop';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/inscripciones" element={<Inscribite />} />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/cursos" element={<Cursos />} />
+        <Route path="/contacto" element={<PageContac />} />
         <Route path="/cursos/periodismo/oratoria-locucion" element={<OratoriaLocucion />} />
         <Route path="/cursos/periodismo/periodismo-deportivo" element={<PeriodismoDeportivo />} />
         <Route path="/cursos/periodismo/locucion-radial" element={<LocucionRadial />} />
