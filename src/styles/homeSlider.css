@@ -77,9 +77,14 @@
   .dots-container-slider {
     bottom: 70px; /* Ajustado para ser más visible en pantallas pequeñas */
   }
+  .slide-image-slider {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+  }
 
   .slider-container-slider {
-    clip-path: ellipse(60% 70% at 50% 0%); /* Menos ovalado en pantallas más pequeñas */
+    clip-path: ellipse(70% 70% at 50% 23%); /* Menos ovalado en pantallas más pequeñas */
   }
 }
 

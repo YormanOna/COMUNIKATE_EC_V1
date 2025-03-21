@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'; 
 import '../../styles/servicios/OficinasIndividuales.css';
 import planesData from '../../data/OficinaIndividual.json';
+import oficinaImg from '../../img/Servicios/Oficina Individual.jpg'; // Asegúrate de cambiar esta ruta según la ubicación de tu imagen
 
 export function OficinasIndividuales() {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -20,8 +21,11 @@ export function OficinasIndividuales() {
     return (
       <div>
         <div className="office-section">
-          <p>OFICINAS</p>
-          <p>INDIVIDUALES</p>
+          <img src={oficinaImg} alt="Oficina Individual" className="background-image" />
+          <div className="overlay-text">
+            <p>OFICINAS</p>
+            <p>INDIVIDUALES</p>
+          </div>
         </div>
         <div className="slider-container-oficinaIndividual">
           <div className="slides-container-oficinaIndividual">
@@ -85,4 +89,4 @@ export function OficinasIndividuales() {
         </div>
       </div>
     );
-  }
+}

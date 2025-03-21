@@ -105,7 +105,7 @@ export const InstructoresComponent = () => {
   }, []);
 
   return (
-    <div className="container-instructores">
+    <div className="container-instructores" id= "instructores">
       <h1 className="titulo-instructores">INSTRUCTORES</h1>
       <div className="grid-instructores">
         {instructores.map((instructor, index) => (

@@ -1,0 +1,78 @@
+/* Contenedor global para la sección de cursos */
+.cursos-container {
+    background-color: #ffffff; /* Fondo naranja */
+  }
+  
+  /* Título principal elegante centrado */
+  .cursos-header {
+    text-align: center;
+    color: #000000;
+    font-size: 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Contenedor principal de las tarjetas en dos columnas y centrado */
+  .cursospage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Cada tarjeta de curso con tamaño fijo */
+  .cursos-card {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+    height: 300px; /* Altura fija para uniformidad */
+    transition: transform 0.3s ease;
+  }
+  
+  /* Efecto de escala al pasar el ratón */
+  .cursos-card:hover {
+    transform: scale(1.03);
+  }
+  
+  /* La imagen ocupa todo el contenedor, manteniendo la proporción */
+  .cursos-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Overlay siempre visible, centrado sobre la imagen */
+  .cursos-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo semitransparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Título de la tarjeta, centrado y en mayúsculas */
+  .cursos-title {
+    color: #fff;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    text-align: center;
+    margin: 0;
+  }
+  
+  /* Responsividad: en pantallas menores a 768px se muestra una columna */
+  @media (max-width: 768px) {
+    .cursospage {
+      grid-template-columns: 1fr;
+    }
+  }
+  

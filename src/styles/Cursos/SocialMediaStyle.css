@@ -1,0 +1,113 @@
+/***********************************************************
+  Contenedor principal
+************************************************************/
+.socialmedia-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+  }
+  
+  /***********************************************************
+    Contenedor de la imagen de fondo y las barras
+  ************************************************************/
+  .socialmedia-bg {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+  
+  /* Imagen de fondo que ocupa todo el ancho */
+  .socialmedia-image {
+    width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Efecto hover: zoom en la imagen */
+  .socialmedia-bg:hover .socialmedia-image {
+    transform: scale(1.03); /* Zoom suave */
+  }
+  
+  /***********************************************************
+    Franja naranja con el título (SOCIAL MEDIA)
+  ************************************************************/
+  .socialmedia-orange-bar {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ff6600;
+    padding: 20px 40px;
+    text-align: center;
+  }
+  
+  .socialmedia-orange-bar h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-family: "Arial Black", sans-serif;
+  }
+  
+  /***********************************************************
+    Franja blanca con el subtítulo (Marketing Digital)
+  ************************************************************/
+  .socialmedia-white-bar {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer; /* Cambia el cursor para indicar interactividad */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Suaviza el hover */
+  }
+  
+  .socialmedia-white-bar p {
+    margin: 0;
+    color: #000;
+    font-weight: bold;
+    font-size: 1rem;
+    font-family: sans-serif;
+    transition: color 0.3s ease; /* Suaviza el cambio de color en hover */
+  }
+  
+  /* Efecto hover en la franja blanca */
+  .socialmedia-white-bar:hover {
+    background-color: #f0f0f0; /* Color de fondo más claro en hover */
+    
+  }
+  
+  .socialmedia-white-bar:hover p {
+    color: #ff6600; /* Cambia el texto a naranja en hover */
+  }
+  
+  /***********************************************************
+    Responsividad
+  ************************************************************/
+  @media (max-width: 768px) {
+    .socialmedia-orange-bar h1 {
+      font-size: 1.5rem;
+    }
+  
+    .socialmedia-white-bar p {
+      font-size: 0.9rem;
+    }
+  
+    .socialmedia-orange-bar {
+      top: 35%;
+    }
+  
+    .socialmedia-white-bar {
+      top: 50%;
+    }
+  }
+  

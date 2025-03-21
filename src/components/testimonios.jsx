@@ -13,20 +13,56 @@ export function TestimonialsSlider() {
       id: 1,
       name: "NIETO",
       role: "Estudiante de Oratoria y Locución",
-      videoUrl: "https://youtube.com/shorts/bQarnlZwNvI",
+      videoUrl: "https://youtube.com/shorts/kMkQf8ILhFI"
     },
     {
       id: 2,
       name: "JHOMAIRA",
       role: "Estudiante de Producción Audiovisual",
-      videoUrl: "https://youtube.com/shorts/0sHXdNwM51Q",
+      videoUrl: "https://youtube.com/shorts/0sHXdNwM51Q"
     },
     {
       id: 3,
       name: "AYLIN",
       role: "Estudiante de Oratoria y Locución",
-      videoUrl: "https://youtube.com/shorts/TtB9snynuzc",
+      videoUrl: "https://youtube.com/shorts/KBa8tT8GeJE"
     },
+    {
+      id: 4,
+      name: "JESSICA",
+      role:"Estudiante de Oratoria y Locución",
+      videoUrl: "https://youtube.com/shorts/vweyNazUdGA"
+    },
+    {
+      id: 5,
+      name: "Alumno Sta.Domingo",
+      role:"Estudiante de Oratoria y Locución",
+      videoUrl: "https://youtube.com/shorts/79jV_hVdt48"
+    },
+    {
+      id: 6,
+      name: "Alexandra",
+      role:"Estudiante de Oratoria y Locución",
+      videoUrl: "https://youtube.com/shorts/Z6xXq7ihuC8"
+    },
+    {
+      id: 7,
+      name: "MAOLI",
+      role:"Estudiante de Oratoria y Locución",
+      videoUrl: "https://youtube.com/shorts/jMMRFPzNEME"
+    },
+    {
+      id: 8,
+      name: "Alumna Sta.Domingo",
+      role:"Estudiante de Oratoria y Locución",
+      videoUrl: "https://youtube.com/shorts/KWRkImeEr-Y"
+    },
+    {
+      id: 9,
+      name: "Alumna Sta.Domingo",
+      role:"Estudiante de Oratoria y Locución",
+      videoUrl: "https://youtube.com/shorts/w1xlXY5DnaM"
+    }
   ];
 
   // Manejar la intersección de manera más eficiente

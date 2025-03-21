@@ -12,8 +12,6 @@ export function Home() {
     <div>
       <NavigationMenu/>
       <ImageSlider/>
-      <br />
-      <br />
       <ClientLogos/>
       <CartasEstadisticas/>
       <br />

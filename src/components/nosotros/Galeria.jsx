@@ -21,7 +21,7 @@ import Imagen18 from '../../img/Galeria/18.webp';
 
 export function Galeria () {
     return (
-        <section className="container-gallery">
+        <section className="container-gallery" id="galeria">
             <div className="header-gallery">
                 <h2 className="title-gallery">GALERÍA</h2>
             </div>

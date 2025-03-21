@@ -1,0 +1,94 @@
+/***********************************************************
+  Contenedor principal
+************************************************************/
+.audiovisual-container {
+  width: 100%;
+  background-color: #ff5e00; /* Fondo blanco */
+  padding: 20px;
+}
+
+/***********************************************************
+  Filas de tarjetas (2 columnas por fila)
+************************************************************/
+.audiovisual-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columnas */
+  margin: 0; /* Para que se una con la franja central sin separación */
+}
+
+/***********************************************************
+  Tarjetas
+************************************************************/
+.audiovisual-card {
+  position: relative;
+  display: block;         /* Para que el enlace cubra toda la tarjeta */
+  text-decoration: none;  /* Quita el subrayado del enlace */
+  overflow: hidden;
+  border-radius: 4px;     /* Esquinas ligeramente redondeadas */
+  transition: transform 0.3s ease;
+}
+
+.audiovisual-card:hover {
+  transform: scale(1.03);
+}
+
+/* Imagen dentro de la tarjeta */
+.audiovisual-card img {
+  width: 100%;  /* Reducción ligera del tamaño de las imágenes */
+  height: auto; /* Mantiene las proporciones correctas */
+  object-fit: cover;
+  display: block;
+  margin: 0 auto; /* Centra la imagen dentro de la tarjeta */
+}
+
+/***********************************************************
+  Overlay negro en la parte inferior de la imagen
+************************************************************/
+.audiovisual-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente negro */
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem; /* Reducción del tamaño de fuente para que se ajuste al nuevo tamaño */
+  padding: 8px 0; /* Menor padding para evitar que el texto sobresalga */
+  box-sizing: border-box; /* Asegura que el padding no extienda el tamaño del overlay más allá de su contenedor */
+}
+
+/***********************************************************
+  Franja central con el título "AUDIOVISUAL"
+************************************************************/
+.audiovisual-middle {
+  background-color: #000000; /* Mantener el fondo blanco */
+  text-align: center;
+  padding: 20px 0;
+  margin: 0; /* Sin margen para unirse con las filas */
+}
+
+.audiovisual-middle h1 {
+  color: #ff4800; /* Texto en negro */
+  font-size: 2rem; /* Tamaño del título central */
+  margin: 0;
+  font-family: "Arial Black", sans-serif;
+  text-transform: uppercase;
+}
+
+/***********************************************************
+  Responsividad
+************************************************************/
+@media (max-width: 768px) {
+  .audiovisual-row {
+    grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+  }
+
+  .audiovisual-middle h1 {
+    font-size: 2rem; /* Mantener el tamaño del título central en pantallas pequeñas */
+  }
+
+  .audiovisual-overlay {
+    font-size: 1rem; /* Ajuste del tamaño del texto en pantallas pequeñas */
+  }
+}

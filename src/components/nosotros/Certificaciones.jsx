@@ -6,7 +6,7 @@ import logoEducacion from '../../img/Certificados/certi_2.png';
 
 export function Certificaciones  () {
     return (
-        <section className="container-certificaciones">
+        <section className="container-certificaciones" id="certificados">
             <div className="header-certificaciones">
                 <h2>CERTIFICACIONES</h2>
             </div>

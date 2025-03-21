@@ -35,10 +35,10 @@ export function NavigationMenu() {
                 <li className="nav-item-menu has-submenu">
                     <Link to="/cursos" className="nav-link-menu">Cursos</Link>
                     <ul className="submenu">
-                        <li><Link to="/nosotros#instructores" className="submenu-link">Periodismo</Link></li>
-                        <li><Link to="/nosotros#certificados" className="submenu-link">Audiovisual</Link></li>
-                        <li><Link to="/nosotros#galeria" className="submenu-link">SocialMedia</Link></li>
-                        <li><Link to="/nosotros#galeria" className="submenu-link">Otros</Link></li>
+                        <li><Link to="/cursos#periodismo" className="submenu-link">Periodismo</Link></li>
+                        <li><Link to="/cursos#audiovisual" className="submenu-link">Audiovisual</Link></li>
+                        <li><Link to="/cursos#socialMedia" className="submenu-link">SocialMedia</Link></li>
+                        <li><Link to="/cursos#otros" className="submenu-link">Otros</Link></li>
                     </ul>
                 </li>
             </ul>

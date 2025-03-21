@@ -1,0 +1,94 @@
+/***********************************************************
+  Contenedor principal
+************************************************************/
+.periodismo-container {
+    width: 100%;
+    background-color: #ff5e00; /* Fondo naranja */
+    padding: 20px;
+  }
+  
+  /***********************************************************
+    Filas de tarjetas
+  ************************************************************/
+  .periodismo-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    margin: 0; /* Sin margen vertical, para que se una con la franja central */
+  }
+  
+  /***********************************************************
+    Tarjetas
+  ************************************************************/
+  .periodismo-card {
+    position: relative;
+    display: block;         /* Para que el enlace cubra toda la tarjeta */
+    text-decoration: none;  /* Quita el subrayado del enlace */
+    overflow: hidden;
+    border-radius: 4px;     /* Esquinas ligeramente redondeadas */
+    transition: transform 0.3s ease;
+  }
+  
+  .periodismo-card:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Imagen dentro de la tarjeta */
+  .periodismo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /***********************************************************
+    Overlay con el texto en el centro de la imagen
+  ************************************************************/
+  .periodismo-overlay {
+    position: absolute;
+    /* Centrar vertical y horizontalmente */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    background-color: #ff6600; /* Naranja */
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 4px; /* Opcional, para suavizar la caja */
+  }
+  
+  /***********************************************************
+    Sección central con el título "PERIODISMO"
+  ************************************************************/
+  .periodismo-middle {
+    background-color: #000; /* Franja negra */
+    text-align: center;
+    padding: 20px;
+    margin: 0; /* Sin margen para unirse a las filas */
+  }
+  
+  .periodismo-middle h1 {
+    color: #ff6600; /* Texto naranja */
+    font-size: 2rem;
+    margin: 0;
+    font-family: "Arial Black", sans-serif;
+    text-transform: uppercase;
+  }
+  
+  /***********************************************************
+    Responsividad
+  ************************************************************/
+  @media (max-width: 992px) {
+    .periodismo-row {
+      grid-template-columns: 1fr 1fr; /* 2 columnas en pantallas medianas */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .periodismo-row {
+      grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+    }
+  }
+  

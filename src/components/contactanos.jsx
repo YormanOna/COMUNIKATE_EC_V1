@@ -17,8 +17,17 @@ export function ContactComponent () {
               <FontAwesomeIcon icon={faLocationDot} className="contact-icon" />
               <div className="contact-text">
                 <strong>Matriz Quito:</strong>
-                <p>Av. Luis Saá y Sodiro, Edificio Daniel Cadena - 9no piso - Oficina 901 (Sector parque La Alameda)</p>
+                <p>Av. Luis Saá y Sodiro, Edificio Daniel Cadena - 9no piso </p>
+                <p>Oficina 901 (Sector parque La Alameda)</p>
               </div>
+              <div className="contact-text">
+                <strong>Sucursales</strong>
+                <ul className='sucursales-list'>
+                  <ol>Guayaquil</ol>
+                  <ol>Cuenca</ol>
+                  <ol>Santo Domingo de los Tsáchilas</ol>
+                </ul>
+                </div>
             </div>
 
             <div className="contact-item">
@@ -51,7 +60,7 @@ export function ContactComponent () {
           
           <div className="map-container">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d997.461035086821!2d-78.50297!3d-0.21567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMTInNTYuNCJTIDc4wrAzMCcxMC43Ilc!5e0!3m2!1sen!2sec!4v1635181234567!5m2!1sen!2sec"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7904015935846!2d-78.50055259999999!3d-0.21434299999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59bd595f6a6a5%3A0xcf57d1528fd56e10!2sComunikate%20Ecuador!5e0!3m2!1ses-419!2sec!4v1742586743928!5m2!1ses-419!2sec"
               style={{ border: 0 }}
               allowFullScreen=""
               loading="lazy"

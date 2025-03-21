@@ -61,7 +61,8 @@
 }
 
 .contact-text p,
-.contact-item p {
+.contact-item p,
+.sucursales-list ol {
   margin: 0;
   font-size: 0.9rem;
   line-height: 1.4;
