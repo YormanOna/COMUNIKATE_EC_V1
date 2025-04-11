@@ -1,4 +1,4 @@
-/* Estilos existentes */
+/* Estilos principales del menú */
 .nav-container-menu {
     position: fixed;
     top: 0;
@@ -11,14 +11,15 @@
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     z-index: 1000;
     background-color: transparent;
-}
-
-.scrolled-menu {
+  }
+  
+  .scrolled-menu {
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.logo-wrapper-menu {
+  }
+  
+  /* Logo */
+  .logo-wrapper-menu {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -26,37 +27,38 @@
     align-items: center;
     justify-content: center;
     margin-top: 5px;
-}
-
-.logo-image-menu {
+  }
+  
+  .logo-image-menu {
     height: 60px;
     width: auto;
-}
-
-.nav-left-menu,
-.nav-right-menu {
+  }
+  
+  /* Menú de escritorio */
+  .nav-left-menu,
+  .nav-right-menu {
     display: flex;
     gap: 2rem;
     list-style: none;
     margin: 0;
     padding: 0;
     align-items: center;
-}
-
-.nav-left-menu {
+  }
+  
+  .nav-left-menu {
     margin-right: auto;
-}
-
-.nav-right-menu {
+  }
+  
+  .nav-right-menu {
     margin-left: auto;
-}
-
-.nav-item-menu {
+  }
+  
+  .nav-item-menu {
     display: inline-block;
     position: relative;
-}
-
-.nav-link-menu {
+  }
+  
+  .nav-link-menu {
     color: #333;
     text-decoration: none;
     font-weight: 600;
@@ -66,10 +68,14 @@
     display: flex;
     align-items: center;
     gap: 5px;
-}
-
-
-.submenu {
+  }
+  
+  .nav-link-menu:hover {
+    color: #ff6b00;
+  }
+  
+  /* Submenús para escritorio */
+  .submenu {
     position: absolute;
     top: 100%;
     left: 0;
@@ -83,15 +89,15 @@
     transition: all 0.3s ease;
     padding: 0.5rem 0;
     list-style: none;
-}
-
-.has-submenu:hover .submenu {
+  }
+  
+  .has-submenu:hover .submenu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-}
-
-.submenu-link {
+  }
+  
+  .submenu-link {
     color: #333;
     text-decoration: none;
     padding: 0.5rem 1rem;
@@ -99,51 +105,145 @@
     transition: all 0.3s ease;
     font-size: 0.9rem;
     font-weight: 500;
-}
-
-.submenu-link:hover {
+  }
+  
+  .submenu-link:hover {
     background-color: #f5f5f5;
     color: #ff6b00;
-}
-
-.nav-link-menu:hover {
-    color: #ff6b00;
-}
-
-/* Estilos para fondo transparente */
-.nav-container-menu:not(.scrolled-menu) .nav-link-menu {
+  }
+  
+  /* Estilos para fondo transparente */
+  .nav-container-menu:not(.scrolled-menu) .nav-link-menu {
     color: #fff;
-}
-
-.nav-container-menu:not(.scrolled-menu) .nav-link-menu:hover {
+  }
+  
+  .nav-container-menu:not(.scrolled-menu) .nav-link-menu:hover {
     color: #ff6b00;
-}
-
-/* Responsive */
-@media (max-width: 968px) {
+  }
+  
+  /* Menú móvil - Iconos */
+  .mobile-menu-icon {
+    display: none;
+    z-index: 1100;
+    cursor: pointer;
+    background-color: #ff6b00;
+    padding: 0.5rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+  }
+  
+  .mobile-menu-icon:hover {
+    background-color: #e65a00;
+  }
+  
+  .mobile-menu-icon span {
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+  
+  /* Menú móvil (sidebar) */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 70%;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease;
+    z-index: 1050;
+    padding-top: 3rem;
+  }
+  
+  .mobile-menu.open {
+    left: 0;
+  }
+  
+  /* Estilos de la lista del menú móvil */
+  .mobile-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .mobile-menu-item {
+    border-bottom: 1px solid #ddd;
+    padding: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .mobile-menu-item:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .mobile-menu-item a,
+  .mobile-menu-item span {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    display: block;
+  }
+  
+  /* Submenús para menú móvil */
+  .mobile-submenu {
+    list-style: none;
+    padding-left: 1rem;
+    margin-top: 0.5rem;
+    display: none;
+    transition: max-height 0.3s ease;
+  }
+  
+  .mobile-menu-item:hover .mobile-submenu {
+    display: block;
+  }
+  
+  .mobile-submenu li {
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed #ddd;
+  }
+  
+  .mobile-submenu li a {
+    color: #555;
+    font-weight: 500;
+  }
+  
+  /* Responsive: Mostrar/ocultar elementos según el ancho de pantalla */
+  @media (max-width: 968px) {
     .nav-container-menu {
-        padding: 1rem;
+      padding: 1rem;
     }
-
+  
     .nav-left-menu,
     .nav-right-menu {
-        gap: 1rem;
+      gap: 1rem;
     }
-
+  
     .nav-link-menu {
-        font-size: 0.9rem;
+      font-size: 0.9rem;
     }
-}
-
-@media (max-width: 768px) {
-    .nav-left-menu,
-    .nav-right-menu {
-        display: none;
+  }
+  
+  @media (max-width: 768px) {
+    /* Oculta el menú de escritorio */
+    .desktop-menu {
+      display: none;
     }
-    
+  
+    /* Muestra el ícono del menú móvil */
+    .mobile-menu-icon {
+      display: block;
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+    }
+  
+    /* Ajusta el logo para móvil */
     .logo-wrapper-menu {
-        position: relative;
-        left: 0;
-        transform: none;
+      position: relative;
+      left: 0;
+      transform: none;
     }
-}
+  }
+  

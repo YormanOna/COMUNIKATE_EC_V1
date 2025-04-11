@@ -11,8 +11,11 @@ import { Audiovisual } from "../pages/Cursos/Audiovisual.jsx";
 import { Otros } from "../pages/Cursos/Otros.jsx";
 import { SocialMedia } from "../pages/Cursos/SocialMedia.jsx";
 import { Footer } from "../components/footer";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 export function Cursos() {
+  const location = useLocation();
   // Función para hacer scroll a una sección específica de la página
   const handleScroll = (id) => {
     const element = document.getElementById(id);
@@ -20,6 +23,15 @@ export function Cursos() {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+  useEffect(() => {
+    if(location.hash) {
+      const id = location.hash.replace("#", "");
+      setTimeout(() => {
+        handleScroll(id);
+      }, 300);
+    }
+  }
+  , [location]);
 
   return (
     <div className="cursos-container">

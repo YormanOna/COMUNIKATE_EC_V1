@@ -57,7 +57,7 @@ export function ContactComponent () {
 
             <button className="consult-button">CONSÚLTANOS YA</button>
           </div>
-          
+          <br />
           <div className="map-container">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7904015935846!2d-78.50055259999999!3d-0.21434299999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59bd595f6a6a5%3A0xcf57d1528fd56e10!2sComunikate%20Ecuador!5e0!3m2!1ses-419!2sec!4v1742586743928!5m2!1ses-419!2sec"
