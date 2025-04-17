@@ -17,7 +17,7 @@ export function SocialMedia() {
         </div>
 
         {/* Franja blanca debajo con subtítulo, ahora clicable */}
-        <a href="/marketing-digital" className="socialmedia-white-bar">
+        <a href="/cursos/social-media/marketing-digital" className="socialmedia-white-bar">
           <p>Marketing Digital</p>
         </a>
       </div>

@@ -12,12 +12,12 @@ export function Audiovisual() {
     <section className="audiovisual-container" id="audiovisual">
       {/* Primera fila de tarjetas */}
       <div className="audiovisual-row">
-        <a href="/produccion-audiovisual" className="audiovisual-card">
+        <a href="/cursos/audiovisual/produccion-audiovisual" className="audiovisual-card">
           <img src={ImgProduccion} alt="Producción Audiovisual" />
           <div className="audiovisual-overlay">Producción Audiovisual</div>
         </a>
 
-        <a href="/fotografia" className="audiovisual-card">
+        <a href="/cursos/audiovisual/fotografia" className="audiovisual-card">
           <img src={ImgFotografia} alt="Fotografía" />
           <div className="audiovisual-overlay">Fotografía</div>
         </a>
@@ -30,12 +30,12 @@ export function Audiovisual() {
 
       {/* Segunda fila de tarjetas */}
       <div className="audiovisual-row">
-        <a href="/creacion-de-podcast" className="audiovisual-card">
+        <a href="/cursos/audiovisual/creacion-de-podcast" className="audiovisual-card">
           <img src={ImgPodcast} alt="Creación de Podcast" />
           <div className="audiovisual-overlay">Creación de Podcast</div>
         </a>
 
-        <a href="/streaming" className="audiovisual-card">
+        <a href="/cursos/audiovisual/live-streaming" className="audiovisual-card">
           <img src={ImgStreaming} alt="Streaming" />
           <div className="audiovisual-overlay">Streaming</div>
         </a>

@@ -13,17 +13,17 @@ export function Periodismo() {
     <section className="periodismo-container" id="periodismo">
       {/* Primera fila de tarjetas */}
       <div className="periodismo-row">
-        <a href="/oratoria-locucion" className="periodismo-card">
+        <a href="/cursos/periodismo/oratoria-locucion" className="periodismo-card">
           <img src={imgOratoria} alt="Oratoria y Locución" />
           <div className="periodismo-overlay">Oratoria y Locución</div>
         </a>
 
-        <a href="/periodismo-deportivo" className="periodismo-card">
+        <a href="/cursos/periodismo/periodismo-deportivo" className="periodismo-card">
           <img src={imgDepor} alt="Periodismo Deportivo" />
           <div className="periodismo-overlay">Periodismo Deportivo</div>
         </a>
 
-        <a href="/locucion-radial" className="periodismo-card">
+        <a href="/cursos/periodismo/locucion-radial" className="periodismo-card">
           <img src={imgRadial} alt="Locución Radial" />
           <div className="periodismo-overlay">Locución Radial</div>
         </a>
@@ -41,13 +41,13 @@ export function Periodismo() {
           <div className="periodismo-overlay">Relaciones Públicas</div>
         </a>
 
-        <a href="/media-training" className="periodismo-card">
+        <a href="/cursos/periodismo/media-training" className="periodismo-card">
           <img src={imgMedia} alt="Media Training" />
           <div className="periodismo-overlay">Media Training</div>
         </a>
 
         <a
-          href="/presentador-tv-medios-digitales"
+          href="/cursos/periodismo/presentador-tv-medios-digitales"
           className="periodismo-card"
         >
           <img
