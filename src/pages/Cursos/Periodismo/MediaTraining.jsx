@@ -1,10 +1,15 @@
 import React from "react";
-import '../../../styles/Cursos/Periodismo/OratoriaLocucion.css';
 import IMAGENTraining from '../../../img/Cursos/Periodismo/MEDIA_TRAINING.webp';
+import {NavigationMenu} from '../../../components/NavBarCursos';
 
 export function MediaTraining(){
     return (
         <div>
+            <NavigationMenu/>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
             <div className="SectionTilteBlack">
                 <h1>Periodismo</h1>
             </div>
@@ -49,7 +54,7 @@ export function MediaTraining(){
                     <br/>
                 </div>
                 <div className="imagen-info-content">
-                    <img src={IMAGENTraining } alt="Imagen Oratoria" style={{ width: '100%', height: '910px', marginTop:'150px' }} />
+                    <img src={IMAGENTraining } alt="Imagen Oratoria" />
                     <div className="info-overlay">
                         <p><strong>MODALIDAD </strong><br />Presencial - virtual</p>
                         <p><strong>MÉTODO EDUCATIVO</strong><br />Técnico - Práctico</p>
