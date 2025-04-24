@@ -10,6 +10,7 @@ import ImagenNueva from "../img/Servicios/Image2.jpg";
 import horarioImg from "../img/Servicios/Image horarios.jpg";
 import { Footer } from "../components/footer.jsx";
 
+
 export function Servicios() {
   return (
     <div>

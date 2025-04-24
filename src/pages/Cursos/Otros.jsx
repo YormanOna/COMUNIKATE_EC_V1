@@ -11,17 +11,17 @@ export function Otros() {
       <section className="otros-container" id="otros">
         {/* Fila central con 3 imágenes (cada una con enlace y overlay centrado) */}
         <div className="otros-row">
-          <a href="/ventas" className="otros-card">
+          <a href="/cursos" className="otros-card">
             <img src={ImgVentas} alt="Ventas" />
             <div className="otros-overlay">Ventas</div>
           </a>
   
-          <a href="/compras-publicas" className="otros-card">
+          <a href="/cursos" className="otros-card">
             <img src={ImgCompras} alt="Compras Públicas" />
             <div className="otros-overlay">Compras Públicas</div>
           </a>
   
-          <a href="/formador-de-formadores" className="otros-card">
+          <a href="/cursos" className="otros-card">
             <img src={ImgFormador} alt="Formador de Formadores" />
             <div className="otros-overlay">Formador de Formadores</div>
           </a>

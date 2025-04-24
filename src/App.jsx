@@ -4,6 +4,7 @@ import {Inscribite} from './pages/Inscribite';
 import {Nosotros} from './pages/Nosotros';
 import {Cursos} from './pages/Cursos';
 import{Servicios} from './pages/Servicios';
+import WhatsAppButton from './components/WhatsAppButton';
 import{OratoriaLocucion} from './pages/Cursos/Periodismo/OratoriaLocución';
 import{PeriodismoDeportivo} from './pages/Cursos/Periodismo/PeriodismoDeportivo';
 import{LocucionRadial} from './pages/Cursos/Periodismo/LocucionRadial';
@@ -20,6 +21,7 @@ import ScrollToTop from './hook/ScrollToTop';
 function App() {
   return (
     <BrowserRouter>
+    <WhatsAppButton />
     <ScrollToTop />
       <Routes>
       <Route path="/" element={<Home />} />
@@ -38,6 +40,8 @@ function App() {
         <Route path="/cursos/audiovisual/creacion-de-podcast" element={<CreacionDePodcast />} />
         <Route path="/cursos/audiovisual/live-streaming" element={<LiveStreaming />} />
         <Route path="/servicios" element={<Servicios />} />
+
+
       </Routes>
     </BrowserRouter>
   )

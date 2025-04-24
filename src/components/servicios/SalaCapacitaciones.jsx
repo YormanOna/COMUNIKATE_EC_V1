@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import '../../styles/servicios/SalaCapacitaciones.css';
 import SalasData from '../../data/SalaCpacitaciones.json';
-import oficinaImg from '../../img/Servicios/SALA CAPACITACIONES.jpg'; // Ajusta la ruta según tu proyecto
+import oficinaImg from '../../img/Servicios/SALA CAPACITACIONES.jpg'; 
+import { Link } from "react-router-dom";
 
 export function SalaCapacitaciones() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -44,12 +45,14 @@ export function SalaCapacitaciones() {
                 {/* Título y botón */}
                 <div className="header-container-oficinaIndividual">
                   <h2 className="plan-title-oficinaIndividual">{plan.title}</h2>
+                  <Link to="/contacto" >
                   <button
                     className="contact-button-oficinaIndividual"
                     style={{ backgroundColor: plan.buttonColor, color: plan.buttonTextColor }}
                   >
                     CONTACTAR
                   </button>
+                  </Link>
                 </div>
 
                 {/* Precio */}

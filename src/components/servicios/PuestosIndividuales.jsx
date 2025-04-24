@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../styles/servicios/OficinasIndividuales.css";
 import planesData from "../../data/PuestosIndividuales.json";
 import PuestoImg from '../../img/Servicios/Puestos Individuales.jpg';
+import { Link } from "react-router-dom";
 
 export function PuestosIndividuales() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -47,6 +48,7 @@ export function PuestosIndividuales() {
               <div className="plan-card-oficinaIndividual">
                 <div className="header-container-oficinaIndividual">
                   <h2 className="plan-title-oficinaIndividual">{plan.title}</h2>
+                  <Link to="/contacto" >
                   <button
                     className="contact-button-oficinaIndividual"
                     style={{
@@ -56,6 +58,7 @@ export function PuestosIndividuales() {
                   >
                     CONTACTAR
                   </button>
+                  </Link>
                 </div>
 
                 <div className="price-container-oficinaIndividual">

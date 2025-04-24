@@ -10,7 +10,7 @@ export function Footer() {
           <img src={Logo} alt="Comunikate Logo" />
         </div>
         <p className="footer-copyright">
-          Todos los derechos reservados por Comunikate Ecuador &reg; {new Date().getFullYear()}.
+          Todos los derechos reservados por Comunikate Academy &reg; {new Date().getFullYear()}.
         </p>
       </div>
     </footer>

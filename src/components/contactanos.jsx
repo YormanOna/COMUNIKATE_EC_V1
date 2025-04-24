@@ -1,5 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 import { faFacebook, faInstagram, faTiktok } from '@fortawesome/free-brands-svg-icons';
 import { faLocationDot, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import '../styles/contact.css'
@@ -42,20 +43,23 @@ export function ContactComponent () {
 
             <div className="social-section">
               <div className="social-icons">
-                <a href="#" className="social-link">
+                <a href="https://www.facebook.com/ComuniKateEc/" className="social-link">
                   <FontAwesomeIcon icon={faFacebook} />
                 </a>
-                <a href="#" className="social-link">
+                <a href="https://www.instagram.com/comunikateec/" className="social-link">
                   <FontAwesomeIcon icon={faInstagram} />
                 </a>
-                <a href="#" className="social-link">
+                <a href="https://www.tiktok.com/search?q=comunikateec&t=1658168849497" className="social-link">
                   <FontAwesomeIcon icon={faTiktok} />
                 </a>
               </div>
               <p className="social-handle">@comunicateec</p>
             </div>
 
-            <button className="consult-button">CONSÚLTANOS YA</button>
+            <Link to="/contacto">
+  <button className="consult-button">CONSÚLTANOS YA</button>
+</Link>
+
           </div>
           <br />
           <div className="map-container">
