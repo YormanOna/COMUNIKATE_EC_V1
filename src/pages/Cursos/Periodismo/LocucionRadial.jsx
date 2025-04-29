@@ -1,6 +1,6 @@
 import React from "react";
 import IMAGENLocucion from '../../../img/Cursos/Periodismo/LOCUCIÓN_RADIAL.webp';
-import {NavigationMenu} from '../../../components/NavBarCursos';
+import {NavigationMenu} from '../../../components/NavBar';
 
 export function LocucionRadial(){
     return (

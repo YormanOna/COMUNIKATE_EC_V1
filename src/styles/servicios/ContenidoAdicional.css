@@ -1,36 +1,80 @@
 .container-tarjetService {
-    text-align: center;
-    padding: 20px;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.title-tarjetService {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.subtitle-tarjetService {
+  font-size: 2rem;
+  color: #FF6600; /* Naranja */
+  margin-bottom: 30px;
+}
+
+.services-tarjetService {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  animation: fadeIn 2s ease-in;
+}
+
+.service-item-tarjetService {
+  background: #fff7f0;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 250px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-item-tarjetService:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-item-tarjetService p {
+  color: black;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.icon-tarjetService {
+  width: 54px;
+  height: 44px;
+  color: #FF6600;
+}
+
+/* Animación general */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .title-tarjetService {
-    font-size: 40px;
-    font-weight: bold;
-    margin-bottom: 20px;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .subtitle-tarjetService {
-    font-size: 30px;
-    color: #FF6600; /* Naranja */
-    margin-bottom: 20px;
-  }
-  
+}
+
+/* Responsive */
+@media (max-width: 768px) {
   .services-tarjetService {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
+    flex-direction: column;
+    align-items: center;
   }
-  
+
   .service-item-tarjetService {
-    text-align: center;
-    color: #FF6600;
+    width: 90%;
+    max-width: 400px;
   }
-  .service-item-tarjetService p{
-    color: black;
-  }
-  
-  .icon-tarjetService{
-    width: 54px;
-    height: 44px;
-  }
-  
+}

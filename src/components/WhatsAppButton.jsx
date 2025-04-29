@@ -11,10 +11,10 @@ const WhatsAppButton = () => {
       initialMessageByServer='¡Hola! ¿En qué podemos ayudarte?'
       initialMessageByClient='Hola quisiera mas información'
       allowClickAway
-      startChatText="Envia el mensaje"
+      startChatText="Escribe aquí tu consulta"
       allowEsc
       notification
-      notificationDelay={60}
+      notificationDelay={0}
       notificationSound
     />
   );

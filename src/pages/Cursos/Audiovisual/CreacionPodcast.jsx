@@ -1,6 +1,6 @@
 import React from "react";
 import IMAGENDeportiva from '../../../img/Cursos/Audiovisual/PODCAST.webp';
-import {NavigationMenu} from '../../../components/NavBarCursos';
+import {NavigationMenu} from '../../../components/NavBar';
 
 export function CreacionDePodcast(){
     return(

@@ -1,78 +1,106 @@
-/* Contenedor global para la sección de cursos */
+/* Contenedor global */
 .cursos-container {
-    background-color: #ffffff; /* Fondo naranja */
+  background: #f9fafb; /* Color de fondo más limpio */
+}
+
+/* Título principal */
+.cursos-header {
+  text-align: center;
+  color: #111827;
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 50px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Grid de tarjetas */
+.cursospage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/* Tarjeta */
+.cursos-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  height: 350px;
+  background-color: #e5e7eb;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transform: translateY(30px);
+  opacity: 0;
+  animation: fadeSlideUp 0.8s forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animación de entrada */
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Título principal elegante centrado */
-  .cursos-header {
-    text-align: center;
-    color: #000000;
-    font-size: 2.5rem;
-    font-family: 'Montserrat', sans-serif;
-    margin-bottom: 40px;
-    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
-  }
-  
-  /* Contenedor principal de las tarjetas en dos columnas y centrado */
+}
+
+/* Hover */
+.cursos-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen */
+.cursos-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* Hover efecto zoom en imagen */
+.cursos-card:hover .cursos-image {
+  transform: scale(1.1);
+}
+
+/* Overlay */
+.cursos-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(17, 24, 39, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover overlay más oscuro */
+.cursos-card:hover .cursos-overlay {
+  background-color: rgba(17, 24, 39, 0.7);
+}
+
+/* Texto */
+.cursos-title {
+  color: #ffffff;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
   .cursospage {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: 1fr;
   }
-  
-  /* Cada tarjeta de curso con tamaño fijo */
-  .cursos-card {
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 8px;
-    height: 300px; /* Altura fija para uniformidad */
-    transition: transform 0.3s ease;
-  }
-  
-  /* Efecto de escala al pasar el ratón */
-  .cursos-card:hover {
-    transform: scale(1.03);
-  }
-  
-  /* La imagen ocupa todo el contenedor, manteniendo la proporción */
-  .cursos-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  
-  /* Overlay siempre visible, centrado sobre la imagen */
-  .cursos-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4); /* Fondo semitransparente */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Título de la tarjeta, centrado y en mayúsculas */
-  .cursos-title {
-    color: #fff;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: 1px;
-    text-align: center;
-    margin: 0;
-  }
-  
-  /* Responsividad: en pantallas menores a 768px se muestra una columna */
-  @media (max-width: 768px) {
-    .cursospage {
-      grid-template-columns: 1fr;
-    }
-  }
-  
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import IMAGENDeportiva from '../../../img/Cursos/Audiovisual/FOTOGRAFIA.webp';
-import {NavigationMenu} from '../../../components/NavBarCursos';
+import {NavigationMenu} from '../../../components/NavBar';
 
 export function Fotografia(){
     return(

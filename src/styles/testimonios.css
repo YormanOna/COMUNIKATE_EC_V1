@@ -1,13 +1,12 @@
-/* Sección principal */
 .section-testimonials {
   background-color: #000;
   padding: 4rem 0;
+  height: 900px;
   position: relative;
   overflow: hidden;
   clip-path: ellipse(81% 63% at 49% 37%);
 }
 
-/* Encabezado */
 .header-testimonials {
   background-color: hsl(24, 100%, 50%);
   padding: 2rem;
@@ -25,7 +24,6 @@
   margin: 0;
 }
 
-/* Contenedor general */
 .container-testimonials {
   max-width: 1200px;
   margin: 0 auto;
@@ -36,17 +34,15 @@
   position: relative;
 }
 
-/* Slider */
 .slider-testimonials {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  height: 100vh;
+  height: 100vh; /* mantiene altura completa */
   width: 100%;
 }
 
-/* Tarjetas de testimonio */
 .card-testimonials {
   position: absolute;
   width: 270px;
@@ -78,12 +74,11 @@
   z-index: 1;
 }
 
-/* Contenedor del video */
 .wrapper-video-testimonials {
   position: relative;
   width: 100%;
   height: 0;
-  padding-bottom: 186.25%; /* Relación de aspecto 16:9 en escritorio */
+  padding-bottom: 186.25%; /* mantiene el formato “largo” */
   overflow: hidden;
 }
 
@@ -96,13 +91,12 @@
   border: none;
 }
 
-/* Información del testimonio */
 .info-testimonials {
   padding: 1.5rem;
   position: relative;
   text-align: center;
   background: white;
-  margin-top: -3rem; /* Sobreposición en escritorio */
+  margin-top: -3rem;
 }
 
 .name-testimonials {
@@ -118,7 +112,6 @@
   font-size: 0.9rem;
 }
 
-/* Botones de navegación */
 .button-nav-testimonials {
   background: rgba(255, 102, 0, 0.9);
   border: none;
@@ -136,6 +129,7 @@
   transform: translateY(-50%);
   z-index: 3;
   transition: all 0.3s ease;
+  pointer-events: auto;
 }
 
 .button-nav-testimonials:hover {
@@ -151,7 +145,6 @@
   right: 0;
 }
 
-/* Dots de navegación */
 .container-dots-testimonials {
   display: flex;
   justify-content: center;
@@ -172,118 +165,99 @@
   background: #ff6600;
 }
 
-/* ============================
-   Media Queries Responsivos
-   ============================ */
-
-/* Tablets grandes y pantallas medianas */
 @media screen and (max-width: 1024px) {
+  .section-testimonials{
+    height: 900px;
+  }
   .container-testimonials {
     padding: 0 2rem;
+    top: -360px;
   }
-  
   .card-testimonials {
     width: 270px;
     height: 550px;
   }
-  
   .wrapper-video-testimonials {
-    height: auto;
-    padding-bottom: 495px; /* Relación 16:9 */
+    padding-bottom: 495px;
   }
-  
   .title-testimonials {
     font-size: 2rem;
   }
-  
-  /* Opcionalmente, se puede ajustar el margin-top si se observa espacio adicional */
   .info-testimonials {
     margin-top: -2.5rem;
   }
 }
 
-/* Tablets y pantallas pequeñas */
 @media screen and (max-width: 768px) {
   .section-testimonials {
     clip-path: ellipse(100% 60% at 50% 40%);
+    height: 800px;
+  }
+  .container-testimonials {
+    top:-200px
   }
   
   .card-testimonials {
     width: 270px;
     height: 500px;
   }
-  
   .wrapper-video-testimonials {
-    height: auto;
-    padding-bottom: 436px; 
+    padding-bottom: 436px;
   }
-  
   .header-testimonials {
     padding: 1.5rem;
   }
-  
   .title-testimonials {
     font-size: 1.8rem;
   }
-  
   .button-nav-testimonials {
     width: 40px;
     height: 40px;
     font-size: 1.5rem;
   }
-  
-  /* En tablets se puede mantener una sobreposición moderada */
   .info-testimonials {
     margin-top: -2rem;
   }
+  .slider-testimonials {
+    height: 100vh;
+  }
 }
 
-/* Móviles grandes */
 @media screen and (max-width: 576px) {
   .section-testimonials {
-    padding: 2rem 0;
+    padding: 3rem 0;
     clip-path: ellipse(120% 60% at 50% 40%);
   }
   
   .container-testimonials {
     padding: 0 1rem;
+    
   }
-  
   .card-testimonials {
     width: 270px;
     height: 450px;
   }
-  
   .wrapper-video-testimonials {
-    height: auto;
     padding-bottom: 390px;
   }
-  
   .title-testimonials {
     font-size: 1.5rem;
   }
-  
   .name-testimonials {
     font-size: 1.1rem;
   }
-  
   .role-testimonials {
     font-size: 0.8rem;
   }
-  
   .info-testimonials {
     padding: 1rem;
-    /* Se reduce la sobreposición para que el video y el texto se alineen mejor dentro de la tarjeta */
     margin-top: -1rem;
   }
-  
   .slider-testimonials {
-    /* Reducimos la altura para que se ajuste bien en pantallas pequeñas */
-    height: 60vh;
+    height: 100vh;
   }
 }
 
-/* Móviles pequeños */
 @media screen and (max-width: 375px) {
   .card-testimonials {
     width: 250px;
@@ -291,26 +265,20 @@
   }
   
   .wrapper-video-testimonials {
-    height: auto;
     padding-bottom: 330px;
   }
-  
   .button-nav-testimonials {
     width: 35px;
     height: 35px;
     font-size: 1.2rem;
   }
-  
   .title-testimonials {
     font-size: 1.3rem;
   }
-  
   .info-testimonials {
-    /* Se reduce aún más la superposición para móviles muy pequeños */
     margin-top: -0.5rem;
   }
-  
   .slider-testimonials {
-    height: 55vh;
+    height: 100vh;
   }
 }

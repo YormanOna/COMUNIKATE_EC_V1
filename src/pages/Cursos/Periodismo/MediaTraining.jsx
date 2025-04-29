@@ -1,6 +1,6 @@
 import React from "react";
 import IMAGENTraining from '../../../img/Cursos/Periodismo/MEDIA_TRAINING.webp';
-import {NavigationMenu} from '../../../components/NavBarCursos';
+import {NavigationMenu} from '../../../components/NavBar';
 
 export function MediaTraining(){
     return (

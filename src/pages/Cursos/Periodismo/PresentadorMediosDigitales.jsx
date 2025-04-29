@@ -1,6 +1,6 @@
 import React from "react";
 import IMAGENTvMedios from '../../../img/Cursos/Periodismo/PRESENTADOR_TV.webp';
-import {NavigationMenu} from '../../../components/NavBarCursos';
+import {NavigationMenu} from '../../../components/NavBar';
 
 export function PresentadorTvMediosDigitales(){
     return (

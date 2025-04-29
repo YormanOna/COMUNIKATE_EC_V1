@@ -40,41 +40,42 @@ export function Cursos() {
         <br/>
         <br/>
         <NavigationMenu />
-      <h1 className="cursos-header">Nuestros cursos</h1>
-      <div className="cursospage">
-        {/* Tarjeta Periodismo */}
-        <div className="cursos-card" onClick={() => handleScroll("periodismo")}>
-          <img src={ImgPeriodismo} alt="Periodismo" className="cursos-image" />
-          <div className="cursos-overlay">
-            <h2 className="cursos-title">Periodismo Cursos</h2>
-          </div>
-        </div>
+        <h1 className="cursos-header">Nuestros cursos</h1>
+<div className="cursospage">
+  {/* Tarjeta Periodismo */}
+  <div className="cursos-card" onClick={() => handleScroll("periodismo")}>
+    <img src={ImgPeriodismo} alt="Periodismo" className="cursos-image" />
+    <div className="cursos-overlay">
+      <h2 className="cursos-title">Periodismo Cursos</h2>
+    </div>
+  </div>
 
-        {/* Tarjeta Audiovisual */}
-        <div className="cursos-card" onClick={() => handleScroll("audiovisual")}>
-          <img src={ImgAudiovisual} alt="Audiovisual" className="cursos-image" />
-          <div className="cursos-overlay">
-            <h2 className="cursos-title">Audiovisual Cursos</h2>
-          </div>
-        </div>
+  {/* Tarjeta Audiovisual */}
+  <div className="cursos-card" onClick={() => handleScroll("audiovisual")}>
+    <img src={ImgAudiovisual} alt="Audiovisual" className="cursos-image" />
+    <div className="cursos-overlay">
+      <h2 className="cursos-title">Audiovisual Cursos</h2>
+    </div>
+  </div>
 
-        {/* Tarjeta Social Media */}
-        <div className="cursos-card" onClick={() => handleScroll("socialMedia")}>
-          <img src={ImgSocial} alt="Social Media" className="cursos-image" />
-          <div className="cursos-overlay">
-            <h2 className="cursos-title">Social Media Cursos</h2>
-          </div>
-        </div>
+  {/* Tarjeta Social Media */}
+  <div className="cursos-card" onClick={() => handleScroll("socialMedia")}>
+    <img src={ImgSocial} alt="Social Media" className="cursos-image" />
+    <div className="cursos-overlay">
+      <h2 className="cursos-title">Social Media Cursos</h2>
+    </div>
+  </div>
 
-        {/* Tarjeta Otros */}
-        <div className="cursos-card" onClick={() => handleScroll("otros")}>
-          <img src={ImgOtros} alt="Otros" className="cursos-image" />
-          <div className="cursos-overlay">
-            <h2 className="cursos-title">Otros Cursos</h2>
-          </div>
-        </div>
-      </div>
-      <br/>
+  {/* Tarjeta Otros */}
+  <div className="cursos-card" onClick={() => handleScroll("otros")}>
+    <img src={ImgOtros} alt="Otros" className="cursos-image" />
+    <div className="cursos-overlay">
+      <h2 className="cursos-title">Otros Cursos</h2>
+    </div>
+  </div>
+</div>
+
+<br/>
 
         {/* Secciones de cursos */}
         <Periodismo />

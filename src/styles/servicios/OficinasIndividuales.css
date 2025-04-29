@@ -1,196 +1,324 @@
 .office-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    font-size: 5em;
-    color: #000;
-    text-align: center;
-  }
-  
-  .slider-container-oficinaIndividual {
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-  }
-  
-  .slides-container-oficinaIndividual {
-    position: relative;
-    height: 500px;
-    width: 100%;
-  }
-  
-  .slide-oficinaIndividual {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .slide-oficinaIndividual.active-oficinaIndividual {
-    opacity: 1;
-  }
-  
-  .plan-card-oficinaIndividual {
-    width: 100%;
-    height: 100%;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  .plan-title-oficinaIndividual {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .price-container-oficinaIndividual {
-    margin-bottom: 30px;
-    text-align: center;
-  }
-  
-  .price-amount-oficinaIndividual {
-    font-size: 3rem;
-    font-weight: bold;
-  }
-  
-  .price-period-oficinaIndividual {
-    font-size: 1.2rem;
-    margin-left: 5px;
-  }
-  
-  .price-tax-oficinaIndividual {
-    display: block;
-    font-size: 1rem;
-    margin-top: 5px;
-  }
-  
-  .features-container-oficinaIndividual {
-    margin: 0px auto;
-    max-width: 600px;
-    width: 100%;
-  }
-  
-  .feature-oficinaIndividual {
-    margin: 20px 0;
-    font-size: 1.1rem;
-    line-height: 1.4;
-  }
-  
-  .divider-line-oficinaIndividual {
-    height: 1px;
-    margin-top: 8px;
-    width: 80%;
-    margin: 8px auto;
-  }
-  
-  .max-persons-oficinaIndividual {
-    font-size: 0.9rem;
-    margin-left: 5px;
-  }
-  
-  .contact-button-oficinaIndividual {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 12px 30px;
-    border-radius: 25px;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-weight: bold;
-  }
-  
-  .contact-button-oficinaIndividual:hover {
-    opacity: 0.8;
-  }
-  
-  .dots-container-oficinaIndividual {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: 2;
-  }
-  
-  .dot-oficinaIndividual {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .dot-oficinaIndividual.active-oficinaIndividual {
-    background: white;
-  }
-  
-  .background-image {
-    width: 100%;
-    height: 500px; /* Ajusta la altura sin afectar el ancho */
-    object-fit: cover;
-    display: block;
-    filter: brightness(80%); /* Oscurece la imagen ligeramente */
-    position: relative; /* Asegura que cualquier overlay funcione correctamente */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 5em;
+  color: #000;
+  text-align: center;
 }
 
+.slider-container-oficinaIndividual {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.slides-container-oficinaIndividual {
+  position: relative;
+  height: 500px;
+  width: 100%;
+}
+
+.slide-oficinaIndividual {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide-oficinaIndividual.active-oficinaIndividual {
+  opacity: 1;
+}
+
+.plan-card-oficinaIndividual {
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.plan-title-oficinaIndividual {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.price-container-oficinaIndividual {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.price-amount-oficinaIndividual {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.price-period-oficinaIndividual {
+  font-size: 1.2rem;
+  margin-left: 5px;
+}
+
+.price-tax-oficinaIndividual {
+  display: block;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+.features-container-oficinaIndividual {
+  margin: 0 auto;
+  max-width: 600px;
+  width: 100%;
+}
+
+.feature-oficinaIndividual {
+  margin: 20px 0;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.divider-line-oficinaIndividual {
+  height: 1px;
+  width: 80%;
+  margin: 8px auto;
+}
+
+.max-persons-oficinaIndividual {
+  font-size: 0.9rem;
+  margin-left: 5px;
+}
+
+.contact-button-oficinaIndividual {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 12px 30px;
+  border-radius: 25px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.contact-button-oficinaIndividual:hover {
+  opacity: 0.8;
+}
+
+.dots-container-oficinaIndividual {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+
+.dot-oficinaIndividual {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot-oficinaIndividual.active-oficinaIndividual {
+  background: white;
+}
+
+/* Imagen de fondo principal */
+.background-image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  filter: brightness(80%);
+  position: relative;
+  display: block;
+}
+
+/* Texto responsivo sobre la imagen */
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 400px;
+  z-index: 2;
+}
+
+.overlay-text p {
+  margin: 0;
+  /* clamp(min, preferred, max) para escalar entre dispositivos */
+  font-size: clamp(1.5rem, 8vw, 3.5rem);
+  line-height: 1.1;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* ----- RESPONSIVE ----- */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .slides-container-oficinaIndividual {
+    height: 600px;
+  }
+  .background-image {
+    height: 400px;
+  }
+}
+
+/* Móvil */
+@media (max-width: 480px) {
+  .slides-container-oficinaIndividual {
+    height: 400px;
+  }
+  .background-image {
+    height: 300px;
+  }
   .overlay-text {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -20%);
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    font-size: 1.5em;
-    color: white;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    width: 95%;
+    max-width: none;
   }
-  .backgroundNuevo-image{
-    width: 100%;
-    height: 500px; /* Ajusta la altura sin afectar el ancho */
-    object-fit: cover;
-    display: block;
-    filter: brightness(80%); /* Oscurece la imagen ligeramente */
-    position: relative; /* Asegura que cualquier overlay funcione correctamente */
+}
+
+
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Toma el alto de la pantalla */
+  overflow: hidden;
+}
+
+.backgroundNuevo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajusta la imagen cubriendo todo el espacio sin deformarla */
+  filter: brightness(0.7); /* Oscurecemos un poco para que el texto resalte */
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 4rem;
+  font-weight: bold;
+  animation: fadeInUp 1.5s ease-out;
+}
+
+.hero-text p {
+  margin: 0.5rem 0;
+}
+
+/* Animación */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -40%);
   }
-  .overlay-textNuevo{
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -110%);
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    font-size: 3.5em;
-    color: white;
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-text {
+    font-size: 1.5rem;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text {
+    font-size: 1.2rem;
+  }
+}
+
+
+.horario-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; /* Para hacerlo responsive */
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.horario-image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.horario-text {
+  background-color: #ffa726; /* Naranja suave */
+  padding: 2rem;
+  border-radius: 1rem;
+  color: #333;
+  max-width: 500px;
+  flex: 1;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  animation: slideInRight 1.5s ease-out;
+}
+
+.horario-text h2 {
+  color: red; /* Texto principal rojo */
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.horario-text p {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+/* Animación */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .horario-container {
+    flex-direction: column;
     text-align: center;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
   }
-  
-  @media (max-width: 768px) {
-    .plan-title-oficinaIndividual {
-      font-size: 2rem;
-    }
-    
-    .price-amount-oficinaIndividual {
-      font-size: 2.5rem;
-    }
-    
-    .feature-oficinaIndividual {
-      font-size: 1rem;
-    }
-    
-    .slides-container-oficinaIndividual {
-      height: 600px;
-    }
+
+  .horario-image img {
+    max-width: 90%;
   }
-  
+
+  .horario-text {
+    width: 100%;
+  }
+}

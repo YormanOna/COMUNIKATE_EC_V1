@@ -20,30 +20,27 @@ export function Servicios() {
       <OficinasIndividuales />
       <PuestosIndividuales />
       <SalaCapacitaciones />
-      <section>
-        <img
-          src={ImagenNueva}
-          className="backgroundNuevo-image"
-        />
-        <div className="overlay-textNuevo">
-          <p>Ya no sigas trabajando</p>
-          <p>solo en casa</p>
-        </div>
-      </section>
-      <ContenidoAdicional />
-      <div className="schedule-section">
-      {/* Columna con la imagen */}
-      <div className="schedule-image">
-        <img src={horarioImg} alt="Horario de uso" />
-      </div>
+      <section className="hero-section">
+  <img src={ImagenNueva} className="backgroundNuevo-image" />
+  <div className="hero-text">
+    <p>Ya no sigas trabajando</p>
+    <p>solo en casa</p>
+  </div>
+</section>
 
-      {/* Columna con el texto sobre fondo naranja */}
-      <div className="schedule-info">
-        <h2>Horario de uso de nuestros servicios:</h2>
-        <p>Lunes a Viernes de 08:00 a 18:00</p>
-        <p>(Sábados y domingos a convenir)</p>
-      </div>
-    </div>
+      <ContenidoAdicional />
+      <div className="horario-container">
+  <div className="horario-image">
+    <img src={horarioImg} alt="Horario de uso" />
+  </div>
+
+  <div className="horario-text">
+    <h2>Horario de uso de nuestros servicios:</h2>
+    <p>Lunes a Viernes de 08:00 a 18:00</p>
+    <p>(Sábados y domingos a convenir)</p>
+  </div>
+</div>
+
     <Footer />
     </div>
   );

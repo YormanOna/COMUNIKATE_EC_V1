@@ -6,16 +6,18 @@
     background-repeat: no-repeat;
     background-position: center;
     font-family: Arial, sans-serif;
+    padding: 40px 20px;
 }
 
 .titulo-instructores {
     background-color: #ffffff;
-    height: 120px;
-    font-size: 3.5rem;
+    transform: translateY(-40px);
+    height: 100px;
+    font-size: 3rem;
     font-weight: bold;
     color: #FF6B00;
     border-radius: 0 0 50% 50% / 0 0 100% 100%;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,23 +30,26 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
+    justify-items: center; /* Esto centra las tarjetas */
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Estilos para la tarjeta preview */
+/* Tarjeta Preview */
 .card-preview {
     aspect-ratio: 3/4;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 20px;
     padding: 15px;
     transition: transform 0.3s ease;
-    height: 400px; /* Altura fija para todas las tarjetas */
+    height: 400px;
+    width: 100%;
+    max-width: 300px; /* Tamaño máximo en todas las vistas */
 }
 
 .card-preview:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
 }
 
 .imagen-container-preview {
@@ -58,7 +63,7 @@
 
 .imagen-wrapper {
     width: 100%;
-    height: calc(100% - 60px); /* Altura ajustada para dejar espacio al nombre */
+    height: calc(100% - 60px);
     overflow: hidden;
     position: relative;
 }
@@ -92,7 +97,7 @@
     opacity: 1;
 }
 
-/* Estilos para el modal */
+/* Modal */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -121,6 +126,8 @@
 .modal-left-column {
     display: flex;
     gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .imagen-container-instructores {
@@ -163,7 +170,7 @@
     border-radius: 0 0 15px 15px;
 }
 
-/* Estilos para el contenido */
+/* Info del instructor */
 .info-container-instructores {
     flex-grow: 1;
     color: white;
@@ -176,7 +183,7 @@
 }
 
 .descripcion-instructores {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 20px;
 }
@@ -199,7 +206,7 @@
 }
 
 .item-instructores {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     line-height: 1.5;
     margin-bottom: 8px;
     padding-left: 15px;
@@ -213,7 +220,7 @@
     left: 0;
 }
 
-/* Media queries */
+/* Responsive ajustes */
 @media (max-width: 1024px) {
     .info-container-instructores.two-columns {
         grid-template-columns: 1fr;
@@ -221,14 +228,20 @@
 }
 
 @media (max-width: 768px) {
+    .titulo-instructores {
+        font-size: 2.5rem;
+        height: 80px;
+    }
+
     .modal-left-column {
         flex-direction: column;
+        align-items: center;
     }
 
     .imagen-container-instructores {
         width: 100%;
         max-width: 280px;
-        margin: 0 auto;
+        margin: 0 auto 20px;
     }
 
     .modal-content {
@@ -238,5 +251,21 @@
     .close-btn {
         top: 10px;
         right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo-instructores {
+        font-size: 2rem;
+        height: 90px;
+    }
+    
+    .card-preview {
+        height: 350px;
+    }
+    
+    .ver-mas-btn {
+        padding: 8px 30px;
+        font-size: 0.75rem;
     }
 }

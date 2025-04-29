@@ -1,6 +1,6 @@
 import React from "react";
 import IMAGENDeportiva from '../../../img/Cursos/Periodismo/PERIODISMO_DEPORTIVO.webp';
-import {NavigationMenu} from '../../../components/NavBarCursos';
+import {NavigationMenu} from '../../../components/NavBar';
 
 export function PeriodismoDeportivo(){
     return (

@@ -63,20 +63,30 @@ export function PageContac() {
   return (
     <div>
       <NavigationMenu />
-      <br /><br /><br /><br /><br />
+      <br /><br /><br /><br />
       <div className="pageContac">
         <div className="pageContac-left">
           <h1 className="pageContac-title">CONTACTOS</h1>
           <div className="pageContac-info">
-            <p>Matiz Quito: Av. Luis Saá y Sadria, Edificio Daniel Cadena - 9no piso - Oficina 901</p>
-            <p>(Sector parque La Alameda)</p><br />
-            <p>comunikate.ec@gmail.com</p>
-            <p>+593 (99) 522 2922</p>
+            <p className="info-address">Matiz Quito: Av. Luis Saá y Sadria, Edificio Daniel Cadena - 9no piso - Oficina 901</p>
+            <p className="info-neighborhood">(Sector parque La Alameda)</p>
+            <p className="info-email">Email: comunikate.ec@gmail.com</p>
+            <p className="info-phone">Tel: +593 (99) 522 2922</p>
+          </div>
+
+          <div className="pageContac-branches">
+            <h2 className="branches-title">Sucursales</h2>
+            <ul>
+              <li>Guayaquil</li>
+              <li>Cuenca</li>
+              <li>Santo Domingo de los Tsáchilas</li>
+            </ul>
           </div>
           <div className="pageContac-social">
-            <FaFacebookF className="social-icon" />
-            <FaInstagram className="social-icon" />
-            <FaTiktok className="social-icon" />
+            <a href="https://www.facebook.com/ComuniKateEc/"><FaFacebookF className="social-icon"  /></a>
+            <a href="https://www.instagram.com/comunikateec/"><FaInstagram className="social-icon"/></a>
+            <a href="https://www.tiktok.com/search?q=comunikateec&t=1658168849497"><FaTiktok className="social-icon" /></a>
+        
           </div>
           <p className="pageContac-handle">@comunikateec</p>
         </div>

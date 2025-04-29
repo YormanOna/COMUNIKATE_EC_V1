@@ -2,112 +2,125 @@
   Contenedor principal
 ************************************************************/
 .socialmedia-container {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: #fff;
-  }
-  
-  /***********************************************************
-    Contenedor de la imagen de fondo y las barras
-  ************************************************************/
-  .socialmedia-bg {
-    position: relative;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-  }
-  
-  /* Imagen de fondo que ocupa todo el ancho */
-  .socialmedia-image {
-    width: 90%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-  
-  /* Efecto hover: zoom en la imagen */
-  .socialmedia-bg:hover .socialmedia-image {
-    transform: scale(1.03); /* Zoom suave */
-  }
-  
-  /***********************************************************
-    Franja naranja con el título (SOCIAL MEDIA)
-  ************************************************************/
-  .socialmedia-orange-bar {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #ff6600;
-    padding: 20px 40px;
-    text-align: center;
-  }
-  
-  .socialmedia-orange-bar h1 {
-    margin: 0;
-    color: #fff;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+/***********************************************************
+  Contenedor de la imagen de fondo y las barras
+************************************************************/
+.socialmedia-bg {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Mantiene proporción 16:9 */
+  overflow: hidden;
+  animation: bgFadeIn 1s ease-out both;
+}
+
+.socialmedia-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.socialmedia-bg:hover .socialmedia-image {
+  transform: scale(1.05);
+}
+
+/***********************************************************
+  Overlay con título y enlace
+************************************************************/
+.socialmedia-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateY(20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  animation: overlaySlideUp 1s ease-out both;
+}
+
+.socialmedia-overlay h1 {
+  margin: 0;
+  background-color: rgba(255, 102, 0, 0.9);
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  font-family: "Arial Black", sans-serif;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  animation: titlePulse 2s ease-in-out infinite;
+}
+
+.socialmedia-link {
+  background-color: #fff;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 8px 16px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.socialmedia-link:hover {
+  background-color: #f7f7f7;
+  transform: translateY(-2px);
+}
+
+/***********************************************************
+  Animaciones
+************************************************************/
+@keyframes bgFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes overlaySlideUp {
+  from { opacity: 0; transform: translate(-50%, -50%) translateY(40px); }
+  to { opacity: 1; transform: translate(-50%, -50%) translateY(0); }
+}
+
+@keyframes titlePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/***********************************************************
+  Responsividad
+************************************************************/
+@media (max-width: 992px) {
+  .socialmedia-overlay h1 {
     font-size: 2rem;
-    text-transform: uppercase;
-    font-family: "Arial Black", sans-serif;
-  }
-  
-  /***********************************************************
-    Franja blanca con el subtítulo (Marketing Digital)
-  ************************************************************/
-  .socialmedia-white-bar {
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
     padding: 10px 20px;
-    text-align: center;
-    border-radius: 4px;
-    text-decoration: none;
-    cursor: pointer; /* Cambia el cursor para indicar interactividad */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Suaviza el hover */
   }
-  
-  .socialmedia-white-bar p {
-    margin: 0;
-    color: #000;
-    font-weight: bold;
+  .socialmedia-link {
     font-size: 1rem;
-    font-family: sans-serif;
-    transition: color 0.3s ease; /* Suaviza el cambio de color en hover */
+    padding: 6px 12px;
   }
-  
-  /* Efecto hover en la franja blanca */
-  .socialmedia-white-bar:hover {
-    background-color: #f0f0f0; /* Color de fondo más claro en hover */
-    
+}
+
+@media (max-width: 576px) {
+  .socialmedia-overlay {
+    gap: 8px;
   }
-  
-  .socialmedia-white-bar:hover p {
-    color: #ff6600; /* Cambia el texto a naranja en hover */
+  .socialmedia-overlay h1 {
+    font-size: 1.5rem;
+    padding: 8px 16px;
   }
-  
-  /***********************************************************
-    Responsividad
-  ************************************************************/
-  @media (max-width: 768px) {
-    .socialmedia-orange-bar h1 {
-      font-size: 1.5rem;
-    }
-  
-    .socialmedia-white-bar p {
-      font-size: 0.9rem;
-    }
-  
-    .socialmedia-orange-bar {
-      top: 35%;
-    }
-  
-    .socialmedia-white-bar {
-      top: 50%;
-    }
+  .socialmedia-link {
+    font-size: 0.9rem;
+    padding: 6px 10px;
   }
-  
+}

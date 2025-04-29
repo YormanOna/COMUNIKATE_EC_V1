@@ -3,7 +3,7 @@ import INICIO_1 from '../../img/HomeSlider/INICIO_1.webp';
 import useTypewriter from '../../hook/useTypewriter';
 
 export function QuienesSomos() {
-  const title = 'Comuníkate ofrece cursos directamente vinculados con el área de Comunicación Social. Su enfoque es reforzar a profesionales a nivel nacional con el fin de ayudar a los mismos tener mayor competencia dentro del mercado laboral y los medios de comunicación ecuatorianos.';
+  const title = 'Comuníkate ofrece cursos en Comunicación Social para fortalecer las competencias laborales de profesionales en medios ecuatorianos.';
   const typedTitle = useTypewriter(title, 100);
 
   return (

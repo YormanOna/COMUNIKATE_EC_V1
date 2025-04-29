@@ -24,7 +24,7 @@ export function NavigationMenu() {
   };
 
   return (
-    <nav className={`nav-container-menu ${isScrolled ? "scrolled-menu" : ""}`}>
+    <nav className={`nav-container-menu ${isScrolled ? "scrolled-menu" : "initial-menu"}`}>
       {/* Ícono del menú móvil: cambia entre hamburguesa y cruz */}
       <div className="mobile-menu-icon" onClick={toggleMobileMenu}>
         {isMobileMenuOpen ? (

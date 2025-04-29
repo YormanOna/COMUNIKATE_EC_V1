@@ -1,6 +1,6 @@
 import React from "react";
 import IMAGENDeportiva from '../../../img/Cursos/Periodismo/MARKETING_DIGITAL.webp';
-import {NavigationMenu} from '../../../components/NavBarCursos';
+import {NavigationMenu} from '../../../components/NavBar';
 
 export function MarketingDigital(){
     return(

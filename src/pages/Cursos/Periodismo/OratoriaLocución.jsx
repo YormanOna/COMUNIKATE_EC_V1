@@ -1,7 +1,7 @@
 import React from "react";
 import '../../../styles/Cursos/Periodismo/OratoriaLocucion.css';
 import IMAGENOratoria from '../../../img/Cursos/Periodismo/Oratoria_Locución_Profesional.webp';
-import {NavigationMenu} from '../../../components/NavBarCursos';
+import {NavigationMenu} from '../../../components/NavBar';
 
 export function OratoriaLocucion() {
     return (
