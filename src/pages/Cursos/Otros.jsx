@@ -7,30 +7,74 @@ import ImgCompras from "../../img/Cursos/Otros/Imagenes_Otros/OTROS_DOS.png";
 import ImgFormador from "../../img/Cursos/Otros/Imagenes_Otros/OTROS_TRES.png";
 
 export function Otros() {
-    return (
-      <section className="otros-container" id="otros">
-        {/* Fila central con 3 imágenes (cada una con enlace y overlay centrado) */}
-        <div className="otros-row">
-          <a href="/cursos" className="otros-card">
-            <img src={ImgVentas} alt="Ventas" />
-            <div className="otros-overlay">Ventas</div>
-          </a>
-  
-          <a href="/cursos" className="otros-card">
-            <img src={ImgCompras} alt="Compras Públicas" />
-            <div className="otros-overlay">Compras Públicas</div>
-          </a>
-  
-          <a href="/cursos" className="otros-card">
-            <img src={ImgFormador} alt="Formador de Formadores" />
-            <div className="otros-overlay">Formador de Formadores</div>
-          </a>
+  const cursos = [
+    { 
+      href: "/cursos", 
+      img: ImgVentas, 
+      title: "Ventas Profesionales",
+      duration: "30 horas",
+      level: "Básico - Intermedio"
+    },
+    { 
+      href: "/cursos", 
+      img: ImgCompras, 
+      title: "Compras Públicas",
+      duration: "35 horas",
+      level: "Intermedio"
+    },
+    { 
+      href: "/cursos", 
+      img: ImgFormador, 
+      title: "Formador de Formadores",
+      duration: "40 horas",
+      level: "Avanzado"
+    }
+  ];
+
+  return (
+    <section className="otros-container" id="otros">
+      {/* Título de sección */}
+      <div className="otros-header">
+        <div className="otros-title-wrapper">
+          <i className="fas fa-graduation-cap"></i>
+          <h1>OTROS CURSOS</h1>
+          <i className="fas fa-graduation-cap"></i>
         </div>
-  
-        {/* Sección inferior con el título "OTROS" */}
-        <div className="otros-middle">
-          <h1>OTROS</h1>
-        </div>
-      </section>
-    );
-  }
+        <p className="otros-description">Amplía tus habilidades con cursos especializados de desarrollo profesional</p>
+      </div>
+
+      {/* Grid de cursos */}
+      <div className="otros-grid">
+        {cursos.map((curso, index) => (
+          <a 
+            key={index}
+            href={curso.href} 
+            className="otros-card"
+            style={{ animationDelay: `${index * 0.1}s` }}
+          >
+            <div className="otros-image-wrapper">
+              <img src={curso.img} alt={curso.title} />
+              <div className="otros-badge">
+                <i className="fas fa-certificate"></i> Certificado
+              </div>
+            </div>
+            <div className="otros-overlay">
+              <h3 className="otros-course-title">{curso.title}</h3>
+              <div className="otros-info">
+                <span className="otros-info-item">
+                  <i className="far fa-clock"></i> {curso.duration}
+                </span>
+                <span className="otros-info-item">
+                  <i className="fas fa-signal"></i> {curso.level}
+                </span>
+              </div>
+              <div className="otros-cta">
+                Ver más <i className="fas fa-arrow-right"></i>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}

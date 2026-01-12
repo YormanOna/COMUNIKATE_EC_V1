@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/PageContac.css"; 
 import { NavigationMenu } from "../components/NavBar";
 import { Footer } from "../components/footer"; 
@@ -7,6 +7,10 @@ import emailjs from "emailjs-com";
 import swal from 'sweetalert';
 
 export function PageContac() {
+  useEffect(() => {
+    document.title = "Contáctanos | Comunikate Ecuador";
+  }, []);
+  
   const [formData, setFormData] = useState({
     nombre: "",
     email: "",

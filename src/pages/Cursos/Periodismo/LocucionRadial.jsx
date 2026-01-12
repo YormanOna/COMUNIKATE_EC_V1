@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import IMAGENLocucion from '../../../img/Cursos/Periodismo/LOCUCIÓN_RADIAL.webp';
 import {NavigationMenu} from '../../../components/NavBar';
 
 export function LocucionRadial(){
+    useEffect(() => {
+        document.title = "Curso de Locución Radial | Comunikate Ecuador";
+    }, []);
+    
     return (
         <div>
             <NavigationMenu/>

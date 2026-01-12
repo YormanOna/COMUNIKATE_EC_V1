@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import '../../../styles/Cursos/Periodismo/OratoriaLocucion.css';
 import IMAGENOratoria from '../../../img/Cursos/Periodismo/Oratoria_Locución_Profesional.webp';
 import {NavigationMenu} from '../../../components/NavBar';
 
 export function OratoriaLocucion() {
+    useEffect(() => {
+        document.title = "Curso de Oratoria y Locución | Comunikate Ecuador";
+    }, []);
+    
     return (
-        <div>
+        <div style={{overflowX: 'hidden', width: '100%', maxWidth: '100vw'}}>
             <NavigationMenu/>
             <br />
             <br />

@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import IMAGENDeportiva from '../../../img/Cursos/Audiovisual/PODCAST.webp';
 import {NavigationMenu} from '../../../components/NavBar';
 
 export function CreacionDePodcast(){
+    useEffect(() => {
+        document.title = "Curso de Creación de Podcast | Comunikate Ecuador";
+    }, []);
+    
     return(
         <div>
             <NavigationMenu/>

@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import IMAGENDeportiva from '../../../img/Cursos/Periodismo/PERIODISMO_DEPORTIVO.webp';
 import {NavigationMenu} from '../../../components/NavBar';
 
 export function PeriodismoDeportivo(){
+    useEffect(() => {
+        document.title = "Curso de Periodismo Deportivo | Comunikate Ecuador";
+    }, []);
+    
     return (
         <div>
             <NavigationMenu/>

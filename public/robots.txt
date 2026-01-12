@@ -1,0 +1,18 @@
+# robots.txt para Comunikate Ecuador
+User-agent: *
+Allow: /
+
+# Permitir acceso a todas las páginas
+Allow: /cursos
+Allow: /nosotros
+Allow: /servicios
+Allow: /contacto
+Allow: /inscripciones
+
+# Bloquear archivos innecesarios
+Disallow: /src/
+Disallow: *.json$
+Disallow: *.map$
+
+# Sitemap
+Sitemap: https://comunikate.ec/sitemap.xml

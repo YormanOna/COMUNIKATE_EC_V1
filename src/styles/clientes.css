@@ -23,9 +23,7 @@
 }
 
 .client-card {
-  text-decoration: none;
   display: block;
-  transition: transform 0.3s ease;
   animation: fadeIn 0.5s ease-out forwards;
 }
 

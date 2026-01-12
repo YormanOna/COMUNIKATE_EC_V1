@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import IMAGENDeportiva from '../../../img/Cursos/Audiovisual/LIVE.webp';
 import {NavigationMenu} from '../../../components/NavBar';
 
 export function LiveStreaming(){
+    useEffect(() => {
+        document.title = "Curso de Live Streaming | Comunikate Ecuador";
+    }, []);
+    
     return(
         <div>
             <NavigationMenu/>

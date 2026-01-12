@@ -149,7 +149,8 @@ const YouTubeVideo = React.forwardRef(({ videoUrl, onReady }, ref) => {
       origin: window.location.origin,
       enablejsapi: 1,
       widget_referrer: window.location.href,
-      playsinline: 1
+      playsinline: 1,
+      preload: 'metadata'
     }
   };
 

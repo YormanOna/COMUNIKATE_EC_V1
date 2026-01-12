@@ -1,54 +1,126 @@
-/* Periodismo.css - Estilos con animaciones adicionales */
+/* Periodismo.css - Estilos modernos mejorados */
 
 /***********************************************************
   Contenedor principal
 ************************************************************/
 .periodismo-container {
   width: 100%;
-  background-color: #ff5e00; /* Fondo naranja */
-  padding: 20px;
+  background: linear-gradient(135deg, #ff5e00 0%, #ff8533 100%);
+  padding: 60px 20px;
+  position: relative;
 }
 
 /***********************************************************
-Filas de tarjetas
+Header de la sección
 ************************************************************/
-.periodismo-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
-  margin: 0;
+.periodismo-header {
+  text-align: center;
+  margin-bottom: 50px;
+  animation: fadeInDown 0.8s ease-out;
+}
 
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.periodismo-title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.periodismo-title-wrapper i {
+  color: white;
+  font-size: 2rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.periodismo-header h1 {
+  color: white;
+  font-size: 3rem;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+}
+
+.periodismo-description {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  font-weight: 400;
 }
 
 /***********************************************************
-Tarjetas
+Grid de cursos
+************************************************************/
+.periodismo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/***********************************************************
+Tarjetas de cursos
 ************************************************************/
 .periodismo-card {
   position: relative;
   display: block;
   text-decoration: none;
   overflow: hidden;
-  border-radius: 4px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  transform: scale(1);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  animation: cardFadeIn 0.6s ease-out both;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transform: translateY(20px);
+  opacity: 0;
+  animation: cardFadeIn 0.6s ease-out forwards;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: white;
+  height: 400px;
 }
 
 @keyframes cardFadeIn {
-  0% { opacity: 0; transform: translateY(20px) scale(0.98); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.periodismo-row .periodismo-card:nth-child(1) { animation-delay: 0.1s; }
-.periodismo-row .periodismo-card:nth-child(2) { animation-delay: 0.2s; }
-.periodismo-row .periodismo-card:nth-child(3) { animation-delay: 0.3s; }
-.periodismo-row + .periodismo-row .periodismo-card:nth-child(1) { animation-delay: 0.4s; }
-.periodismo-row + .periodismo-row .periodismo-card:nth-child(2) { animation-delay: 0.5s; }
-.periodismo-row + .periodismo-row .periodismo-card:nth-child(3) { animation-delay: 0.6s; }
-
 .periodismo-card:hover {
-  transform: scale(1.05) rotate(-1deg);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+/***********************************************************
+Imagen
+************************************************************/
+.periodismo-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
 }
 
 .periodismo-card img {
@@ -60,70 +132,203 @@ Tarjetas
 }
 
 .periodismo-card:hover img {
-  transform: scale(1.1);
+  transform: scale(1.15) rotate(2deg);
 }
 
 /***********************************************************
-Overlay con el texto siempre visible y con animación
+Badge de certificado
+************************************************************/
+.periodismo-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: linear-gradient(135deg, #FF6600, #ff8533);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 10;
+  animation: slideInRight 0.8s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/***********************************************************
+Overlay con información
 ************************************************************/
 .periodismo-overlay {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  background-color: #ff6600;
-  color: #fff;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1rem;
-  padding: 10px 20px;
-  border-radius: 4px;
-  opacity: 1;
-  animation: overlayFadeIn 1s ease-out both;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 100%);
+  padding: 25px;
+  transform: translateY(0);
+  transition: all 0.4s ease;
 }
 
-@keyframes overlayFadeIn {
-  0% { opacity: 0; transform: translate(-50%, -60%) scale(0.9); }
-  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.periodismo-card:hover .periodismo-overlay {
+  background: linear-gradient(to top, rgba(255,102,0,0.95) 0%, rgba(255,102,0,0.85) 100%);
+}
+
+.periodismo-course-title {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /***********************************************************
-Sección central con el título "PERIODISMO"
+Información del curso
 ************************************************************/
-.periodismo-middle {
-  background-color: #000;
+.periodismo-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.periodismo-info-item {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.periodismo-info-item i {
+  width: 18px;
   text-align: center;
-  padding: 20px;
-  margin: 0;
-  animation: titleFadeIn 0.8s ease-out both;
 }
 
-@keyframes titleFadeIn {
-  0% { opacity: 0; transform: translateY(-10px); }
-  100% { opacity: 1; transform: translateY(0); }
+/***********************************************************
+Call to Action
+************************************************************/
+.periodismo-cta {
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  transition: all 0.3s ease;
 }
 
-.periodismo-middle h1 {
-  color: #ff6600;
-  font-size: 2rem;
-  margin: 0;
-  font-family: "Arial Black", sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+.periodismo-card:hover .periodismo-cta {
+  background: rgba(0, 0, 0, 0.3);
+  gap: 12px;
 }
 
 /***********************************************************
 Responsividad
 ************************************************************/
+@media (max-width: 1200px) {
+  .periodismo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
 @media (max-width: 992px) {
-  .periodismo-row {
-      grid-template-columns: 1fr 1fr;
+  .periodismo-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .periodismo-description {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .periodismo-container {
+    padding: 40px 15px;
+  }
+
+  .periodismo-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .periodismo-header h1 {
+    font-size: 2rem;
+  }
+
+  .periodismo-title-wrapper i {
+    font-size: 1.5rem;
+  }
+
+  .periodismo-description {
+    font-size: 1rem;
+  }
+
+  .periodismo-card {
+    height: 380px;
+  }
+
+  .periodismo-image-wrapper {
+    height: 230px;
   }
 }
 
 @media (max-width: 576px) {
-  .periodismo-row {
-      grid-template-columns: 1fr;
+  .periodismo-container {
+    padding: 30px 10px;
+  }
+
+  .periodismo-header {
+    margin-bottom: 30px;
+  }
+
+  .periodismo-header h1 {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+
+  .periodismo-title-wrapper {
+    gap: 15px;
+  }
+
+  .periodismo-card {
+    height: 350px;
+  }
+
+  .periodismo-image-wrapper {
+    height: 200px;
+  }
+
+  .periodismo-course-title {
+    font-size: 1.1rem;
+  }
+
+  .periodismo-overlay {
+    padding: 20px;
+  }
+
+  .periodismo-badge {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    top: 10px;
+    right: 10px;
   }
 }

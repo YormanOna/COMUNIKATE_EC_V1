@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import '../../styles/servicios/PlanesModernos.css';
 import '../../styles/servicios/SalaCapacitaciones.css';
 import SalasData from '../../data/SalaCpacitaciones.json';
 import oficinaImg from '../../img/Servicios/SALA CAPACITACIONES.jpg'; 
 import { Link } from "react-router-dom";
+import { Wifi, Volume2, Tv, PenTool, Armchair, Star, Award } from "lucide-react";
 
 export function SalaCapacitaciones() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -33,7 +35,23 @@ export function SalaCapacitaciones() {
       {/* Slider de planes */}
       <div className="slider-container-oficinaIndividual">
         <div className="slides-container-oficinaIndividual">
-          {plans.map((plan, index) => (
+          {plans.map((plan, index) => {
+            const badges = {
+              "PARA 10 PERSONAS": { icon: Star, label: "Ideal para Equipos" },
+              "PARA 20 PERSONAS": { icon: Award, label: "Más Popular", highlight: true }
+            };
+            const badge = badges[plan.title];
+            
+            const iconMap = {
+              "Wifi de alta velocidad": Wifi,
+              "Sonido": Volume2,
+              "Pantalla de TV": Tv,
+              "Pizarra": PenTool,
+              "Mesas y sillas": Armchair,
+              "Sillas": Armchair
+            };
+            
+            return (
             <div
               key={index}
               className={`slide-oficinaIndividual ${
@@ -42,6 +60,12 @@ export function SalaCapacitaciones() {
               style={{ backgroundColor: plan.backgroundColor, color: plan.textColor }}
             >
               <div className="plan-card-oficinaIndividual">
+                {badge && (
+                  <div className={`plan-badge ${badge.highlight ? 'badge-highlight' : ''}`}>
+                    <badge.icon size={16} />
+                    <span>{badge.label}</span>
+                  </div>
+                )}
                 {/* Título y botón */}
                 <div className="header-container-oficinaIndividual">
                   <h2 className="plan-title-oficinaIndividual">{plan.title}</h2>
@@ -84,15 +108,25 @@ export function SalaCapacitaciones() {
 
                 {/* Contenidos */}
                 <div className="features-container-oficinaIndividual">
-                  <p className="feature-oficinaIndividual">{plan["Contenido 1"]}</p>
-                  <p className="feature-oficinaIndividual">{plan["Contenido 2"]}</p>
-                  <p className="feature-oficinaIndividual">{plan["Contenido 3"]}</p>
-                  <p className="feature-oficinaIndividual">{plan["Contenido 4"]}</p>
-                  <p className="feature-oficinaIndividual">{plan["Contenido 5"]}</p>
+                  {["Contenido 1", "Contenido 2", "Contenido 3", "Contenido 4", "Contenido 5"].map((key, idx) => {
+                    const content = plan[key];
+                    if (!content) return null;
+                    const IconComponent = iconMap[content] || Wifi;
+                    return (
+                      <div key={idx} className="feature-oficinaIndividual">
+                        <div className="feature-icon-wrapper">
+                          <IconComponent size={18} />
+                        </div>
+                        <div className="feature-text">
+                          {content}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
-          ))}
+          );})}
         </div>
 
         {/* Navegación por puntos (dots) */}

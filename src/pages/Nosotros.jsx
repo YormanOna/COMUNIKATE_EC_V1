@@ -23,6 +23,7 @@ export function Nosotros() {
     };
 
     useEffect(() => {
+        document.title = "Sobre Nosotros | Comunikate Ecuador";
         scrollToHash();
     }, [location]);
 

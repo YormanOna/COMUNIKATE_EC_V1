@@ -1,0 +1,241 @@
+/* Sección de Contenido Adicional Mejorada */
+.content-additional {
+    padding: 80px 5%;
+    background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+}
+
+.title-content-additional {
+    text-align: center;
+    margin-bottom: 60px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.title-content-additional h2 {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #FF6600;
+    margin: 0 0 15px 0;
+    position: relative;
+    display: inline-block;
+}
+
+.title-content-additional h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(90deg, #FF6600, #ff8533);
+    border-radius: 3px;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Grid de Servicios Moderno */
+.services-grid-tarjetService {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    align-items: stretch;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Tarjetas de Servicio con Diseño Moderno */
+.service-card-tarjetService {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 25px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.service-card-tarjetService::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,102,0,0.05), rgba(255,133,51,0.05));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.service-card-tarjetService:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(255,102,0,0.25);
+    border-color: #FF6600;
+}
+
+.service-card-tarjetService:hover::before {
+    opacity: 1;
+}
+
+/* Wrapper del icono con animación */
+.service-icon-wrapper {
+    position: relative;
+    z-index: 1;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 25px;
+    background: linear-gradient(135deg, #FF6600, #ff8533);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(255,102,0,0.3);
+    transition: all 0.4s ease;
+}
+
+.service-card-tarjetService:hover .service-icon-wrapper {
+    transform: rotate(360deg) scale(1.1);
+    box-shadow: 0 12px 30px rgba(255,102,0,0.5);
+}
+
+.service-icon-wrapper svg,
+.service-icon-wrapper i {
+    color: white;
+    font-size: 2.2rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+/* Contenido de la tarjeta */
+.service-card-tarjetService h3 {
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 15px 0 10px;
+    transition: color 0.3s ease;
+    position: relative;
+    z-index: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.3;
+    width: 100%;
+}
+
+.service-card-tarjetService:hover h3 {
+    color: #FF6600;
+}
+
+.service-card-tarjetService p {
+    font-size: 0.88rem;
+    color: #6b7280;
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+/* Animación escalonada para las tarjetas */
+.service-card-tarjetService:nth-child(1) {
+    animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+.service-card-tarjetService:nth-child(2) {
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.service-card-tarjetService:nth-child(3) {
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+.service-card-tarjetService:nth-child(4) {
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.service-card-tarjetService:nth-child(5) {
+    animation: fadeInUp 0.6s ease-out 0.5s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .services-grid-tarjetService {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-additional {
+        padding: 60px 5%;
+    }
+    
+    .title-content-additional h2 {
+        font-size: 2.2rem;
+    }
+    
+    .services-grid-tarjetService {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .service-card-tarjetService {
+        padding: 30px 20px;
+    }
+    
+    .service-icon-wrapper {
+        width: 75px;
+        height: 75px;
+    }
+    
+    .service-icon-wrapper svg,
+    .service-icon-wrapper i {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .title-content-additional h2 {
+        font-size: 1.8rem;
+    }
+    
+    .services-grid-tarjetService {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .service-card-tarjetService {
+        padding: 25px 20px;
+    }
+}

@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import IMAGENTraining from '../../../img/Cursos/Periodismo/MEDIA_TRAINING.webp';
 import {NavigationMenu} from '../../../components/NavBar';
 
 export function MediaTraining(){
+    useEffect(() => {
+        document.title = "Curso de Media Training | Comunikate Ecuador";
+    }, []);
+    
     return (
         <div>
             <NavigationMenu/>

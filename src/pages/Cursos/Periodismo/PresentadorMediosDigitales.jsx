@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import IMAGENTvMedios from '../../../img/Cursos/Periodismo/PRESENTADOR_TV.webp';
 import {NavigationMenu} from '../../../components/NavBar';
 
 export function PresentadorTvMediosDigitales(){
+    useEffect(() => {
+        document.title = "Curso de Presentador TV y Medios Digitales | Comunikate Ecuador";
+    }, []);
+    
     return (
         <div>
             <NavigationMenu/>

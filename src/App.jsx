@@ -5,6 +5,7 @@ import {Nosotros} from './pages/Nosotros';
 import {Cursos} from './pages/Cursos';
 import{Servicios} from './pages/Servicios';
 import WhatsAppButton from './components/WhatsAppButton';
+
 import{OratoriaLocucion} from './pages/Cursos/Periodismo/OratoriaLocución';
 import{PeriodismoDeportivo} from './pages/Cursos/Periodismo/PeriodismoDeportivo';
 import{LocucionRadial} from './pages/Cursos/Periodismo/LocucionRadial';

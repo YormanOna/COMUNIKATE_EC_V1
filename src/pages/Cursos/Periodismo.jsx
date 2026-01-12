@@ -9,55 +9,94 @@ import imgMedia from "../../img/Cursos/Periodismo/Imagenes_Cursos/CURSOS_CINCO.p
 import imgPresentador from "../../img/Cursos/Periodismo/Imagenes_Cursos/CURSOS_SEIS.png";
 
 export function Periodismo() {
+  const cursos = [
+    { 
+      href: "/cursos/periodismo/oratoria-locucion", 
+      img: imgOratoria, 
+      title: "Oratoria y Locución",
+      duration: "35 horas",
+      level: "Básico - Intermedio"
+    },
+    { 
+      href: "/cursos/periodismo/periodismo-deportivo", 
+      img: imgDepor, 
+      title: "Periodismo Deportivo",
+      duration: "40 horas",
+      level: "Intermedio"
+    },
+    { 
+      href: "/cursos/periodismo/locucion-radial", 
+      img: imgRadial, 
+      title: "Locución Radial",
+      duration: "35 horas",
+      level: "Básico"
+    },
+    { 
+      href: "/relaciones-publicas", 
+      img: imgRRPP, 
+      title: "Relaciones Públicas",
+      duration: "30 horas",
+      level: "Intermedio"
+    },
+    { 
+      href: "/cursos/periodismo/media-training", 
+      img: imgMedia, 
+      title: "Media Training",
+      duration: "25 horas",
+      level: "Avanzado"
+    },
+    { 
+      href: "/cursos/periodismo/presentador-tv-medios-digitales", 
+      img: imgPresentador, 
+      title: "Presentador de TV y Medios Digitales",
+      duration: "40 horas",
+      level: "Intermedio - Avanzado"
+    }
+  ];
+
   return (
     <section className="periodismo-container" id="periodismo">
-      {/* Primera fila de tarjetas */}
-      <div className="periodismo-row">
-        <a href="/cursos/periodismo/oratoria-locucion" className="periodismo-card">
-          <img src={imgOratoria} alt="Oratoria y Locución" />
-          <div className="periodismo-overlay">Oratoria y Locución</div>
-        </a>
-
-        <a href="/cursos/periodismo/periodismo-deportivo" className="periodismo-card">
-          <img src={imgDepor} alt="Periodismo Deportivo" />
-          <div className="periodismo-overlay">Periodismo Deportivo</div>
-        </a>
-
-        <a href="/cursos/periodismo/locucion-radial" className="periodismo-card">
-          <img src={imgRadial} alt="Locución Radial" />
-          <div className="periodismo-overlay">Locución Radial</div>
-        </a>
+      {/* Título de sección */}
+      <div className="periodismo-header">
+        <div className="periodismo-title-wrapper">
+          <i className="fas fa-microphone-alt"></i>
+          <h1>PERIODISMO</h1>
+          <i className="fas fa-microphone-alt"></i>
+        </div>
+        <p className="periodismo-description">Desarrolla tus habilidades en comunicación y medios profesionales</p>
       </div>
 
-      {/* Franja central con título */}
-      <div className="periodismo-middle">
-        <h1>PERIODISMO</h1>
-      </div>
-
-      {/* Segunda fila de tarjetas */}
-      <div className="periodismo-row">
-        <a href="/relaciones-publicas" className="periodismo-card">
-          <img src={imgRRPP} alt="Relaciones Públicas" />
-          <div className="periodismo-overlay">Relaciones Públicas</div>
-        </a>
-
-        <a href="/cursos/periodismo/media-training" className="periodismo-card">
-          <img src={imgMedia} alt="Media Training" />
-          <div className="periodismo-overlay">Media Training</div>
-        </a>
-
-        <a
-          href="/cursos/periodismo/presentador-tv-medios-digitales"
-          className="periodismo-card"
-        >
-          <img
-            src={imgPresentador}
-            alt="Presentador de TV y Medios Digitales"
-          />
-          <div className="periodismo-overlay">
-            Presentador de TV y Medios Digitales
-          </div>
-        </a>
+      {/* Grid de cursos */}
+      <div className="periodismo-grid">
+        {cursos.map((curso, index) => (
+          <a 
+            key={index}
+            href={curso.href} 
+            className="periodismo-card"
+            style={{ animationDelay: `${index * 0.1}s` }}
+          >
+            <div className="periodismo-image-wrapper">
+              <img src={curso.img} alt={curso.title} />
+              <div className="periodismo-badge">
+                <i className="fas fa-certificate"></i> Certificado
+              </div>
+            </div>
+            <div className="periodismo-overlay">
+              <h3 className="periodismo-course-title">{curso.title}</h3>
+              <div className="periodismo-info">
+                <span className="periodismo-info-item">
+                  <i className="far fa-clock"></i> {curso.duration}
+                </span>
+                <span className="periodismo-info-item">
+                  <i className="fas fa-signal"></i> {curso.level}
+                </span>
+              </div>
+              <div className="periodismo-cta">
+                Ver más <i className="fas fa-arrow-right"></i>
+              </div>
+            </div>
+          </a>
+        ))}
       </div>
     </section>
   );

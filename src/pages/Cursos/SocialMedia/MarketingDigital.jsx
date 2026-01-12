@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import IMAGENDeportiva from '../../../img/Cursos/Periodismo/MARKETING_DIGITAL.webp';
 import {NavigationMenu} from '../../../components/NavBar';
 
 export function MarketingDigital(){
+    useEffect(() => {
+        document.title = "Curso de Marketing Digital | Comunikate Ecuador";
+    }, []);
+    
     return(
         <div>
             <NavigationMenu/>

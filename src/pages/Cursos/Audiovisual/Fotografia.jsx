@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import IMAGENDeportiva from '../../../img/Cursos/Audiovisual/FOTOGRAFIA.webp';
 import {NavigationMenu} from '../../../components/NavBar';
 
 export function Fotografia(){
+    useEffect(() => {
+        document.title = "Curso de Fotografía Profesional | Comunikate Ecuador";
+    }, []);
+    
     return(
         <div>
             <NavigationMenu/>

@@ -1,94 +1,244 @@
-/***********************************************************
-  Contenedor principal
-************************************************************/
+/* AudiovisualStyle.css - Estilos modernos mejorados */
+
 .audiovisual-container {
   width: 100%;
-  background-color: #ff5e00; /* Fondo blanco */
-  padding: 20px;
+  background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+  padding: 60px 20px;
+  position: relative;
 }
 
-/***********************************************************
-  Filas de tarjetas (2 columnas por fila)
-************************************************************/
-.audiovisual-row {
+.audiovisual-header {
+  text-align: center;
+  margin-bottom: 50px;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.audiovisual-title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.audiovisual-title-wrapper i {
+  color: white;
+  font-size: 2rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.audiovisual-header h1 {
+  color: white;
+  font-size: 3rem;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+}
+
+.audiovisual-description {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  font-weight: 400;
+}
+
+.audiovisual-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 columnas */
-  margin: 0; /* Para que se una con la franja central sin separación */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/***********************************************************
-  Tarjetas
-************************************************************/
 .audiovisual-card {
   position: relative;
-  display: block;         /* Para que el enlace cubra toda la tarjeta */
-  text-decoration: none;  /* Quita el subrayado del enlace */
+  display: block;
+  text-decoration: none;
   overflow: hidden;
-  border-radius: 4px;     /* Esquinas ligeramente redondeadas */
-  transition: transform 0.3s ease;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transform: translateY(20px);
+  opacity: 0;
+  animation: cardFadeIn 0.6s ease-out forwards;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: white;
+  height: 400px;
+}
+
+@keyframes cardFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .audiovisual-card:hover {
-  transform: scale(1.03);
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
 }
 
-/* Imagen dentro de la tarjeta */
+.audiovisual-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
 .audiovisual-card img {
-  width: 100%;  /* Reducción ligera del tamaño de las imágenes */
-  height: auto; /* Mantiene las proporciones correctas */
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
-  margin: 0 auto; /* Centra la imagen dentro de la tarjeta */
+  transition: transform 0.6s ease;
 }
 
-/***********************************************************
-  Overlay negro en la parte inferior de la imagen
-************************************************************/
+.audiovisual-card:hover img {
+  transform: scale(1.15) rotate(2deg);
+}
+
+.audiovisual-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
 .audiovisual-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente negro */
-  color: #fff;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.5rem; /* Reducción del tamaño de fuente para que se ajuste al nuevo tamaño */
-  padding: 8px 0; /* Menor padding para evitar que el texto sobresalga */
-  box-sizing: border-box; /* Asegura que el padding no extienda el tamaño del overlay más allá de su contenedor */
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 100%);
+  padding: 25px;
+  transition: all 0.4s ease;
 }
 
-/***********************************************************
-  Franja central con el título "AUDIOVISUAL"
-************************************************************/
-.audiovisual-middle {
-  background-color: #000000; /* Mantener el fondo blanco */
-  text-align: center;
-  padding: 20px 0;
-  margin: 0; /* Sin margen para unirse con las filas */
+.audiovisual-card:hover .audiovisual-overlay {
+  background: linear-gradient(to top, rgba(220,38,38,0.95) 0%, rgba(220,38,38,0.85) 100%);
 }
 
-.audiovisual-middle h1 {
-  color: #ff4800; /* Texto en negro */
-  font-size: 2rem; /* Tamaño del título central */
-  margin: 0;
-  font-family: "Arial Black", sans-serif;
+.audiovisual-course-title {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-/***********************************************************
-  Responsividad
-************************************************************/
+.audiovisual-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.audiovisual-info-item {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.audiovisual-info-item i {
+  width: 18px;
+  text-align: center;
+}
+
+.audiovisual-cta {
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.audiovisual-card:hover .audiovisual-cta {
+  background: rgba(0, 0, 0, 0.3);
+  gap: 12px;
+}
+
+@media (max-width: 992px) {
+  .audiovisual-header h1 {
+    font-size: 2.5rem;
+  }
+  .audiovisual-description {
+    font-size: 1.1rem;
+  }
+}
+
 @media (max-width: 768px) {
-  .audiovisual-row {
-    grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+  .audiovisual-container {
+    padding: 40px 15px;
   }
-
-  .audiovisual-middle h1 {
-    font-size: 2rem; /* Mantener el tamaño del título central en pantallas pequeñas */
+  .audiovisual-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
   }
+  .audiovisual-header h1 {
+    font-size: 2rem;
+  }
+  .audiovisual-title-wrapper i {
+    font-size: 1.5rem;
+  }
+  .audiovisual-card {
+    height: 380px;
+  }
+}
 
-  .audiovisual-overlay {
-    font-size: 1rem; /* Ajuste del tamaño del texto en pantallas pequeñas */
+@media (max-width: 576px) {
+  .audiovisual-container {
+    padding: 30px 10px;
+  }
+  .audiovisual-header h1 {
+    font-size: 1.8rem;
+  }
+  .audiovisual-card {
+    height: 350px;
+  }
+  .audiovisual-image-wrapper {
+    height: 200px;
   }
 }

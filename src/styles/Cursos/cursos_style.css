@@ -1,42 +1,67 @@
 /* Contenedor global */
 .cursos-container {
-  background: #f9fafb; /* Color de fondo más limpio */
+  background: linear-gradient(to bottom, #f9fafb 0%, #ffffff 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Hero Section */
+.cursos-hero {
+  text-align: center;
+  padding: 40px 20px 60px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 /* Título principal */
 .cursos-header {
-  text-align: center;
   color: #111827;
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: 3.5rem;
+  font-weight: 900;
   font-family: 'Montserrat', sans-serif;
-  margin-bottom: 50px;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #FF6600, #ff8533);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cursos-subtitle {
+  color: #6b7280;
+  font-size: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  margin-bottom: 0;
 }
 
 /* Grid de tarjetas */
 .cursospage {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  max-width: 1200px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 1300px;
   margin: 0 auto;
-  padding: 0 10px;
+  padding: 0 20px 60px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Tarjeta */
 .cursos-card {
   position: relative;
   overflow: hidden;
-  border-radius: 16px;
-  height: 350px;
+  border-radius: 20px;
+  height: 450px;
   background-color: #e5e7eb;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   transform: translateY(30px);
   opacity: 0;
   animation: fadeSlideUp 0.8s forwards;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 /* Animación de entrada */
@@ -49,8 +74,8 @@
 
 /* Hover */
 .cursos-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(255, 102, 0, 0.25);
 }
 
 /* Imagen */
@@ -59,12 +84,14 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s ease, filter 0.4s ease;
+  filter: brightness(0.9);
 }
 
 /* Hover efecto zoom en imagen */
 .cursos-card:hover .cursos-image {
-  transform: scale(1.1);
+  transform: scale(1.15);
+  filter: brightness(0.6);
 }
 
 /* Overlay */
@@ -74,33 +101,217 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(17, 24, 39, 0.5);
+  background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(255,102,0,0.8));
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  transition: background-color 0.3s ease;
+  padding: 40px;
+  transition: all 0.4s ease;
 }
 
-/* Hover overlay más oscuro */
 .cursos-card:hover .cursos-overlay {
-  background-color: rgba(17, 24, 39, 0.7);
+  align-items: center;
+  background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(255,102,0,0.95));
+}
+
+/* Contenido */
+.cursos-content {
+  text-align: center;
+  width: 100%;
+  transform: translateY(20px);
+  transition: transform 0.4s ease;
+}
+
+.cursos-card:hover .cursos-content {
+  transform: translateY(0);
+}
+
+/* Icono */
+.cursos-icon {
+  font-size: 3.5rem;
+  color: white;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: scale(0.5) rotate(-10deg);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cursos-card:hover .cursos-icon {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
 }
 
 /* Texto */
 .cursos-title {
   color: #ffffff;
-  font-size: 1.8rem;
+  font-size: 2rem;
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-align: center;
-  padding: 0 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-/* Responsivo */
+.cursos-description {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease 0.1s;
+}
+
+.cursos-card:hover .cursos-description {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Footer de la card */
+.cursos-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease 0.2s;
+}
+
+.cursos-card:hover .cursos-footer {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cursos-count {
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cursos-cta {
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.cursos-card:hover .cursos-cta {
+  background: rgba(255, 255, 255, 0.3);
+  gap: 12px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .cursospage {
+    gap: 30px;
+  }
+
+  .cursos-card {
+    height: 400px;
+  }
+
+  .cursos-header {
+    font-size: 2.8rem;
+  }
+}
+
 @media (max-width: 768px) {
   .cursospage {
     grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 0 15px 40px;
+    max-width: 100%;
+  }
+
+  .cursos-hero {
+    padding: 30px 15px 50px;
+  }
+
+  .cursos-header {
+    font-size: 2.5rem;
+  }
+
+  .cursos-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .cursos-card {
+    height: 380px;
+    margin: 0;
+  }
+
+  .cursos-title {
+    font-size: 1.8rem;
+  }
+
+  .cursos-icon {
+    font-size: 3rem;
   }
 }
+
+@media (max-width: 480px) {
+  .cursos-hero {
+    padding: 25px 10px 35px;
+  }
+
+  .cursos-header {
+    font-size: 1.8rem;
+  }
+
+  .cursos-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .cursospage {
+    padding: 0 10px 30px;
+    gap: 20px;
+  }
+
+  .cursos-card {
+    height: 320px;
+  }
+
+  .cursos-title {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+  }
+
+  .cursos-description {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .cursos-icon {
+    font-size: 2.2rem;
+  }
+
+  .cursos-overlay {
+    padding: 20px 15px;
+  }
+
+  .cursos-count,
+  .cursos-cta {
+    font-size: 0.8rem;
+  }
+
+  .cursos-footer {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+}
+
+

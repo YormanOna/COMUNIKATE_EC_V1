@@ -17,63 +17,51 @@ export function ClientLogos () {
   const clients = [
     {
         name: 'Colegio Alemán Humboldt',
-        imageUrl: IMAGEN1,
-        link: '#'
+        imageUrl: IMAGEN1
     },
     {
         name: 'EMAPS',
-        imageUrl: IMAGEN2,
-        link: '#'
+        imageUrl: IMAGEN2
     },
     {
         name: 'EXSA',
-        imageUrl: IMAGEN3,
-        link: '#'
+        imageUrl: IMAGEN3
     },
     {
         name: 'Image Q2',
-        imageUrl: IMAGEN4,
-        link: '#'
+        imageUrl: IMAGEN4
     },
     {
         name: 'Image',
-        imageUrl: IMAGEN5,
-        link: '#'
+        imageUrl: IMAGEN5
     },
     {
         name: 'Latacunga',
-        imageUrl: IMAGEN6,
-        link: '#'
+        imageUrl: IMAGEN6
     },
     {
         name: 'CIESPAL',
-        imageUrl: IMAGEN7,
-        link: '#'
+        imageUrl: IMAGEN7
     },
     {
         name: 'Municipio de Guayaquil',
-        imageUrl: IMAGEN8,
-        link: '#'
+        imageUrl: IMAGEN8
     },
     {
         name: 'Bomberos',
-        imageUrl: IMAGEN9,
-        link: '#'
+        imageUrl: IMAGEN9
     },
     {
         name: 'Policía Cooperativa',
-        imageUrl: IMAGEN10,
-        link: '#'
+        imageUrl: IMAGEN10
     },
     {
         name: 'Policía Nacional',
-        imageUrl: IMAGEN11,
-        link: '#'
+        imageUrl: IMAGEN11
     },
     {
         name: 'Sony',
-        imageUrl: IMAGEN12,
-        link: '#'
+        imageUrl: IMAGEN12
     }
   ];
 
@@ -83,9 +71,8 @@ export function ClientLogos () {
       
       <div className="clients-grid">
         {clients.map((client) => (
-          <a
+          <div
             key={client.name}
-            href={client.link}
             className="client-card"
           >
             <div className="client-card-inner">
@@ -97,7 +84,7 @@ export function ClientLogos () {
                 />
               </div>
             </div>
-          </a>
+          </div>
         ))}
       </div>
     </div>
