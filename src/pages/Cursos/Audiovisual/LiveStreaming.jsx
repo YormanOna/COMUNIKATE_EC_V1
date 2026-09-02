@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import IMAGENDeportiva from '../../../img/Cursos/Audiovisual/LIVE.webp';
 import {NavigationMenu} from '../../../components/NavBar';
+import { CourseBackButton } from '../../../components/CourseBackButton';
 
 export function LiveStreaming(){
     useEffect(() => {
@@ -18,6 +19,7 @@ export function LiveStreaming(){
                 <h1>AUDIOVISUAL</h1>
             </div>
             <div className="SectionTitleOrange">
+                <CourseBackButton />
                 <h1>LIVE STREAMING</h1>
             </div>
             <br />

@@ -1,0 +1,128 @@
+/* ============================================================
+   Servicios.jsx — Estilos de la página de servicios
+   ============================================================ */
+
+.servicios-page {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   Hero de motivación (sección central de la página)
+   ============================================================ */
+
+.servicios-hero-motivacion {
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.servicios-hero-motivacion__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.55), rgba(200, 70, 0, 0.35));
+  z-index: 1;
+}
+
+.servicios-hero-motivacion__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 60px 24px;
+  max-width: 800px;
+  animation: sm-fadeInUp 1s ease-out both;
+}
+
+.servicios-hero-motivacion__heading {
+  color: #ffffff;
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 4.5rem);
+  font-weight: 900;
+  margin: 0 0 20px;
+  line-height: 1.2;
+  text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.55);
+}
+
+.servicios-hero-motivacion__subtitle {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  margin: 0 0 44px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.servicios-hero-motivacion__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #FF6600, #ff8533);
+  color: #ffffff;
+  padding: 18px 44px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: clamp(0.95rem, 2vw, 1.2rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 28px rgba(255, 102, 0, 0.45);
+  transition: all 0.4s ease;
+  animation: sm-pulse 2.2s ease-in-out infinite;
+}
+
+.servicios-hero-motivacion__cta:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 14px 38px rgba(255, 102, 0, 0.65);
+  background: linear-gradient(135deg, #ff8533, #FF6600);
+}
+
+/* Animaciones */
+@keyframes sm-fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sm-pulse {
+  0%, 100% { box-shadow: 0 8px 28px rgba(255, 102, 0, 0.45); }
+  50%       { box-shadow: 0 8px 38px rgba(255, 102, 0, 0.72); }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .servicios-hero-motivacion {
+    min-height: 55vh;
+  }
+
+  .servicios-hero-motivacion__content {
+    padding: 50px 20px;
+  }
+
+  .servicios-hero-motivacion__cta {
+    padding: 15px 34px;
+  }
+}
+
+@media (max-width: 480px) {
+  .servicios-hero-motivacion {
+    min-height: 50vh;
+  }
+
+  .servicios-hero-motivacion__content {
+    padding: 40px 16px;
+  }
+
+  .servicios-hero-motivacion__cta {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 24px;
+  }
+}

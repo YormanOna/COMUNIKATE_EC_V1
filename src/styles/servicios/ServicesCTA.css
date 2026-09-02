@@ -1,0 +1,145 @@
+/* ============================================================
+   ServicesCTA — Bloque de llamada a la acción final
+   ============================================================ */
+
+.services-cta {
+  background: linear-gradient(135deg, #FF6600 0%, #ff4500 60%, #cc3700 100%);
+  padding: 100px 5%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Círculos decorativos de fondo */
+.services-cta::before,
+.services-cta::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
+.services-cta::before {
+  width: 500px;
+  height: 500px;
+  top: -180px;
+  left: -180px;
+}
+
+.services-cta::after {
+  width: 380px;
+  height: 380px;
+  bottom: -140px;
+  right: -140px;
+}
+
+.services-cta__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.services-cta__eyebrow {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+}
+
+.services-cta__heading {
+  color: #ffffff;
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  font-size: clamp(1.7rem, 4vw, 3.2rem);
+  font-weight: 900;
+  margin: 0 0 20px;
+  line-height: 1.2;
+}
+
+.services-cta__body {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.7;
+  margin: 0 0 50px;
+}
+
+/* ---- Botones ---- */
+.services-cta__buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.services-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 38px;
+  border-radius: 50px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid transparent;
+}
+
+.services-cta__btn--primary {
+  background: #ffffff;
+  color: #FF6600;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+}
+
+.services-cta__btn--primary:hover {
+  background: #fff3eb;
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.28);
+}
+
+.services-cta__btn--secondary {
+  background: transparent;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.services-cta__btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #ffffff;
+  transform: translateY(-4px) scale(1.04);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .services-cta {
+    padding: 80px 5%;
+  }
+
+  .services-cta__buttons {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-cta {
+    padding: 60px 5%;
+  }
+
+  .services-cta__buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .services-cta__btn {
+    justify-content: center;
+    padding: 14px 28px;
+    font-size: 0.97rem;
+  }
+}

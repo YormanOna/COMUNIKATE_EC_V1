@@ -17,6 +17,8 @@ export function Certificaciones  () {
                         src={logoLaboral} 
                         alt="Ministerio de Relaciones Laborales" 
                         className="logo-image-certificaciones"
+                        loading="lazy"
+                        decoding="async"
                     />
                 </div>
 
@@ -25,10 +27,11 @@ export function Certificaciones  () {
                         src={logoEducacion} 
                         alt="Ministerio de Educación" 
                         className="logo-image-certificaciones"
+                        loading="lazy"
+                        decoding="async"
                     />
                 </div>
             </div>
         </section>
     );
 };
-

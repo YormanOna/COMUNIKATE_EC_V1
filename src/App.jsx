@@ -1,29 +1,32 @@
+import { lazy, Suspense } from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import {Home} from './pages/Home';
-import {Inscribite} from './pages/Inscribite';
-import {Nosotros} from './pages/Nosotros';
-import {Cursos} from './pages/Cursos';
-import{Servicios} from './pages/Servicios';
 import WhatsAppButton from './components/WhatsAppButton';
-
-import{OratoriaLocucion} from './pages/Cursos/Periodismo/OratoriaLocución';
-import{PeriodismoDeportivo} from './pages/Cursos/Periodismo/PeriodismoDeportivo';
-import{LocucionRadial} from './pages/Cursos/Periodismo/LocucionRadial';
-import{MediaTraining} from './pages/Cursos/Periodismo/MediaTraining';
-import{PresentadorTvMediosDigitales} from './pages/Cursos/Periodismo/PresentadorMediosDigitales';
-import{MarketingDigital} from './pages/Cursos/SocialMedia/MarketingDigital';
-import{ProduccionAudiovisual} from './pages/Cursos/Audiovisual/ProduccionAudiovisual'
-import{Fotografia} from './pages/Cursos/Audiovisual/Fotografia';
-import{CreacionDePodcast} from './pages/Cursos/Audiovisual/CreacionPodcast';
-import{LiveStreaming} from './pages/Cursos/Audiovisual/LiveStreaming';
-import {PageContac} from './pages/PageContac';
 import ScrollToTop from './hook/ScrollToTop';
+
+// Las páginas secundarias se descargan únicamente cuando el usuario las visita.
+const Home = lazy(() => import('./pages/Home').then(({ Home }) => ({ default: Home })));
+const Inscribite = lazy(() => import('./pages/Inscribite').then(({ Inscribite }) => ({ default: Inscribite })));
+const Nosotros = lazy(() => import('./pages/Nosotros').then(({ Nosotros }) => ({ default: Nosotros })));
+const Cursos = lazy(() => import('./pages/Cursos').then(({ Cursos }) => ({ default: Cursos })));
+const Servicios = lazy(() => import('./pages/Servicios').then(({ Servicios }) => ({ default: Servicios })));
+const PageContac = lazy(() => import('./pages/PageContac').then(({ PageContac }) => ({ default: PageContac })));
+const OratoriaLocucion = lazy(() => import('./pages/Cursos/Periodismo/OratoriaLocución').then(({ OratoriaLocucion }) => ({ default: OratoriaLocucion })));
+const PeriodismoDeportivo = lazy(() => import('./pages/Cursos/Periodismo/PeriodismoDeportivo').then(({ PeriodismoDeportivo }) => ({ default: PeriodismoDeportivo })));
+const LocucionRadial = lazy(() => import('./pages/Cursos/Periodismo/LocucionRadial').then(({ LocucionRadial }) => ({ default: LocucionRadial })));
+const MediaTraining = lazy(() => import('./pages/Cursos/Periodismo/MediaTraining').then(({ MediaTraining }) => ({ default: MediaTraining })));
+const PresentadorTvMediosDigitales = lazy(() => import('./pages/Cursos/Periodismo/PresentadorMediosDigitales').then(({ PresentadorTvMediosDigitales }) => ({ default: PresentadorTvMediosDigitales })));
+const MarketingDigital = lazy(() => import('./pages/Cursos/SocialMedia/MarketingDigital').then(({ MarketingDigital }) => ({ default: MarketingDigital })));
+const ProduccionAudiovisual = lazy(() => import('./pages/Cursos/Audiovisual/ProduccionAudiovisual').then(({ ProduccionAudiovisual }) => ({ default: ProduccionAudiovisual })));
+const Fotografia = lazy(() => import('./pages/Cursos/Audiovisual/Fotografia').then(({ Fotografia }) => ({ default: Fotografia })));
+const CreacionDePodcast = lazy(() => import('./pages/Cursos/Audiovisual/CreacionPodcast').then(({ CreacionDePodcast }) => ({ default: CreacionDePodcast })));
+const LiveStreaming = lazy(() => import('./pages/Cursos/Audiovisual/LiveStreaming').then(({ LiveStreaming }) => ({ default: LiveStreaming })));
 
 function App() {
   return (
     <BrowserRouter>
     <WhatsAppButton />
     <ScrollToTop />
+      <Suspense fallback={<div className="route-loading" role="status" aria-live="polite"><span className="route-loading__spinner" aria-hidden="true" /><span className="route-loading__title">Cargando contenido</span><span className="route-loading__text">Un momento, por favor…</span></div>}>
       <Routes>
       <Route path="/" element={<Home />} />
         <Route path="/inscripciones" element={<Inscribite />} />
@@ -44,6 +47,7 @@ function App() {
 
 
       </Routes>
+      </Suspense>
     </BrowserRouter>
   )
 }

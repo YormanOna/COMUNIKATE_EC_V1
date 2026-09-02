@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import IMAGENDeportiva from '../../../img/Cursos/Periodismo/PERIODISMO_DEPORTIVO.webp';
 import {NavigationMenu} from '../../../components/NavBar';
+import { CourseBackButton } from '../../../components/CourseBackButton';
 
 export function PeriodismoDeportivo(){
     useEffect(() => {
@@ -18,6 +19,7 @@ export function PeriodismoDeportivo(){
                 <h1>Periodismo</h1>
             </div>
             <div className="SectionTitleOrange">
+                <CourseBackButton />
                 <h1>PERIODISMO DEPORTIVO</h1>
             </div>
             <br />

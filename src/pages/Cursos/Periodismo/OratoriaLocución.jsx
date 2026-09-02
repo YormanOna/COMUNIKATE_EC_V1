@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import '../../../styles/Cursos/Periodismo/OratoriaLocucion.css';
 import IMAGENOratoria from '../../../img/Cursos/Periodismo/Oratoria_Locución_Profesional.webp';
 import {NavigationMenu} from '../../../components/NavBar';
+import { CourseBackButton } from '../../../components/CourseBackButton';
 
 export function OratoriaLocucion() {
     useEffect(() => {
@@ -19,6 +19,7 @@ export function OratoriaLocucion() {
                 <h1>Periodismo</h1>
             </div>
             <div className="SectionTitleOrange">
+                <CourseBackButton />
                 <h1>ORATORIA Y LOCUCIÓN PROFESIONAL</h1>
             </div>
             <br />

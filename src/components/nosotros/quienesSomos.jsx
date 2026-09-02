@@ -7,14 +7,14 @@ export function QuienesSomos() {
   const typedTitle = useTypewriter(title, 100);
 
   return (
-    <div className="static-container-qS">
+    <section className="static-container-qS" aria-labelledby="quienes-somos-title">
       <h1 className="static-title-qS">¿Quiénes somos?</h1>
       <div className="static-image-container-qS">
-        <img src={INICIO_1} alt={title} className="static-image-qS" />
+        <img src={INICIO_1} alt="Comuníkate Ecuador" className="static-image-qS" loading="eager" decoding="async" />
         <div className="content-wrapper-qS">
-          <h2 className="slide-title-qS">{typedTitle}</h2>
+          <p className="slide-title-qS" id="quienes-somos-title">{typedTitle}</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

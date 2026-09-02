@@ -1,7 +1,7 @@
 /* Estilos base */
 .container-form {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 96px auto 0;
   padding: 50px;
   background-color: #f7f6f2;
   border-radius: 8px;
@@ -97,12 +97,18 @@
 }
 
 .name-inputs-form {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
+  width: 100%;
 }
 
 .name-input-form {
   flex: 1;
+}
+
+.name-inputs-form .field-wrapper-form {
+  min-width: 0;
 }
 
 .submit-button-form {
@@ -220,3 +226,44 @@
     height: 100px; 
   }
 }
+
+/* Formulario accesible y adaptable */
+.registration-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 20px;
+}
+.form-section-heading,
+.input-group-wide,
+.submit-button-form {
+  grid-column: 1 / -1;
+}
+.form-section-heading {
+  color: #f56600;
+  font-size: 1.05rem;
+  font-weight: 800;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 6px;
+}
+.field-wrapper-form { min-width: 0; }
+.input-form { width: 100%; box-sizing: border-box; transition: border-color .2s, box-shadow .2s, background-color .2s; }
+.input-form:focus, .select-selected-form:focus-visible, .search-input-form:focus { outline: none; border-color: #f56600; box-shadow: 0 0 0 3px rgba(245,102,0,.14); }
+.input-form[aria-invalid="true"], .has-error-form .select-selected-form { border-color: #dc2626; background-color: #fff7f7; }
+.error-message-form { color: #b91c1c; font-size: .82rem; line-height: 1.25; margin: 5px 0 0; }
+.select-selected-form, .select-item-form { font: inherit; text-align: left; }
+.select-selected-form { width: 100%; }
+.select-item-form { width: 100%; border: 0; background: white; }
+.select-item-form:hover, .select-item-form:focus-visible { background: #fff1e8; outline: none; }
+.empty-options-form { margin: 0; padding: 14px; color: #6b7280; font-size: .9rem; }
+.label-form span { color: #6b7280; font-weight: 400; }
+.submit-button-form { align-self: stretch; transition: opacity .2s, transform .2s; }
+.submit-button-form:disabled { cursor: not-allowed; opacity: .5; }
+.submit-button-form:not(:disabled):hover { transform: translateY(-1px); }
+@media (max-width: 768px) {
+  .container-form { margin-top: 82px; padding: 24px 16px; }
+  .registration-form { grid-template-columns: 1fr; gap: 15px; }
+  .label-form { font-size: 1rem; }
+  .name-inputs-form { display: grid; grid-template-columns: 1fr; gap: 12px; height: auto; }
+  .submit-button-form { width: 100%; min-height: 48px; }
+}
+@media (prefers-reduced-motion: reduce) { .input-form, .submit-button-form { transition: none; } }

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import IMAGENTraining from '../../../img/Cursos/Periodismo/MEDIA_TRAINING.webp';
 import {NavigationMenu} from '../../../components/NavBar';
+import { CourseBackButton } from '../../../components/CourseBackButton';
 
 export function MediaTraining(){
     useEffect(() => {
@@ -18,6 +19,7 @@ export function MediaTraining(){
                 <h1>Periodismo</h1>
             </div>
             <div className="SectionTitleOrange">
+                <CourseBackButton />
                 <h1>MEDIA TRAINING</h1>
             </div>
             <br />

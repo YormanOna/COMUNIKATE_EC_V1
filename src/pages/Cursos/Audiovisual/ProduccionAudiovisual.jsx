@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import IMAGENDeportiva from '../../../img/Cursos/Audiovisual/AUDIOVISUAL.webp';
 import {NavigationMenu} from '../../../components/NavBar';
+import { CourseBackButton } from '../../../components/CourseBackButton';
 
 export function ProduccionAudiovisual(){
     useEffect(() => {
@@ -18,6 +19,7 @@ export function ProduccionAudiovisual(){
                 <h1>Audiovisual</h1>
             </div>
             <div className="SectionTitleOrange">
+                <CourseBackButton />
                 <h1>PRODUCCIÓN AUDIOVISUAL</h1>
             </div>
             <br />

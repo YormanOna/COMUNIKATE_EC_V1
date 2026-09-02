@@ -12,19 +12,12 @@ import { Footer } from "../components/footer";
 export function Nosotros() {
     const location = useLocation();
 
-    const scrollToHash = () => {
-        const hash = location.hash;
-        if (hash) {
-            const element = document.querySelector(hash);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    };
-
     useEffect(() => {
         document.title = "Sobre Nosotros | Comunikate Ecuador";
-        scrollToHash();
+        if (location.hash) {
+            const element = document.querySelector(location.hash);
+            if (element) element.scrollIntoView({ behavior: 'smooth' });
+        }
     }, [location]);
 
     return (

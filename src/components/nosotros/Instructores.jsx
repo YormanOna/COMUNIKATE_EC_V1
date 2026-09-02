@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
+import PropTypes from 'prop-types';
 import instructoresData from '../../data/instructores.json';
 import '../../styles/InstructorCard.css';
 
@@ -31,12 +32,6 @@ const InstructorCard = ({ instructor, index }) => {
   };
 
   // Calcular años de experiencia
-  const getExperienciaAnios = () => {
-    const descText = instructor.descripcion.join(' ');
-    const match = descText.match(/(\d+)\s*años?\s*de\s*experiencia/i);
-    return match ? match[1] : null;
-  };
-
   const especialidades = getEspecialidades();
 
   return (
@@ -52,6 +47,8 @@ const InstructorCard = ({ instructor, index }) => {
               src={instructor.imagen} 
               alt={instructor.nombre} 
               className={`foto-instructores ${imageLoaded ? 'loaded' : ''}`}
+              loading="lazy"
+              decoding="async"
               onLoad={() => setImageLoaded(true)}
             />
           </div>
@@ -67,31 +64,34 @@ const InstructorCard = ({ instructor, index }) => {
             onClick={() => setIsExpanded(true)}
             className="ver-mas-btn"
           >
-            Ver más
+            Ver perfil
           </button>
         </div>
       </div>
 
       {isExpanded && (
         <div className="modal-overlay" onClick={() => setIsExpanded(false)}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
+          <div className="modal-content" role="dialog" aria-modal="true" aria-labelledby={`perfil-${index}`} onClick={e => e.stopPropagation()}>
             <button 
               className="close-btn"
               onClick={() => setIsExpanded(false)}
+              aria-label={`Cerrar perfil de ${instructor.nombre}`}
             >
               <X size={24} />
             </button>
 
             <div className="modal-grid">
               <div className="modal-left-column">
-                <div className="imagen-container-instructores">
+                  <div className="imagen-container-instructores">
                   <div className="imagen-wrapper-modal">
-                    <img src={instructor.imagen} alt={instructor.nombre} className="foto-instructores-modal" />
+                    <img src={instructor.imagen} alt={instructor.nombre} className="foto-instructores-modal" decoding="async" />
                   </div>
-                  <h3 className="nombre-instructores">{instructor.titulo} {instructor.nombre}</h3>
-                </div>
-
-                <div className={`info-container-instructores ${isLongContent() ? 'two-columns' : ''}`}>
+                  <h3 className="nombre-instructores" id={`perfil-${index}`}>{instructor.titulo} {instructor.nombre}</h3>
+                  </div>
+                  <div className={`info-container-instructores ${isLongContent() ? 'two-columns' : ''}`}>
+                  <div className="badges-container-modal">
+                    {especialidades.map((esp) => <span key={esp} className="especialidad-badge">{esp}</span>)}
+                  </div>
                   <div className="info-column">
                     {instructor.descripcion.map((parrafo, index) => (
                       <p key={index} className="descripcion-instructores">{parrafo}</p>
@@ -156,6 +156,19 @@ export const InstructoresComponent = () => {
       </div>
     </div>
   );
+};
+
+InstructorCard.propTypes = {
+  instructor: PropTypes.shape({
+    imagen: PropTypes.string.isRequired,
+    nombre: PropTypes.string.isRequired,
+    titulo: PropTypes.string.isRequired,
+    descripcion: PropTypes.arrayOf(PropTypes.string).isRequired,
+    experiencia: PropTypes.arrayOf(PropTypes.string).isRequired,
+    trayectoria: PropTypes.arrayOf(PropTypes.string),
+    actual: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 export default InstructoresComponent;

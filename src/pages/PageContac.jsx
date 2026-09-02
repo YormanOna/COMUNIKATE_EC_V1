@@ -67,7 +67,7 @@ export function PageContac() {
   return (
     <div>
       <NavigationMenu />
-      <br /><br /><br /><br />
+      <main className="contact-page-shell">
       <div className="pageContac">
         <div className="pageContac-left">
           <h1 className="pageContac-title">CONTACTOS</h1>
@@ -96,7 +96,6 @@ export function PageContac() {
         </div>
 
         <div className="pageContac-right">
-          <br /><br />
           <form className="pageContac-form" onSubmit={handleSubmit}>
             <label htmlFor="nombre">Nombre:</label>
             <input id="nombre" type="text" value={formData.nombre} onChange={handleChange} required />
@@ -127,11 +126,13 @@ export function PageContac() {
         width="600" 
         height="450" 
         className="pageContac-map"
+        title="Ubicación de Comunikate Ecuador"
         style={{ border: 0 }}
         allowFullScreen=""
         loading="lazy" 
         referrerPolicy="no-referrer-when-downgrade"
       ></iframe>
+      </main>
       <Footer />
     </div>
   );

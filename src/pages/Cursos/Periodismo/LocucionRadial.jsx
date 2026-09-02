@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import IMAGENLocucion from '../../../img/Cursos/Periodismo/LOCUCIÓN_RADIAL.webp';
 import {NavigationMenu} from '../../../components/NavBar';
+import { CourseBackButton } from '../../../components/CourseBackButton';
 
 export function LocucionRadial(){
     useEffect(() => {
@@ -18,6 +19,7 @@ export function LocucionRadial(){
                 <h1>Periodismo</h1>
             </div>
             <div className="SectionTitleOrange">
+                <CourseBackButton />
                 <h1>LOCUCIÓN RADIAL</h1>
             </div>
             <br />

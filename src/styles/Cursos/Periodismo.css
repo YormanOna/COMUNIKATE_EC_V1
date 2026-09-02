@@ -332,3 +332,23 @@ Responsividad
     right: 10px;
   }
 }
+
+/* La imagen funciona como fondo completo de la tarjeta; la información se superpone. */
+.periodismo-image-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.periodismo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.periodismo-overlay {
+  z-index: 1;
+}

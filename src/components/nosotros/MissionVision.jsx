@@ -1,5 +1,5 @@
 import React from 'react';
-import { Target, Users, Building2 } from 'lucide-react';
+import { Target, Users } from 'lucide-react';
 import '../../styles/misionVision.css';
 
 export function MissionVisionStyled () {

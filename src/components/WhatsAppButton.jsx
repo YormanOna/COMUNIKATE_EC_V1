@@ -14,7 +14,7 @@ const WhatsAppButton = () => {
       startChatText="Escribe aquí tu consulta"
       allowEsc
       notification
-      notificationDelay={0}
+      notificationDelay={10}
       notificationSound
     />
   );

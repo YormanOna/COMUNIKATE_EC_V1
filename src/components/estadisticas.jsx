@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { GraduationCap, Clock, BookOpen } from 'lucide-react';
+import PropTypes from 'prop-types';
 import '../styles/estadisticas.css';
 
 const StatCard = ({ icon: Icon, targetNumber, text, delay }) => {
@@ -7,16 +8,7 @@ const StatCard = ({ icon: Icon, targetNumber, text, delay }) => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [hasInitialAnimated, setHasInitialAnimated] = useState(false);
 
-  // Animación inicial automática
-  useEffect(() => {
-    const initialTimer = setTimeout(() => {
-      startAnimation(true);
-    }, delay * 1000);
-
-    return () => clearTimeout(initialTimer);
-  }, []);
-
-  const startAnimation = (isInitial = false) => {
+  const startAnimation = useCallback((isInitial = false) => {
     if (isAnimating) return;
     
     setIsAnimating(true);
@@ -41,7 +33,16 @@ const StatCard = ({ icon: Icon, targetNumber, text, delay }) => {
         setCount(Math.floor(increment * currentStep));
       }
     }, interval);
-  };
+  }, [isAnimating, targetNumber]);
+
+  // Animación inicial automática
+  useEffect(() => {
+    const initialTimer = setTimeout(() => {
+      startAnimation(true);
+    }, delay * 1000);
+
+    return () => clearTimeout(initialTimer);
+  }, [delay, startAnimation]);
 
   const handleHover = () => {
     if (hasInitialAnimated) {
@@ -71,6 +72,13 @@ const StatCard = ({ icon: Icon, targetNumber, text, delay }) => {
   );
 };
 
+StatCard.propTypes = {
+  icon: PropTypes.elementType.isRequired,
+  targetNumber: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired,
+  delay: PropTypes.number.isRequired,
+};
+
 export function CartasEstadisticas () {
   return (
     <div className="eduStats_container">
@@ -95,4 +103,3 @@ export function CartasEstadisticas () {
     </div>
   );
 };
-

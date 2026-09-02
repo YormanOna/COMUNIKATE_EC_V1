@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/Cursos/Periodismo.css";
+import { UnavailableCourseNotice } from "../../components/UnavailableCourseNotice";
 
 import imgOratoria from "../../img/Cursos/Periodismo/Imagenes_Cursos/CURSOS_UNO.png";
 import imgDepor from "../../img/Cursos/Periodismo/Imagenes_Cursos/CURSOS_DOS.png";
@@ -9,6 +10,7 @@ import imgMedia from "../../img/Cursos/Periodismo/Imagenes_Cursos/CURSOS_CINCO.p
 import imgPresentador from "../../img/Cursos/Periodismo/Imagenes_Cursos/CURSOS_SEIS.png";
 
 export function Periodismo() {
+  const [unavailableCourse, setUnavailableCourse] = useState("");
   const cursos = [
     { 
       href: "/cursos/periodismo/oratoria-locucion", 
@@ -32,7 +34,7 @@ export function Periodismo() {
       level: "Básico"
     },
     { 
-      href: "/relaciones-publicas", 
+      href: "/cursos#periodismo",
       img: imgRRPP, 
       title: "Relaciones Públicas",
       duration: "30 horas",
@@ -73,6 +75,12 @@ export function Periodismo() {
             key={index}
             href={curso.href} 
             className="periodismo-card"
+            onClick={(event) => {
+              if (curso.title === "Relaciones Públicas") {
+                event.preventDefault();
+                setUnavailableCourse(curso.title);
+              }
+            }}
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             <div className="periodismo-image-wrapper">
@@ -98,6 +106,12 @@ export function Periodismo() {
           </a>
         ))}
       </div>
+      {unavailableCourse && (
+        <UnavailableCourseNotice
+          course={unavailableCourse}
+          onClose={() => setUnavailableCourse("")}
+        />
+      )}
     </section>
   );
 }

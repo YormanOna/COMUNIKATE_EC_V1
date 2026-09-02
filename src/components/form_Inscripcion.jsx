@@ -1,275 +1,75 @@
-import React, { useState, useEffect } from "react";
+import React, { useMemo, useState } from "react";
 import emailjs from "emailjs-com";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 import "../styles/formInscripciones.css";
 
+const cursosDisponibles = ["CURSO DE ORATORIA Y LOCUCIÓN", "CURSO DE PRODUCCIÓN AUDIOVISUAL", "CURSO DE FOTOGRAFÍA", "CURSO DE PRESENTADOR DE TV Y MEDIOS DIGITALES", "CURSO DE STREAMING", "CURSO DE PERIODISMO DEPORTIVO", "CURSO DE MEDIA TRAINING", "CURSO DE RELACIONES PÚBLICAS", "CURSO DE LOCUCIÓN COMERCIAL", "CURSO DE REDACCIÓN PERIODÍSTICA", "CURSO DE MARKETING DIGITAL", "CURSO DE PODCAST", "CURSO DE FOTOGRAFÍA DE PRODUCTOS Y ALIMENTOS", "CURSO DE EDICIÓN Y GRABACIÓN DE AUDIO", "CURSO DE VENTAS", "OTROS"];
+const initialValues = { nombres: "", apellidos: "", email: "", movil: "", cedula: "", edad: "", estadoCivil: "", ciudad: "", direccion: "", ocupacion: "", curso: "", comentarios: "" };
+const requiredFields = ["nombres", "apellidos", "email", "movil", "cedula", "edad", "estadoCivil", "ciudad", "direccion", "ocupacion", "curso"];
+
+function validateField(name, value) {
+  const clean = value.trim();
+  if (requiredFields.includes(name) && !clean) return "Este campo es obligatorio.";
+  if (["nombres", "apellidos", "estadoCivil"].includes(name) && clean && !/^[A-Za-zÁáÉéÍíÓóÚúÜüÑñ\s]+$/.test(clean)) return "Solo se permiten letras.";
+  if (name === "email" && clean && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean)) return "Ingresa un correo electrónico válido.";
+  if (name === "movil" && clean && !/^\+?[0-9]{9,15}$/.test(clean)) return "Ingresa un número móvil válido.";
+  if (name === "cedula" && clean && !/^\d{10}$/.test(clean)) return "La cédula debe tener 10 dígitos.";
+  if (name === "edad" && clean && (Number(value) < 5 || Number(value) > 80)) return "La edad debe estar entre 5 y 80 años.";
+  return "";
+}
+
 export function FormInscripcion() {
-  const [selectCurso, setSelectCurso] = useState("");
+  const [values, setValues] = useState(initialValues);
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredCursos, setFilteredCursos] = useState([]);
-  const [comentarios, setComentarios] = useState("");
-  const [errorCurso, setErrorCurso] = useState(""); // Estado para el mensaje de error
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const filteredCursos = useMemo(() => cursosDisponibles.filter((curso) => curso.toLowerCase().includes(searchTerm.toLowerCase())), [searchTerm]);
+  const formIsValid = requiredFields.every((field) => values[field].trim() && !validateField(field, values[field]));
 
-  const cursos = [
-    "CURSO DE ORATORIA Y LOCUCIÓN", 
-    "CURSO DE PRODUCCIÓN AUDIOVISUAL",
-    "CURSO DE FOTOGRAFÍA",
-    "CURSO DE PRESENTADOR DE TV Y MEDIOS DIGITALES",
-    "CURSO DE STREAMING",
-    "CURSO DE PERIODISMO DEPORTIVO",
-    "CURSO DE MEDIA TRAINING",
-    "CURSO DE RELACIONES PÚBLICAS",
-    "CURSO DE LOCUCIÓN COMERCIAL",
-    "CURSO DE REDACCIÓN PERIODÍSTICA",
-    "CURSO DE MARKETING DIGITAL",
-    "CURSO DE PODCAST",
-    "CURSO DE FOTOGRAFÍA DE PRODUCTOS Y ALIMENTOS",
-    "CURSO DE EDICIÓN Y GRABACIÓN DE AUDIO",
-    "CURSO DE VENTAS",
-    "OTROS",
-  ];
-
-  useEffect(() => {
-    setFilteredCursos(
-      cursos.filter((curso) =>
-        curso.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    );
-  }, [searchTerm]);
-
-  const handleSelectCurso = (curso) => {
-    setSelectCurso(curso);
-    setIsDropdownOpen(false);
-    setSearchTerm("");
-    setErrorCurso(""); // Limpiar error al seleccionar un curso
+  const updateField = (name, value) => {
+    setValues((current) => ({ ...current, [name]: value }));
+    if (touched[name]) setErrors((current) => ({ ...current, [name]: validateField(name, value) }));
   };
-
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-    setIsDropdownOpen(true);
+  const handleBlur = (name) => {
+    setTouched((current) => ({ ...current, [name]: true }));
+    setErrors((current) => ({ ...current, [name]: validateField(name, values[name]) }));
   };
-
-  const handleComentariosChange = (e) => {
-    setComentarios(e.target.value);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const nextErrors = Object.fromEntries(Object.keys(values).map((field) => [field, validateField(field, values[field])]));
+    setErrors(nextErrors);
+    setTouched(Object.fromEntries(Object.keys(values).map((field) => [field, true])));
+    if (Object.values(nextErrors).some(Boolean) || !formIsValid) return;
+    setIsSubmitting(true);
+    emailjs.sendForm("service_2hfrmdm", "template_n9lhc0t", event.currentTarget, "_tfhrpj8o8dDHmUD-")
+      .then(() => {
+        swal({ title: "¡Gracias por tu interés!", text: "Hemos recibido tus datos y te contactaremos a la brevedad.", icon: "success" });
+        setValues(initialValues); setErrors({}); setTouched({}); setSearchTerm(""); setIsDropdownOpen(false); event.currentTarget.reset();
+      })
+      .catch(() => swal({ title: "¡Oops!", text: "Ha ocurrido un error al enviar tus datos. Por favor, inténtalo de nuevo.", icon: "error" }))
+      .finally(() => setIsSubmitting(false));
   };
+  const fieldProps = (name) => ({ name, value: values[name], onChange: (event) => updateField(name, event.target.value), onBlur: () => handleBlur(name), "aria-invalid": Boolean(touched[name] && errors[name]), "aria-describedby": touched[name] && errors[name] ? `${name}-error` : undefined });
+  const renderError = (name) => touched[name] && errors[name] ? <p id={`${name}-error`} className="error-message-form" role="alert">{errors[name]}</p> : null;
 
-  const enviarEmail = (e) => {
-    e.preventDefault();
-    const form = e.target;
-
-    // Validar que se haya seleccionado un curso
-    if (!selectCurso) {
-      setErrorCurso("Por favor, selecciona un curso.");
-      return; // No enviar el formulario
-    }
-
-    // Convertir campos a mayúsculas
-    ['nombres', 'apellidos', 'estadoCivil', 'direccion', 'ciudad', 'ocupacion', 'comentarios'].forEach(field => {
-      const input = form.elements[field];
-      if (input) {
-        input.value = input.value.toUpperCase();
-      }
-    });
-
-    emailjs.sendForm('service_2hfrmdm', 'template_n9lhc0t', form, '_tfhrpj8o8dDHmUD-')
-      .then((result) => {
-          console.log(result.text);
-          swal({
-            title: "¡Gracias por tu interés!",
-            text: "Hemos recibido tus datos y te contactaremos a la brevedad.",
-            icon: "success",
-          })
-          setSelectCurso("");
-          setComentarios("");
-          e.target.reset();
-      }, (error) => {
-          console.log(error.text);
-          swal({
-            title: "¡Oops!",
-            text: "Ha ocurrido un error al enviar tus datos. Por favor, inténtalo de nuevo.",
-            icon: "error",
-          })
-      });
-    e.target.reset();
-  }
-
-  return (
-    <div className="container-form">
-      <h2 className="title-form">
-        Ingresa tus datos en este formulario y obtén la información del curso de
-        tu interés y el proceso de matriculación.
-      </h2>
-      <form className="registration-form" onSubmit={enviarEmail}>
-        <div className="input-group-form">
-          <label className="label-form">Nombres y Apellidos</label>
-          <div className="name-inputs-form">
-            <input
-              type="text"
-              placeholder="Nombres"
-              className="input-form name-input-form"
-              name="nombres"
-              pattern="[A-Za-zÑñÁáÉéÍíÓóÚú\s]+"
-              title="Solo se permiten letras"
-              required
-            />
-            <input
-              type="text"
-              placeholder="Apellidos"
-              name="apellidos"
-              className="input-form name-input-form"
-              pattern="[A-Za-zÑñÁáÉéÍíÓóÚú\s]+"
-              title="Solo se permiten letras"
-              required
-            />
-          </div>
-        </div>
-        <div className="input-group-form">
-          <label className="label-form">Email</label>
-          <input
-            type="email"
-            placeholder="Ejemplo@example.com"
-            className="input-form"
-            name="email"
-            title="Por favor ingrese un correo válido"
-            required
-          />
-        </div>
-        <div className="input-group-form">
-          <label className="label-form">Número Móvil</label>
-          <input 
-            type="tel" 
-            placeholder="Ej: +09x XXX-XXXX"
-            className="input-form" 
-            name="movil"
-            pattern="^[0-9\+]{10,15}$"
-            title="Por favor ingrese un número de teléfono válido"
-          />
-        </div>
-        <div className="input-group-form">
-          <label className="label-form">Número de Cédula</label>
-          <input
-            type="text"
-            placeholder="XXXXXXXXXX"
-            className="input-form"
-            name="cedula"
-            pattern="\d{10}"
-            maxLength="10"
-            title="Por favor ingrese un número de cédula válido"
-          />
-        </div>
-        <div className="input-group-form">
-          <label className="label-form">Edad</label>
-          <input 
-            type="number" 
-            placeholder="XX" 
-            className="input-form" 
-            name="edad"
-            min="5" 
-            max="80" 
-            title="Ingrese una edad válida"
-            required  
-          />
-        </div>
-        <div className="input-group-form">
-          <label className="label-form">Estado Civil</label>
-          <input 
-            type="text" 
-            placeholder="Soltero" 
-            className="input-form"
-            name="estadoCivil"
-            pattern="[A-Za-z\s]+"
-            title="Solo se permiten letras"
-            required 
-          />
-        </div>
-        <div className="input-group-form">
-          <label className="label-form">Ciudad</label>
-          <input 
-            type="text" 
-            placeholder="Ciudad" 
-            className="input-form" 
-            name="ciudad"
-            required
-          />
-        </div>
-        <div className="input-group-form">
-          <label className="label-form">Dirección Domicilio</label>
-          <input 
-            type="text" 
-            placeholder="Domicilio" 
-            className="input-form" 
-            name="direccion"
-            required
-          />
-        </div>
-        <div className="input-group-form">
-          <label className="label-form">Ocupación</label>
-          <input
-            type="text"
-            placeholder="Ingeniero en sistemas, Licenciatura en Diseño"
-            className="input-form"
-            name="ocupacion"
-            required
-          />
-        </div>
-        <div className="input-group-form">
-          <label className="label-form">Seleccionar un Curso</label>
-          <div className="custom-select-form">
-            <div
-              className="select-selected-form"
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            >
-              {selectCurso || "CURSOS"}
-              <span className="select-arrow"></span>
-            </div>
-            {isDropdownOpen && (
-              <div className="select-items-form">
-                <div className="search-container-form">
-                  <input
-                    type="text"
-                    placeholder="Buscar curso..."
-                    value={searchTerm}
-                    onChange={handleSearchChange}
-                    className="search-input-form"
-                    name="cursoSearch"
-                  />
-                </div>
-                <div className="options-container-form">
-                  {filteredCursos.map((curso) => (
-                    <div
-                      key={curso}
-                      onClick={() => {
-                        handleSelectCurso(curso);
-                        setIsDropdownOpen(false);
-                      }}
-                      className="select-item-form"
-                    >
-                      {curso}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-          <input type="hidden" name="curso" value={selectCurso} required />
-          {errorCurso && <p className="error-message-form">{errorCurso}</p>} {/* Mostrar mensaje de error */}
-        </div>
-        <div className="input-group-form">
-          <label className="label-form">Comentarios (opcional)</label>
-          <textarea
-            className="input-form"
-            placeholder="Comentarios"
-            rows="4"
-            name="comentarios"
-            value={comentarios}
-            onChange={handleComentariosChange}
-          />
-        </div>
-        <button type="submit" className="submit-button-form">
-          Enviar
-        </button>
-      </form>
-    </div>
-  );
+  return <div className="container-form">
+    <h2 className="title-form">Ingresa tus datos para recibir información del curso y del proceso de matriculación.</h2>
+    <form className="registration-form" onSubmit={handleSubmit} noValidate>
+      <div className="form-section-heading">Información personal</div>
+      <div className="input-group-form input-group-wide"><label className="label-form" htmlFor="nombres">Nombres y apellidos</label><div className="name-inputs-form"><div className="field-wrapper-form"><input id="nombres" type="text" placeholder="Nombres" className="input-form" {...fieldProps("nombres")} />{renderError("nombres")}</div><div className="field-wrapper-form"><input id="apellidos" type="text" placeholder="Apellidos" className="input-form" {...fieldProps("apellidos")} />{renderError("apellidos")}</div></div></div>
+      <div className="input-group-form"><label className="label-form" htmlFor="email">Email</label><input id="email" type="email" placeholder="ejemplo@correo.com" className="input-form" {...fieldProps("email")} />{renderError("email")}</div>
+      <div className="input-group-form"><label className="label-form" htmlFor="movil">Número móvil</label><input id="movil" type="tel" inputMode="tel" placeholder="Ej: +593999999999" className="input-form" {...fieldProps("movil")} />{renderError("movil")}</div>
+      <div className="input-group-form"><label className="label-form" htmlFor="cedula">Número de cédula</label><input id="cedula" type="text" inputMode="numeric" maxLength="10" placeholder="XXXXXXXXXX" className="input-form" {...fieldProps("cedula")} />{renderError("cedula")}</div>
+      <div className="input-group-form"><label className="label-form" htmlFor="edad">Edad</label><input id="edad" type="number" min="5" max="80" placeholder="Edad" className="input-form" {...fieldProps("edad")} />{renderError("edad")}</div>
+      <div className="input-group-form"><label className="label-form" htmlFor="estadoCivil">Estado civil</label><input id="estadoCivil" type="text" placeholder="Soltero" className="input-form" {...fieldProps("estadoCivil")} />{renderError("estadoCivil")}</div>
+      <div className="input-group-form"><label className="label-form" htmlFor="ciudad">Ciudad</label><input id="ciudad" type="text" placeholder="Ciudad" className="input-form" {...fieldProps("ciudad")} />{renderError("ciudad")}</div>
+      <div className="input-group-form"><label className="label-form" htmlFor="direccion">Dirección domiciliaria</label><input id="direccion" type="text" placeholder="Domicilio" className="input-form" {...fieldProps("direccion")} />{renderError("direccion")}</div>
+      <div className="input-group-form"><label className="label-form" htmlFor="ocupacion">Ocupación</label><input id="ocupacion" type="text" placeholder="Ej: Diseñador" className="input-form" {...fieldProps("ocupacion")} />{renderError("ocupacion")}</div>
+      <div className="input-group-form input-group-wide"><label className="label-form" id="curso-label">Selecciona un curso</label><div className={`custom-select-form ${touched.curso && errors.curso ? "has-error-form" : ""}`}><button type="button" className="select-selected-form" aria-labelledby="curso-label" aria-expanded={isDropdownOpen} onClick={() => setIsDropdownOpen((open) => !open)}>{values.curso || "Selecciona un curso"}<span className="select-arrow" /></button>{isDropdownOpen && <div className="select-items-form"><div className="search-container-form"><input type="search" placeholder="Buscar curso..." value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} className="search-input-form" aria-label="Buscar curso" /></div><div className="options-container-form">{filteredCursos.length ? filteredCursos.map((curso) => <button type="button" key={curso} onClick={() => { updateField("curso", curso); setTouched((current) => ({ ...current, curso: true })); setErrors((current) => ({ ...current, curso: "" })); setIsDropdownOpen(false); setSearchTerm(""); }} className="select-item-form">{curso}</button>) : <p className="empty-options-form">No se encontraron cursos.</p>}</div></div>}</div><input type="hidden" name="curso" value={values.curso} />{renderError("curso")}</div>
+      <div className="input-group-form input-group-wide"><label className="label-form" htmlFor="comentarios">Comentarios <span>(opcional)</span></label><textarea id="comentarios" className="input-form textarea-form" placeholder="Comentarios" rows="4" {...fieldProps("comentarios")} /></div>
+      <button type="submit" className="submit-button-form" disabled={!formIsValid || isSubmitting}>{isSubmitting ? "Enviando…" : "Enviar solicitud"}</button>
+    </form>
+  </div>;
 }

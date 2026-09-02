@@ -1,9 +1,11 @@
 .eduStats_container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   justify-content: center;
-  gap: 30px;
-  padding: 40px 20px;
-  flex-wrap: wrap;
+  gap: clamp(16px, 3vw, 30px);
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 48px) 0;
 }
 
 /* Animación de entrada */
@@ -20,7 +22,8 @@
 
 .eduStats_card {
   background: linear-gradient(145deg, #1a1a1a, #000000);
-  width: 280px;
+  width: auto;
+  min-width: 0;
   min-height: 200px;
   border-radius: 16px;
   padding: 30px 20px;
@@ -142,6 +145,14 @@
   transition: all 0.3s ease;
 }
 
+/* Reduce la decoración desplazada y mantiene una superficie más limpia. */
+.eduStats_card::after {
+  top: 6px;
+  left: 6px;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+}
+
 /* Hint visual */
 .hover-hint {
   position: absolute;
@@ -174,12 +185,13 @@
 /* Media Query para pantalla móvil con dos columnas y una tercera centrada */
 @media (max-width: 768px) {
   .eduStats_container {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
-    justify-items: center;
-    padding: 15px 8px;
+    width: min(100% - 24px, 620px);
+    padding: 24px 0;
   }
+
+  .eduStats_card:nth-child(3) { grid-column: 1 / -1; width: min(50% - 8px, 280px); justify-self: center; }
 
   .eduStats_card {
     width: 85%;
@@ -194,4 +206,12 @@
   .eduStats_text {
     font-size: 0.75rem; /* Reducción para móviles */
   }
+}
+
+@media (max-width: 420px) {
+  .eduStats_container { gap: 12px; width: calc(100% - 20px); }
+  .eduStats_card { min-height: 170px; padding: 18px 10px; }
+  .eduStats_iconWrapper { width: 68px; height: 68px; margin-bottom: 12px; }
+  .eduStats_iconWrapper svg { width: 36px; height: 36px; }
+  .eduStats_card:nth-child(3) { width: min(62%, 240px); }
 }

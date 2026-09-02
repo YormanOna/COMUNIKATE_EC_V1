@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/Cursos/OtrosStyle.css";
+import { UnavailableCourseNotice } from "../../components/UnavailableCourseNotice";
 
 // Importa tus imágenes (ajusta las rutas según tu proyecto)
 import ImgVentas from "../../img/Cursos/Otros/Imagenes_Otros/OTROS_UNO.png";
@@ -7,6 +8,7 @@ import ImgCompras from "../../img/Cursos/Otros/Imagenes_Otros/OTROS_DOS.png";
 import ImgFormador from "../../img/Cursos/Otros/Imagenes_Otros/OTROS_TRES.png";
 
 export function Otros() {
+  const [unavailableCourse, setUnavailableCourse] = useState("");
   const cursos = [
     { 
       href: "/cursos", 
@@ -50,6 +52,10 @@ export function Otros() {
             key={index}
             href={curso.href} 
             className="otros-card"
+            onClick={(event) => {
+              event.preventDefault();
+              setUnavailableCourse(curso.title);
+            }}
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             <div className="otros-image-wrapper">
@@ -75,6 +81,12 @@ export function Otros() {
           </a>
         ))}
       </div>
+      {unavailableCourse && (
+        <UnavailableCourseNotice
+          course={unavailableCourse}
+          onClose={() => setUnavailableCourse("")}
+        />
+      )}
     </section>
   );
 }

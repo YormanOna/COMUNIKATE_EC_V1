@@ -28,6 +28,8 @@ export default [
       ...react.configs.recommended.rules,
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
+      // React se importa por compatibilidad histórica, pero JSX usa el runtime automático.
+      'no-unused-vars': ['error', { varsIgnorePattern: '^React$' }],
       'react/jsx-no-target-blank': 'off',
       'react-refresh/only-export-components': [
         'warn',

@@ -30,7 +30,7 @@ export function ImageSlider() {
         <div className="content-container">
           {slides.map((slide, index) => (
             <div key={index} className={`slide-slider ${index === currentSlide ? 'active-slider' : ''}`}>
-              <img src={slide.image} alt={slide.title} className="slide-image-slider" />
+              <img src={slide.image} alt={slide.title} className="slide-image-slider" loading={index === 0 ? 'eager' : 'lazy'} ref={index === 0 ? (node) => node?.setAttribute('fetchpriority', 'high') : undefined} decoding="async" />
               <div className="content-wrapper-slider">
                 <h2 className="slide-title-slider">{index === currentSlide ? typedTitle : ''}</h2>
               </div>
@@ -38,10 +38,12 @@ export function ImageSlider() {
           ))}
           <div className="dots-container-slider">
             {slides.map((_, index) => (
-              <span
+              <button
                 key={index}
                 className={`dot-slider ${index === currentSlide ? 'active-dot-slider' : ''}`}
                 onClick={() => setCurrentSlide(index)}
+                aria-label={`Ir a la diapositiva ${index + 1}`}
+                aria-current={index === currentSlide ? 'true' : undefined}
               />
             ))}
           </div>

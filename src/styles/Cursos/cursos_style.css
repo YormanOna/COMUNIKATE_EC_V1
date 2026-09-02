@@ -314,4 +314,117 @@
   }
 }
 
+/* Ajustes de accesibilidad y experiencia táctil */
+.cursos-card {
+  border: 0;
+  padding: 0;
+  text-align: inherit;
+  color: inherit;
+}
+
+.cursos-card:focus-visible {
+  outline: 3px solid #ff8533;
+  outline-offset: 4px;
+}
+
+.cursos-card .cursos-icon,
+.cursos-card .cursos-description,
+.cursos-card .cursos-footer {
+  opacity: 1;
+  transform: none;
+}
+
+.cursos-card .cursos-content {
+  transform: none;
+}
+
+.cursos-overlay {
+  background: linear-gradient(180deg, rgba(0, 0, 0, .12) 15%, rgba(0, 0, 0, .86) 100%) !important;
+}
+
+.cursos-content {
+  max-width: 540px;
+}
+
+.cursos-sections-loading {
+  min-height: 160px;
+  display: grid;
+  place-items: center;
+  color: #6b7280;
+  font-family: 'Montserrat', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .cursos-hero {
+    padding: 28px 18px 34px;
+  }
+
+  .cursos-header {
+    font-size: clamp(2rem, 8vw, 2.7rem);
+    line-height: 1.1;
+  }
+
+  .cursos-subtitle {
+    font-size: .98rem;
+    line-height: 1.5;
+  }
+
+  .cursospage {
+    gap: 18px;
+    padding-inline: 14px;
+  }
+
+  .cursos-card {
+    height: clamp(330px, 78vw, 390px);
+    border-radius: 16px;
+  }
+
+  .cursos-overlay {
+    align-items: flex-end;
+    padding: 24px 18px;
+  }
+
+  .cursos-icon {
+    margin-bottom: 12px;
+  }
+
+  .cursos-title {
+    font-size: clamp(1.25rem, 6vw, 1.7rem);
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+
+  .cursos-description {
+    font-size: .88rem;
+    line-height: 1.45;
+    margin-bottom: 14px;
+  }
+
+  .cursos-footer {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .cursos-count,
+  .cursos-cta {
+    font-size: .78rem;
+  }
+
+  .cursos-cta {
+    padding: 7px 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursos-card,
+  .cursos-image,
+  .cursos-overlay,
+  .cursos-content,
+  .cursos-description,
+  .cursos-footer {
+    animation: none;
+    transition: none;
+  }
+}
 

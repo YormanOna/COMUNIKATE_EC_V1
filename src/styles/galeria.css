@@ -331,3 +331,25 @@
         padding: 6px 15px;
     }
 }
+
+/* Ajustes de diseño y rendimiento */
+.container-gallery{padding:clamp(2.5rem,6vw,5rem) clamp(.75rem,3vw,2rem);background:#fafafa}
+.header-gallery{height:auto;min-height:100px;margin:0 auto clamp(2rem,5vw,3.5rem);padding:1rem;border-radius:12px;background:linear-gradient(110deg,#ff6600,#ff8a3d);box-shadow:8px 8px 0 rgba(255,102,0,.15)}
+.title-gallery{margin:0;font-size:clamp(1.7rem,4vw,2.7rem);letter-spacing:.06em;text-shadow:none}
+.grid-container-gallery{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(.75rem,2.5vw,1.5rem);padding:0;max-width:1180px}
+.grid-container-gallery .image-box-gallery{flex:0 1 260px}
+.image-box-gallery{aspect-ratio:4/3;height:auto;padding:0;border-radius:14px;background:#eee;box-shadow:0 8px 22px rgba(0,0,0,.12)}
+.image-box-gallery:focus-visible{outline:3px solid #ff6600;outline-offset:4px}
+.overlay-gallery{background:linear-gradient(transparent 35%,rgba(0,0,0,.7));opacity:0}
+.view-icon{padding:9px 18px;font-size:1rem}
+.show-more-container{margin-top:1.5rem;padding:1rem}
+.btn-show-more,.btn-show-less{padding:.8rem 1.6rem;font-size:.9rem}
+.lightbox-modal{padding:1rem;background:rgba(0,0,0,.92);backdrop-filter:blur(6px)}
+.lightbox-content{max-width:calc(100% - 8rem);max-height:calc(100svh - 5rem)}
+.lightbox-image{max-width:100%;max-height:calc(100svh - 6rem);border-radius:12px}
+.close-lightbox,.nav-lightbox{border:1px solid rgba(255,255,255,.65);background:rgba(0,0,0,.5);box-shadow:0 6px 18px rgba(0,0,0,.3)}
+.close-lightbox{top:1rem;right:1rem;width:46px;height:46px}
+.nav-lightbox{width:52px;height:52px}
+.lightbox-counter{margin-top:.75rem;font-size:1rem;background:rgba(255,102,0,.9)}
+@media(max-width:768px){.grid-container-gallery{gap:.8rem}.grid-container-gallery .image-box-gallery{flex-basis:calc(50% - .4rem)}.lightbox-content{max-width:calc(100% - 3rem)}.nav-lightbox{width:44px;height:44px}.nav-lightbox.prev{left:.35rem}.nav-lightbox.next{right:.35rem}.close-lightbox{top:.5rem;right:.5rem;width:42px;height:42px}.lightbox-image{max-height:78svh}}
+@media(max-width:380px){.grid-container-gallery{gap:.6rem}.grid-container-gallery .image-box-gallery{flex-basis:calc(50% - .3rem)}.view-icon{padding:7px 12px;font-size:.85rem}.lightbox-content{max-width:calc(100% - 2rem)}.nav-lightbox{width:38px;height:38px}}

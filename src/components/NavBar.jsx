@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "../styles/menuBar.css";
 import Logo from "../img/LOGO_NEGRO.png";
 
 export function NavigationMenu() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { pathname } = useLocation();
+  const isCourseDetail = pathname.startsWith("/cursos/");
+  const transparentPage = ["/", "/nosotros", "/servicios", "/cursos"].includes(pathname);
+  const navPageClass = isCourseDetail ? "detail-menu" : transparentPage ? (pathname === "/cursos" ? "courses-menu" : "light-menu") : "";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,7 +28,7 @@ export function NavigationMenu() {
   };
 
   return (
-    <nav className={`nav-container-menu ${isScrolled ? "scrolled-menu" : "initial-menu"}`}>
+    <nav className={`nav-container-menu ${isScrolled ? "scrolled-menu" : "initial-menu"} ${navPageClass}`}>
       {/* Ícono del menú móvil: cambia entre hamburguesa y cruz */}
       <div className="mobile-menu-icon" onClick={toggleMobileMenu}>
         {isMobileMenuOpen ? (
@@ -110,7 +114,7 @@ export function NavigationMenu() {
           </Link>
         </li>
         <li className="nav-item-menu">
-          <Link to="/inscripciones" className="nav-link-menu">
+          <Link to="/inscripciones" className="nav-link-menu nav-enrollment-cta">
             Inscríbete Aquí
           </Link>
         </li>
@@ -160,7 +164,7 @@ export function NavigationMenu() {
             <Link to="/contacto">Contáctanos</Link>
           </li>
           <li className="mobile-menu-item" onClick={closeMobileMenu}>
-            <Link to="/inscripciones">Inscríbete Aquí</Link>
+            <Link to="/inscripciones" className="mobile-enrollment-cta">Inscríbete Aquí</Link>
           </li>
         </ul>
       </div>

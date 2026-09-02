@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import IMAGENTvMedios from '../../../img/Cursos/Periodismo/PRESENTADOR_TV.webp';
 import {NavigationMenu} from '../../../components/NavBar';
+import { CourseBackButton } from '../../../components/CourseBackButton';
 
 export function PresentadorTvMediosDigitales(){
     useEffect(() => {
@@ -18,6 +19,7 @@ export function PresentadorTvMediosDigitales(){
                 <h1>Periodismo</h1>
             </div>
             <div className="SectionTitleOrange">
+                <CourseBackButton />
                 <h1>PRESENTADOR DE TV Y MEDIOS DIGITALES</h1>
             </div>
             <br />

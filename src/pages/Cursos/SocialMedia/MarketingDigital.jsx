@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import IMAGENDeportiva from '../../../img/Cursos/Periodismo/MARKETING_DIGITAL.webp';
 import {NavigationMenu} from '../../../components/NavBar';
+import { CourseBackButton } from '../../../components/CourseBackButton';
 
 export function MarketingDigital(){
     useEffect(() => {
@@ -18,6 +19,7 @@ export function MarketingDigital(){
                 <h1>Social Media</h1>
             </div>
             <div className="SectionTitleOrange">
+                <CourseBackButton />
                 <h1>MARKETING DIGITAL</h1>
             </div>
             <br />

@@ -1,5 +1,5 @@
 /* Estilos principales del menú */
-.nav-container-menu {
+  .nav-container-menu {
     position: fixed;
     top: 0;
     left: 0;
@@ -12,8 +12,56 @@
     z-index: 1000;
     background-color: transparent;
   }
+  .course-back-button {
+    position: absolute;
+    left: 1.5rem;
+    bottom: -52px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 38px;
+    padding: .55rem .9rem;
+    border: 1px solid rgba(245, 102, 0, .35);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .94);
+    color: #252525;
+    cursor: pointer;
+    font: inherit;
+    font-size: .85rem;
+    font-weight: 700;
+    box-shadow: 0 5px 14px rgba(15, 23, 42, .12);
+    transition: background-color .2s, color .2s, transform .2s;
+  }
+  .course-back-button:hover,
+  .course-back-button:focus-visible {
+    background: #f56600;
+    color: #fff;
+    transform: translateX(-2px);
+  }
+  .course-back-button:focus-visible {
+    outline: 3px solid rgba(245, 102, 0, .3);
+    outline-offset: 2px;
+  }
   .initial-menu {
     background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semi-transparente */
+  }
+  .initial-menu.light-menu,
+  .initial-menu.courses-menu,
+  .initial-menu.detail-menu {
+    background-color: transparent;
+    box-shadow: none;
+  }
+  .initial-menu.detail-menu .nav-link-menu { color: #fff; }
+  .initial-menu.detail-menu .nav-link-menu:hover { color: #ff6b00; }
+  .initial-menu.light-menu .nav-link-menu {
+    color: #fff;
+  }
+  .initial-menu.courses-menu .nav-link-menu {
+    color: #252525 !important;
+  }
+  .initial-menu.light-menu .nav-link-menu:hover,
+  .initial-menu.courses-menu .nav-link-menu:hover {
+    color: #ff6b00 !important;
   }
   .scrolled-menu {
     background-color: white;
@@ -74,6 +122,25 @@
   
   .nav-link-menu:hover {
     color: #ff6b00;
+  }
+
+  .nav-link-menu.nav-enrollment-cta {
+    padding: .65rem 1rem;
+    border: 1px solid #ff6b00;
+    border-radius: 999px;
+    background: #ff6b00;
+    color: #fff !important;
+    font-size: .85rem;
+    box-shadow: 0 6px 16px rgba(255, 107, 0, .2);
+    transition: background-color .25s ease, border-color .25s ease, transform .25s ease;
+  }
+
+  .nav-link-menu.nav-enrollment-cta:hover,
+  .nav-link-menu.nav-enrollment-cta:focus-visible {
+    border-color: #e85b00;
+    background: #e85b00;
+    color: #fff !important;
+    transform: translateY(-2px);
   }
   
   /* Submenús para escritorio */
@@ -187,6 +254,20 @@
     font-weight: 600;
     display: block;
   }
+
+  .mobile-menu-item .mobile-enrollment-cta {
+    width: fit-content;
+    padding: .65rem 1rem;
+    border-radius: 999px;
+    background: #ff6b00;
+    color: #fff;
+  }
+
+  .mobile-menu-item .mobile-enrollment-cta:hover,
+  .mobile-menu-item .mobile-enrollment-cta:focus-visible {
+    background: #e85b00;
+    color: #fff;
+  }
   
   /* Submenús para menú móvil */
   .mobile-submenu {
@@ -246,6 +327,13 @@
       position: relative;
       left: 0;
       transform: none;
+    }
+    .course-back-button {
+      left: 1rem;
+      bottom: -48px;
+      min-height: 36px;
+      padding: .45rem .75rem;
+      font-size: .78rem;
     }
   }
   

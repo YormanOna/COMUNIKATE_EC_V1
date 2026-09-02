@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import YouTube from 'react-youtube';
+import PropTypes from 'prop-types';
+import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import '../styles/testimonios.css';
 
 export function TestimonialsSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [playersReady, setPlayersReady] = useState({});
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const sectionRef = useRef(null);
-  const videoRefs = useRef({});
+  const videoRef = useRef(null);
 
   const testimonials = [
     { id: 1, name: "NIETO", role: "Estudiante de Oratoria y Locución", videoUrl: "https://youtube.com/shorts/kMkQf8ILhFI" },
@@ -20,30 +22,21 @@ export function TestimonialsSlider() {
     { id: 9, name: "Alumna Sta.Domingo", role:"Estudiante de Oratoria y Locución", videoUrl: "https://youtube.com/shorts/w1xlXY5DnaM" },
   ];
 
-  // Pausar todos los vídeos cuando el slider sale de viewport
+  // Pausar el único reproductor montado cuando el slider sale de viewport.
   useEffect(() => {
     const obs = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-          Object.entries(videoRefs.current).forEach(([id, player]) => {
-            if (player?.internalPlayer && playersReady[id]) {
-              player.internalPlayer.pauseVideo().catch(() => {});
-            }
-          });
+        if (!entry.isIntersecting && videoRef.current?.internalPlayer) {
+          videoRef.current.internalPlayer.pauseVideo().catch(() => {});
         }
       });
     }, { root: null, threshold: 0.2 });
 
     if (sectionRef.current) obs.observe(sectionRef.current);
     return () => obs.disconnect();
-  }, [playersReady]);
+  }, []);
 
   const changeSlide = (dir) => {
-    const currId = testimonials[activeIndex].id;
-    const currPlayer = videoRefs.current[currId];
-    if (currPlayer?.internalPlayer && playersReady[currId]) {
-      currPlayer.internalPlayer.pauseVideo().catch(() => {});
-    }
     setActiveIndex(i =>
       dir === 'next'
         ? (i + 1) % testimonials.length
@@ -52,12 +45,17 @@ export function TestimonialsSlider() {
   };
 
   const goTo = (i) => {
-    const currId = testimonials[activeIndex].id;
-    const currPlayer = videoRefs.current[currId];
-    if (currPlayer?.internalPlayer && playersReady[currId]) {
-      currPlayer.internalPlayer.pauseVideo().catch(() => {});
-    }
+    setIsVideoLoaded(false);
     setActiveIndex(i);
+  };
+  const changeSlideAndReset = (dir) => {
+    setIsVideoLoaded(false);
+    changeSlide(dir);
+  };
+  const handleTouchStart = (event) => { event.currentTarget.dataset.touchStart = event.touches[0].clientX; };
+  const handleTouchEnd = (event) => {
+    const distance = event.changedTouches[0].clientX - Number(event.currentTarget.dataset.touchStart);
+    if (Math.abs(distance) > 50) changeSlideAndReset(distance < 0 ? 'next' : 'prev');
   };
 
   return (
@@ -69,13 +67,13 @@ export function TestimonialsSlider() {
       <div className="container-testimonials">
         <button
           className="button-nav-testimonials prev-testimonials"
-          onClick={() => changeSlide('prev')}
-          aria-label="Previous testimonial"
+          onClick={() => changeSlideAndReset('prev')}
+          aria-label="Testimonio anterior"
         >
-          &#8249;
+          <ChevronLeft size={28} strokeWidth={2.5} aria-hidden="true" />
         </button>
 
-        <div className="slider-testimonials">
+        <div className="slider-testimonials" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
           {testimonials.map((t, idx) => (
             <div
               key={t.id}
@@ -91,15 +89,12 @@ export function TestimonialsSlider() {
               }
             >
               <div className="wrapper-video-testimonials">
-                <YouTubeVideo
-                  videoUrl={t.videoUrl}
-                  ref={el => (videoRefs.current[t.id] = el)}
-                  onReady={() => setPlayersReady(p => ({ ...p, [t.id]: true }))}
-                />
+                  {idx === activeIndex && (isVideoLoaded ? <YouTubeVideo videoUrl={t.videoUrl} ref={videoRef} /> : <VideoPlaceholder videoUrl={t.videoUrl} onPlay={() => setIsVideoLoaded(true)} />)}
               </div>
               <div className="info-testimonials">
                 <h3 className="name-testimonials">{t.name}</h3>
                 <p className="role-testimonials">{t.role}</p>
+                <p className="counter-testimonials">{idx + 1} de {testimonials.length}</p>
               </div>
             </div>
           ))}
@@ -107,10 +102,10 @@ export function TestimonialsSlider() {
 
         <button
           className="button-nav-testimonials next-testimonials"
-          onClick={() => changeSlide('next')}
-          aria-label="Next testimonial"
+          onClick={() => changeSlideAndReset('next')}
+          aria-label="Siguiente testimonio"
         >
-          &#8250;
+          <ChevronRight size={28} strokeWidth={2.5} aria-hidden="true" />
         </button>
       </div>
 
@@ -128,7 +123,7 @@ export function TestimonialsSlider() {
   );
 }
 
-const YouTubeVideo = React.forwardRef(({ videoUrl, onReady }, ref) => {
+const YouTubeVideo = React.forwardRef(({ videoUrl }, ref) => {
   const extractId = url => {
     try { return new URL(url).pathname.split('/').pop(); }
     catch { return null; }
@@ -146,15 +141,10 @@ const YouTubeVideo = React.forwardRef(({ videoUrl, onReady }, ref) => {
       rel: 0,
       loop: 1,
       playlist: id,
-      origin: window.location.origin,
       enablejsapi: 1,
-      widget_referrer: window.location.href,
-      playsinline: 1,
-      preload: 'metadata'
+      playsinline: 1
     }
   };
-
-  const handleReady = e => onReady && onReady(e);
 
   return (
     <YouTube
@@ -162,7 +152,6 @@ const YouTubeVideo = React.forwardRef(({ videoUrl, onReady }, ref) => {
       opts={opts}
       className="video-testimonials"
       ref={ref}
-      onReady={handleReady}
       onStateChange={e => {
         if (e.data === YouTube.PlayerState.ENDED) {
           e.target.seekTo(0);
@@ -171,5 +160,20 @@ const YouTubeVideo = React.forwardRef(({ videoUrl, onReady }, ref) => {
     />
   );
 });
+
+function VideoPlaceholder({ videoUrl, onPlay }) {
+  const id = videoUrl.split('/').pop();
+  return <button className="video-placeholder-testimonials" type="button" onClick={onPlay} aria-label="Reproducir testimonio">
+    <img src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt="" loading="lazy" />
+    <span className="play-button-testimonials" aria-hidden="true"><Play size={25} fill="currentColor" strokeWidth={0} /></span>
+  </button>;
+}
+
+YouTubeVideo.displayName = 'YouTubeVideo';
+YouTubeVideo.propTypes = {
+  videoUrl: PropTypes.string.isRequired,
+  onReady: PropTypes.func,
+};
+VideoPlaceholder.propTypes = { videoUrl: PropTypes.string.isRequired, onPlay: PropTypes.func.isRequired };
 
 export default TestimonialsSlider;
