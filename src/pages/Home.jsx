@@ -9,7 +9,7 @@ import {ContactComponent} from "../components/contactanos";
 
 export function Home() {
   useEffect(() => {
-    document.title = "Comunikate Ecuador - Inicio";
+    document.title = "Comunikate Academy - Inicio";
   }, []);
   
   return (

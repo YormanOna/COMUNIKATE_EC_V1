@@ -12,7 +12,7 @@ function validateField(name, value) {
   if (requiredFields.includes(name) && !clean) return "Este campo es obligatorio.";
   if (["nombres", "apellidos", "estadoCivil"].includes(name) && clean && !/^[A-Za-zÁáÉéÍíÓóÚúÜüÑñ\s]+$/.test(clean)) return "Solo se permiten letras.";
   if (name === "email" && clean && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean)) return "Ingresa un correo electrónico válido.";
-  if (name === "movil" && clean && !/^\+?[0-9]{9,15}$/.test(clean)) return "Ingresa un número móvil válido.";
+  if (name === "movil" && clean && !/^\d{10}$/.test(clean)) return "El número móvil debe tener 10 dígitos.";
   if (name === "cedula" && clean && !/^\d{10}$/.test(clean)) return "La cédula debe tener 10 dígitos.";
   if (name === "edad" && clean && (Number(value) < 5 || Number(value) > 80)) return "La edad debe estar entre 5 y 80 años.";
   return "";
@@ -29,8 +29,15 @@ export function FormInscripcion() {
   const formIsValid = requiredFields.every((field) => values[field].trim() && !validateField(field, values[field]));
 
   const updateField = (name, value) => {
-    setValues((current) => ({ ...current, [name]: value }));
-    if (touched[name]) setErrors((current) => ({ ...current, [name]: validateField(name, value) }));
+    const normalizedValue = ["nombres", "apellidos"].includes(name)
+      ? value.replace(/[^A-Za-zÁáÉéÍíÓóÚúÜüÑñ\s]/g, "")
+      : name === "cedula"
+        ? value.replace(/\D/g, "").slice(0, 10)
+        : name === "movil"
+          ? value.replace(/\D/g, "").slice(0, 10)
+        : value;
+    setValues((current) => ({ ...current, [name]: normalizedValue }));
+    if (touched[name]) setErrors((current) => ({ ...current, [name]: validateField(name, normalizedValue) }));
   };
   const handleBlur = (name) => {
     setTouched((current) => ({ ...current, [name]: true }));
@@ -38,17 +45,35 @@ export function FormInscripcion() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
+    // Capturar el elemento del formulario ANTES de cualquier llamada async.
+    // React puede anular event.currentTarget al liberar el SyntheticEvent,
+    // lo que provocaba una excepción dentro del .then() que el .catch() interpretaba
+    // erróneamente como un fallo de envío.
+    const formElement = event.currentTarget;
     const nextErrors = Object.fromEntries(Object.keys(values).map((field) => [field, validateField(field, values[field])]));
     setErrors(nextErrors);
     setTouched(Object.fromEntries(Object.keys(values).map((field) => [field, true])));
     if (Object.values(nextErrors).some(Boolean) || !formIsValid) return;
     setIsSubmitting(true);
-    emailjs.sendForm("service_2hfrmdm", "template_n9lhc0t", event.currentTarget, "_tfhrpj8o8dDHmUD-")
+    emailjs.send(
+      "service_2hfrmdm",
+      "template_n9lhc0t",
+      Object.fromEntries(Object.entries(values).map(([key, value]) => [key, value.trim()])),
+      "_tfhrpj8o8dDHmUD-"
+    )
       .then(() => {
         swal({ title: "¡Gracias por tu interés!", text: "Hemos recibido tus datos y te contactaremos a la brevedad.", icon: "success" });
-        setValues(initialValues); setErrors({}); setTouched({}); setSearchTerm(""); setIsDropdownOpen(false); event.currentTarget.reset();
+        setValues(initialValues);
+        setErrors({});
+        setTouched({});
+        setSearchTerm("");
+        setIsDropdownOpen(false);
+        formElement.reset();
       })
-      .catch(() => swal({ title: "¡Oops!", text: "Ha ocurrido un error al enviar tus datos. Por favor, inténtalo de nuevo.", icon: "error" }))
+      .catch((err) => {
+        console.error("[FormInscripcion] Error al enviar con EmailJS:", err);
+        swal({ title: "¡Oops!", text: "Ha ocurrido un error al enviar tus datos. Por favor, inténtalo de nuevo.", icon: "error" });
+      })
       .finally(() => setIsSubmitting(false));
   };
   const fieldProps = (name) => ({ name, value: values[name], onChange: (event) => updateField(name, event.target.value), onBlur: () => handleBlur(name), "aria-invalid": Boolean(touched[name] && errors[name]), "aria-describedby": touched[name] && errors[name] ? `${name}-error` : undefined });

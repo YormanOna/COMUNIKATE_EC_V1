@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Mantener disponibles los archivos reales generados por Vite.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# React Router: todas las rutas de la aplicación usan index.html.
+RewriteRule ^ index.html [L]
