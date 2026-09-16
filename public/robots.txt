@@ -1,11 +1,10 @@
-# robots.txt para Comunikate Ecuador
+# robots.txt para Comunikate Academy
 User-agent: *
 Allow: /
 
-# Permitir acceso a todas las páginas
+# Permitir acceso a secciones principales
 Allow: /cursos
 Allow: /nosotros
-Allow: /servicios
 Allow: /contacto
 Allow: /inscripciones
 
@@ -15,4 +14,4 @@ Disallow: *.json$
 Disallow: *.map$
 
 # Sitemap
-Sitemap: https://comunikate.ec/sitemap.xml
+Sitemap: https://comunikate.academy/sitemap.xml

@@ -19,6 +19,7 @@ const ProduccionAudiovisual = lazy(() => import('./pages/Cursos/Audiovisual/Prod
 const Fotografia = lazy(() => import('./pages/Cursos/Audiovisual/Fotografia').then(({ Fotografia }) => ({ default: Fotografia })));
 const CreacionDePodcast = lazy(() => import('./pages/Cursos/Audiovisual/CreacionPodcast').then(({ CreacionDePodcast }) => ({ default: CreacionDePodcast })));
 const LiveStreaming = lazy(() => import('./pages/Cursos/Audiovisual/LiveStreaming').then(({ LiveStreaming }) => ({ default: LiveStreaming })));
+const NotFound = lazy(() => import('./pages/NotFound').then(({ NotFound }) => ({ default: NotFound })));
 
 function App() {
   return (
@@ -42,6 +43,8 @@ function App() {
         <Route path="/cursos/audiovisual/fotografia" element={<Fotografia />} />
         <Route path="/cursos/audiovisual/creacion-de-podcast" element={<CreacionDePodcast />} />
         <Route path="/cursos/audiovisual/live-streaming" element={<LiveStreaming />} />
+        {/* Ruta comodín 404 para cualquier URL no existente */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
       </Suspense>
     </BrowserRouter>
