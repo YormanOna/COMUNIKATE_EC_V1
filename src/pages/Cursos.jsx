@@ -63,12 +63,17 @@ export function Cursos() {
     }
   ], []);
 
-  // Función para hacer scroll a una sección específica de la página
+  // Función para hacer scroll a una sección específica de la página con soporte para componentes lazy
   const handleScroll = useCallback((id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    const tryScroll = (attempts = 0) => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      } else if (attempts < 8) {
+        setTimeout(() => tryScroll(attempts + 1), 100);
+      }
+    };
+    tryScroll();
   }, []);
   
   useEffect(() => {

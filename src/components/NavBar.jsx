@@ -8,7 +8,7 @@ export function NavigationMenu() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { pathname } = useLocation();
   const isCourseDetail = pathname.startsWith("/cursos/");
-  const transparentPage = ["/", "/nosotros", "/servicios", "/cursos"].includes(pathname);
+  const transparentPage = ["/", "/nosotros", "/cursos"].includes(pathname);
   const navPageClass = isCourseDetail ? "detail-menu" : transparentPage ? (pathname === "/cursos" ? "courses-menu" : "light-menu") : "";
 
   useEffect(() => {
@@ -104,11 +104,6 @@ export function NavigationMenu() {
 
       <ul className="nav-right-menu desktop-menu">
         <li className="nav-item-menu">
-          <Link to="/servicios" className="nav-link-menu">
-            Servicios
-          </Link>
-        </li>
-        <li className="nav-item-menu">
           <Link to="/contacto" className="nav-link-menu">
             Contáctanos
           </Link>
@@ -156,9 +151,6 @@ export function NavigationMenu() {
                 <Link to="/cursos#otros">Otros</Link>
               </li>
             </ul>
-          </li>
-          <li className="mobile-menu-item" onClick={closeMobileMenu}>
-            <Link to="/servicios">Servicios</Link>
           </li>
           <li className="mobile-menu-item" onClick={closeMobileMenu}>
             <Link to="/contacto">Contáctanos</Link>

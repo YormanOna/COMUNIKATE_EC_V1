@@ -8,7 +8,6 @@ const Home = lazy(() => import('./pages/Home').then(({ Home }) => ({ default: Ho
 const Inscribite = lazy(() => import('./pages/Inscribite').then(({ Inscribite }) => ({ default: Inscribite })));
 const Nosotros = lazy(() => import('./pages/Nosotros').then(({ Nosotros }) => ({ default: Nosotros })));
 const Cursos = lazy(() => import('./pages/Cursos').then(({ Cursos }) => ({ default: Cursos })));
-const Servicios = lazy(() => import('./pages/Servicios').then(({ Servicios }) => ({ default: Servicios })));
 const PageContac = lazy(() => import('./pages/PageContac').then(({ PageContac }) => ({ default: PageContac })));
 const OratoriaLocucion = lazy(() => import('./pages/Cursos/Periodismo/OratoriaLocución').then(({ OratoriaLocucion }) => ({ default: OratoriaLocucion })));
 const PeriodismoDeportivo = lazy(() => import('./pages/Cursos/Periodismo/PeriodismoDeportivo').then(({ PeriodismoDeportivo }) => ({ default: PeriodismoDeportivo })));
@@ -43,9 +42,6 @@ function App() {
         <Route path="/cursos/audiovisual/fotografia" element={<Fotografia />} />
         <Route path="/cursos/audiovisual/creacion-de-podcast" element={<CreacionDePodcast />} />
         <Route path="/cursos/audiovisual/live-streaming" element={<LiveStreaming />} />
-        <Route path="/servicios" element={<Servicios />} />
-
-
       </Routes>
       </Suspense>
     </BrowserRouter>

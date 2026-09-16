@@ -19,9 +19,9 @@ export function CreacionDePodcast(){
                 <h1>AUDIOVISUAL</h1>
             </div>
             <div className="SectionTitleOrange">
-                <CourseBackButton />
                 <h1>CREACIÓN DE PODCAST</h1>
             </div>
+            <CourseBackButton />
             <br />
             <div className="container-SectionInfo">
                 <div className="text-info-container">

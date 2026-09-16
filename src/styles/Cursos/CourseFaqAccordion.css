@@ -1,0 +1,362 @@
+/* ======================================================
+   CourseFaqAccordion.css - Acordeón Reutilizable por Pestañas
+   ====================================================== */
+
+.course-faq-section {
+  width: 100%;
+  max-width: 1180px;
+  margin: 40px auto 60px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.course-faq-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.course-faq-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(245, 102, 0, 0.1);
+  color: #f56600;
+  border: 1px solid rgba(245, 102, 0, 0.25);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.course-faq-title {
+  margin: 0 0 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+  font-weight: 800;
+  color: #171717;
+  letter-spacing: -0.02em;
+}
+
+.course-faq-subtitle {
+  margin: 0 auto;
+  max-width: 620px;
+  color: #6b7280;
+  font-size: clamp(0.92rem, 1.6vw, 1.05rem);
+  line-height: 1.6;
+}
+
+/* Pestañas de categorías */
+.course-faq-tabs-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  overflow-x: auto;
+  padding: 4px 6px 12px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.course-faq-tabs-wrapper::-webkit-scrollbar {
+  height: 4px;
+}
+
+.course-faq-tabs-wrapper::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 4px;
+}
+
+.course-faq-tabs {
+  display: inline-flex;
+  gap: 10px;
+  background: #f3f4f6;
+  padding: 6px;
+  border-radius: 999px;
+  max-width: 100%;
+}
+
+.course-faq-tab-btn {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #4b5563;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.course-faq-tab-btn:hover {
+  color: #f56600;
+}
+
+.course-faq-tab-btn.active {
+  background: #f56600;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(245, 102, 0, 0.3);
+}
+
+.course-faq-tab-count {
+  font-size: 0.75rem;
+  opacity: 0.85;
+  background: rgba(0, 0, 0, 0.12);
+  padding: 1px 7px;
+  border-radius: 999px;
+}
+
+.course-faq-tab-btn.active .course-faq-tab-count {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* Lista de Acordeones */
+.course-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.course-faq-item {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.course-faq-item:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+.course-faq-item.is-open {
+  border-color: rgba(245, 102, 0, 0.4);
+  border-left: 4px solid #f56600;
+  background: #fffcf9;
+  box-shadow: 0 8px 24px rgba(245, 102, 0, 0.08);
+}
+
+/* Botón de la pregunta */
+.course-faq-question-btn {
+  width: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  text-align: left;
+  padding: 18px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.08rem);
+  font-weight: 700;
+  color: #1f2937;
+  transition: color 0.2s ease;
+}
+
+.course-faq-item.is-open .course-faq-question-btn {
+  color: #d85700;
+}
+
+/* Icono Chevron indicador */
+.course-faq-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  color: #4b5563;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.course-faq-item.is-open .course-faq-icon {
+  background: #f56600;
+  color: #ffffff;
+  transform: rotate(180deg);
+}
+
+/* Contenedor de respuesta animado mediante CSS Grid rows */
+.course-faq-answer-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.course-faq-item.is-open .course-faq-answer-wrapper {
+  grid-template-rows: 1fr;
+}
+
+.course-faq-answer-inner {
+  overflow: hidden;
+}
+
+.course-faq-answer-content {
+  padding: 0 22px 20px 22px;
+  color: #4b5563;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.94rem;
+  line-height: 1.75;
+  white-space: pre-line;
+}
+
+/* Tarjeta de contacto / Dudas */
+.course-faq-cta-card {
+  max-width: 920px;
+  margin: 36px auto 0;
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  border-radius: 16px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.course-faq-cta-text h4 {
+  margin: 0 0 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.15rem;
+  color: #ffffff;
+}
+
+.course-faq-cta-text p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.course-faq-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25d366;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 10px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+}
+
+.course-faq-cta-btn:hover {
+  background: #20ba5a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
+}
+
+/* ======================================================
+   Adaptación Móvil & Responsive (Mobile First Guarantee)
+   ====================================================== */
+@media (max-width: 768px) {
+  .course-faq-section {
+    margin: 30px auto 45px;
+    padding: 0 16px;
+  }
+
+  .course-faq-header {
+    margin-bottom: 22px;
+  }
+
+  /* En móviles: eliminamos el scroll horizontal y mostramos las categorías en un grid 2x2 totalmente a la vista */
+  .course-faq-tabs-wrapper {
+    overflow-x: visible;
+    padding: 0;
+    margin-bottom: 22px;
+    justify-content: center;
+  }
+
+  .course-faq-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    background: transparent;
+    padding: 0;
+    width: 100%;
+    border-radius: 0;
+    overflow-x: visible;
+  }
+
+  .course-faq-tab-btn {
+    width: 100%;
+    justify-content: center;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 10px 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-height: 52px;
+  }
+
+  .course-faq-tab-btn.active {
+    background: #f56600;
+    border-color: #f56600;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(245, 102, 0, 0.28);
+  }
+
+  .course-faq-tab-count {
+    font-size: 0.7rem;
+    padding: 2px 7px;
+  }
+
+  .course-faq-tab-btn.active .course-faq-tab-count {
+    background: rgba(255, 255, 255, 0.28);
+  }
+
+  .course-faq-question-btn {
+    padding: 16px 16px;
+    font-size: 0.93rem;
+  }
+
+  .course-faq-answer-content {
+    padding: 0 16px 16px 16px;
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  .course-faq-cta-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 16px;
+  }
+
+  .course-faq-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .course-faq-icon,
+  .course-faq-answer-wrapper,
+  .course-faq-tab-btn {
+    transition: none !important;
+  }
+}

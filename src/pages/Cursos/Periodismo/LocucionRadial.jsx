@@ -19,9 +19,9 @@ export function LocucionRadial(){
                 <h1>Periodismo</h1>
             </div>
             <div className="SectionTitleOrange">
-                <CourseBackButton />
                 <h1>LOCUCIÓN RADIAL</h1>
             </div>
+            <CourseBackButton />
             <br />
             <div className="container-SectionInfo">
                 <div className="text-info-container">

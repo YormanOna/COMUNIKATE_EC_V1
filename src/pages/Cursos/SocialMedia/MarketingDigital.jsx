@@ -19,9 +19,9 @@ export function MarketingDigital(){
                 <h1>Social Media</h1>
             </div>
             <div className="SectionTitleOrange">
-                <CourseBackButton />
                 <h1>MARKETING DIGITAL</h1>
             </div>
+            <CourseBackButton />
             <br />
             <div className="container-SectionInfo">
                 <div className="text-info-container">

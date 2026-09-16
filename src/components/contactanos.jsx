@@ -27,6 +27,8 @@ export function ContactComponent () {
                   <li>Guayaquil</li>
                   <li>Cuenca</li>
                   <li>Santo Domingo de los Tsáchilas</li>
+                  <li>Manta</li>
+                  <li>Ambato</li>
                 </ul>
                 </div>
             </div>
@@ -38,22 +40,21 @@ export function ContactComponent () {
 
             <div className="contact-item">
               <FontAwesomeIcon icon={faEnvelope} className="contact-icon" />
-              <p>info@comunikate.ec</p>
+              <p>info@comunikate.academy</p>
             </div>
 
             <div className="social-section">
               <div className="social-icons">
-                <a href="https://www.facebook.com/ComuniKateEc/" className="social-link" target="_blank" rel="noreferrer" aria-label="Facebook de Comunikate">
+                <a href="https://www.facebook.com/share/1EmVXMnZfz/?mibextid=wwXIfr" className="social-link" target="_blank" rel="noreferrer" aria-label="Facebook de Comunikate">
                   <FontAwesomeIcon icon={faFacebook} />
                 </a>
-                <a href="https://www.instagram.com/comunikateec/" className="social-link" target="_blank" rel="noreferrer" aria-label="Instagram de Comunikate">
+                <a href="https://www.instagram.com/comunikate.academy" className="social-link" target="_blank" rel="noreferrer" aria-label="Instagram de Comunikate">
                   <FontAwesomeIcon icon={faInstagram} />
                 </a>
-                <a href="https://www.tiktok.com/search?q=comunikateec&t=1658168849497" className="social-link" target="_blank" rel="noreferrer" aria-label="TikTok de Comunikate">
+                <a href="https://www.tiktok.com/@comunikate.academy" className="social-link" target="_blank" rel="noreferrer" aria-label="TikTok de Comunikate">
                   <FontAwesomeIcon icon={faTiktok} />
                 </a>
               </div>
-              <p className="social-handle">@comunicateec</p>
             </div>
 
             <Link to="/contacto">

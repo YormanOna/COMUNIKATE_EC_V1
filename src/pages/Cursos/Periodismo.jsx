@@ -16,7 +16,7 @@ export function Periodismo() {
       href: "/cursos/periodismo/oratoria-locucion", 
       img: imgOratoria, 
       title: "Oratoria y Locución",
-      duration: "35 horas",
+      duration: "24 horas",
       level: "Básico - Intermedio"
     },
     { 

@@ -19,9 +19,9 @@ export function PeriodismoDeportivo(){
                 <h1>Periodismo</h1>
             </div>
             <div className="SectionTitleOrange">
-                <CourseBackButton />
                 <h1>PERIODISMO DEPORTIVO</h1>
             </div>
+            <CourseBackButton />
             <br />
             <div className="container-SectionInfo">
                 <div className="text-info-container">

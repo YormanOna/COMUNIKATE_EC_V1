@@ -12,15 +12,15 @@ export function Audiovisual() {
     { 
       href: "/cursos/audiovisual/produccion-audiovisual", 
       img: ImgProduccion, 
-      title: "Producción Audiovisual",
-      duration: "45 horas",
-      level: "Intermedio"
+      title: "Producción Audiovisual Y CREACIÓN DE CONTENIDO CON IA",
+      duration: "24 horas",
+      level: "Básico - Intermedio"
     },
     { 
       href: "/cursos/audiovisual/fotografia", 
       img: ImgFotografia, 
-      title: "Fotografía Profesional",
-      duration: "30 horas",
+      title: "Fotografía Profesional CON IA",
+      duration: "24 horas",
       level: "Básico - Intermedio"
     },
     { 

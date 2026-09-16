@@ -4,7 +4,7 @@ import Logo from '../img/LOGO_NEGRO.png'; // Asegúrate de tener la imagen en es
 const WhatsAppButton = () => {
   return (
     <FloatingWhatsApp
-      phoneNumber="593983406064"
+      phoneNumber="593995222922"
       accountName="Asistencia"
       avatar={Logo}
       statusMessage="Te respondermos en breve"

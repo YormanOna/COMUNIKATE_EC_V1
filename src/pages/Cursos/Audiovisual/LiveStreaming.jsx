@@ -19,9 +19,9 @@ export function LiveStreaming(){
                 <h1>AUDIOVISUAL</h1>
             </div>
             <div className="SectionTitleOrange">
-                <CourseBackButton />
                 <h1>LIVE STREAMING</h1>
             </div>
+            <CourseBackButton />
             <br />
             <div className="container-SectionInfo">
                 <div className="text-info-container">

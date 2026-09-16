@@ -18,38 +18,111 @@ export function PageContac() {
     mensaje: ""
   });
 
-  const [status, setStatus] = useState(null);
+  const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+
+  const validateField = (field, value) => {
+    let error = "";
+    if (field === "nombre") {
+      const trimmed = value.trim();
+      if (!trimmed) {
+        error = "El nombre es obligatorio.";
+      } else if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(trimmed)) {
+        error = "El nombre solo puede contener letras y espacios.";
+      }
+    } else if (field === "email") {
+      const trimmed = value.trim();
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!trimmed) {
+        error = "El correo electrónico es obligatorio.";
+      } else if (!emailRegex.test(trimmed)) {
+        error = "Ingresa un correo electrónico válido (ej: nombre@dominio.com).";
+      }
+    } else if (field === "celular") {
+      if (!value) {
+        error = "El número de celular es obligatorio.";
+      } else if (value.length !== 10) {
+        error = `El celular debe tener exactamente 10 dígitos (llevas ${value.length}).`;
+      }
+    } else if (field === "mensaje") {
+      if (!value.trim()) {
+        error = "El mensaje no puede estar vacío.";
+      }
+    }
+    return error;
+  };
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setFormData((prev) => ({ ...prev, [id]: value }));
+    let sanitizedValue = value;
+
+    if (id === "nombre") {
+      // Solo permite letras (incluyendo acentos y ñ) y espacios
+      sanitizedValue = value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, "");
+    } else if (id === "celular") {
+      // Solo permite números y máximo 10 dígitos
+      sanitizedValue = value.replace(/\D/g, "").slice(0, 10);
+    }
+
+    setFormData((prev) => ({ ...prev, [id]: sanitizedValue }));
+
+    // Si había error en este campo, revalidar o limpiar al escribir
+    if (errors[id]) {
+      const currentError = validateField(id, sanitizedValue);
+      setErrors((prev) => ({ ...prev, [id]: currentError }));
+    }
+  };
+
+  const handleBlur = (e) => {
+    const { id, value } = e.target;
+    const fieldError = validateField(id, value);
+    setErrors((prev) => ({ ...prev, [id]: fieldError }));
+  };
+
+  const validateAll = () => {
+    const newErrors = {};
+    ["nombre", "email", "celular", "mensaje"].forEach((field) => {
+      const err = validateField(field, formData[field]);
+      if (err) newErrors[field] = err;
+    });
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-    setStatus(null);
 
-    const serviceId = "service_z16wqxr";
-    const templateId = "template_q7wp0zd";
-    const publicKey = "M4F1fQNIYzBdmLfMW";
+    if (!validateAll()) {
+      swal({
+        title: "Campos incorrectos o incompletos",
+        text: "Por favor revisa los datos ingresados antes de enviar.",
+        icon: "warning",
+      });
+      return;
+    }
+
+    setLoading(true);
+
+    const serviceId = "service_2hfrmdm";
+    const templateId = "template_5ldkfad";
+    const publicKey = "_tfhrpj8o8dDHmUD-";
 
     const templateParams = {
-      from_name: formData.nombre,
-      from_email: formData.email,
+      from_name: formData.nombre.trim(),
+      from_email: formData.email.trim(),
       celular: formData.celular,
-      message: formData.mensaje
+      message: formData.mensaje.trim()
     };
 
     emailjs.send(serviceId, templateId, templateParams, publicKey)
       .then(() => {
         setFormData({ nombre: "", email: "", celular: "", mensaje: "" });
+        setErrors({});
         swal({
           title: "¡Gracias por tu interés!",
           text: "Hemos recibido tus datos y te contactaremos a la brevedad.",
           icon: "success",
-        })
+        });
       })
       .catch((error) => {
         console.error("Error al enviar:", error);
@@ -57,7 +130,7 @@ export function PageContac() {
           title: "¡Oops!",
           text: "Ha ocurrido un error al enviar tus datos. Por favor, inténtalo de nuevo.",
           icon: "error",
-        })
+        });
       })
       .finally(() => {
         setLoading(false);
@@ -74,7 +147,7 @@ export function PageContac() {
           <div className="pageContac-info">
             <p className="info-address">Matiz Quito: Av. Luis Saá y Sadria, Edificio Daniel Cadena - 9no piso - Oficina 901</p>
             <p className="info-neighborhood">(Sector parque La Alameda)</p>
-            <p className="info-email">Email: comunikate.ec@gmail.com</p>
+            <p className="info-email">Email: info@comunikate.academy</p>
             <p className="info-phone">Tel: +593 (99) 522 2922</p>
           </div>
 
@@ -84,40 +157,78 @@ export function PageContac() {
               <li>Guayaquil</li>
               <li>Cuenca</li>
               <li>Santo Domingo de los Tsáchilas</li>
+              <li>Manta</li>
+              <li>Ambato</li>
             </ul>
           </div>
           <div className="pageContac-social">
-            <a href="https://www.facebook.com/ComuniKateEc/"><FaFacebookF className="social-icon"  /></a>
-            <a href="https://www.instagram.com/comunikateec/"><FaInstagram className="social-icon"/></a>
-            <a href="https://www.tiktok.com/search?q=comunikateec&t=1658168849497"><FaTiktok className="social-icon" /></a>
-        
+            <a href="https://www.facebook.com/share/1EmVXMnZfz/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF className="social-icon" /></a>
+            <a href="https://www.instagram.com/comunikate.academy" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram className="social-icon" /></a>
+            <a href="https://www.tiktok.com/@comunikate.academy" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><FaTiktok className="social-icon" /></a>
           </div>
-          <p className="pageContac-handle">@comunikateec</p>
+          
         </div>
 
         <div className="pageContac-right">
-          <form className="pageContac-form" onSubmit={handleSubmit}>
+          <form className="pageContac-form" onSubmit={handleSubmit} noValidate>
             <label htmlFor="nombre">Nombre:</label>
-            <input id="nombre" type="text" value={formData.nombre} onChange={handleChange} required />
+            <input 
+              id="nombre" 
+              type="text" 
+              value={formData.nombre} 
+              onChange={handleChange} 
+              onBlur={handleBlur}
+              placeholder="Ingresa solo letras (ej: Juan Pérez)"
+              className={errors.nombre ? "input-error" : ""}
+              aria-invalid={!!errors.nombre}
+            />
+            {errors.nombre && <span className="field-error-text">{errors.nombre}</span>}
             
             <label htmlFor="email">E-Mail:</label>
-            <input id="email" type="email" value={formData.email} onChange={handleChange} required />
+            <input 
+              id="email" 
+              type="email" 
+              value={formData.email} 
+              onChange={handleChange} 
+              onBlur={handleBlur}
+              placeholder="ejemplo@correo.com"
+              className={errors.email ? "input-error" : ""}
+              aria-invalid={!!errors.email}
+            />
+            {errors.email && <span className="field-error-text">{errors.email}</span>}
             
             <label htmlFor="celular">Celular:</label>
-            <input id="celular" type="text" value={formData.celular} onChange={handleChange} />
+            <input 
+              id="celular" 
+              type="tel" 
+              inputMode="numeric"
+              maxLength={10}
+              value={formData.celular} 
+              onChange={handleChange} 
+              onBlur={handleBlur}
+              placeholder="10 dígitos (ej: 0991234567)"
+              className={errors.celular ? "input-error" : ""}
+              aria-invalid={!!errors.celular}
+            />
+            {errors.celular && <span className="field-error-text">{errors.celular}</span>}
             
             <label htmlFor="mensaje">Mensaje:</label>
-            <textarea id="mensaje" rows="5" value={formData.mensaje} onChange={handleChange} required />
+            <textarea 
+              id="mensaje" 
+              rows="5" 
+              value={formData.mensaje} 
+              onChange={handleChange} 
+              onBlur={handleBlur}
+              placeholder="Escribe tu mensaje aquí..."
+              className={errors.mensaje ? "input-error" : ""}
+              aria-invalid={!!errors.mensaje}
+            />
+            {errors.mensaje && <span className="field-error-text">{errors.mensaje}</span>}
 
             <button type="submit" className="pageContac-submitButton" disabled={loading}>
               {loading ? "Enviando..." : "ENVIAR"}
             </button>
           </form>
-          {status && (
-            <p className={`form-status ${status.success ? "success" : "error"}`}>
-              {status.message}
-            </p>
-          )}
         </div>
       </div>
 

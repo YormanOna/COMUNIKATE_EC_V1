@@ -233,6 +233,25 @@
   background: #fff;
   box-shadow: 0 0 0 4px rgba(245,102,0,.12);
 }
+.pageContac-form input.input-error,
+.pageContac-form textarea.input-error {
+  border-color: #ef4444;
+  background: #fff5f5;
+}
+.pageContac-form input.input-error:focus,
+.pageContac-form textarea.input-error:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15);
+}
+.field-error-text {
+  display: block;
+  color: #dc2626;
+  font-size: 0.82rem;
+  font-weight: 500;
+  margin-top: 1px;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
 .pageContac-submitButton {
   align-self: stretch;
   margin-top: 20px;
