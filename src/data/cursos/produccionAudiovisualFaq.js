@@ -12,6 +12,12 @@ export const produccionAudiovisualFaqData = [
     answer: "No. El curso está diseñado para personas que desean aprender desde cero, por lo que no es necesario tener experiencia previa en producción audiovisual ni en manejo de cámaras."
   },
   {
+    id: "edad-minima",
+    category: "Metodología y Proyecto",
+    question: "¿Cuál es la edad mínima para inscribirse?",
+    answer: "Desde los 12 años en adelante."
+  },
+  {
     id: "equipos-necesarios",
     category: "Equipos y Programas",
     question: "¿Qué equipos necesito para las clases?",

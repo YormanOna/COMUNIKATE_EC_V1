@@ -8,7 +8,7 @@ export function CourseBackButton() {
 
   const targetSection = useMemo(() => {
     const lowerPath = pathname.toLowerCase();
-    if (lowerPath.includes('/periodismo/')) {
+    if (lowerPath.includes('/comunicacion/')) {
       return '/cursos#periodismo';
     }
     if (lowerPath.includes('/audiovisual/')) {

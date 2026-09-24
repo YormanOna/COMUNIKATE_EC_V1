@@ -27,7 +27,7 @@ export function Cursos() {
   const cursosData = useMemo(() => [
     {
       id: 'periodismo',
-      title: 'Periodismo',
+      title: 'Comunicación',
       image: ImgPeriodismo,
       description: 'Domina el arte de la comunicación profesional y conviértete en un experto en medios.',
       count: 6,

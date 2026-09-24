@@ -213,6 +213,31 @@
   white-space: pre-line;
 }
 
+.course-faq-more-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 24px auto 0;
+  padding: 10px 22px;
+  border: 1px solid rgba(245, 102, 0, 0.45);
+  border-radius: 999px;
+  background: #ffffff;
+  color: #d85700;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.course-faq-more-btn:hover {
+  background: #f56600;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(245, 102, 0, 0.25);
+  transform: translateY(-1px);
+}
+
 /* Tarjeta de contacto / Dudas */
 .course-faq-cta-card {
   max-width: 920px;
@@ -339,6 +364,10 @@
     padding: 0 16px 16px 16px;
     font-size: 0.88rem;
     line-height: 1.65;
+  }
+
+  .course-faq-more-btn {
+    margin-top: 20px;
   }
 
   .course-faq-cta-card {

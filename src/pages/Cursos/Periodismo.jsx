@@ -13,21 +13,21 @@ export function Periodismo() {
   const [unavailableCourse, setUnavailableCourse] = useState("");
   const cursos = [
     { 
-      href: "/cursos/periodismo/oratoria-locucion", 
+      href: "/cursos/comunicacion/oratoria-locucion", 
       img: imgOratoria, 
       title: "Oratoria y Locución",
       duration: "24 horas",
       level: "Básico - Intermedio"
     },
     { 
-      href: "/cursos/periodismo/periodismo-deportivo", 
+      href: "/cursos/comunicacion/periodismo-deportivo", 
       img: imgDepor, 
       title: "Periodismo Deportivo",
       duration: "40 horas",
       level: "Intermedio"
     },
     { 
-      href: "/cursos/periodismo/locucion-radial", 
+      href: "/cursos/comunicacion/locucion-radial", 
       img: imgRadial, 
       title: "Locución Radial",
       duration: "35 horas",
@@ -41,14 +41,14 @@ export function Periodismo() {
       level: "Intermedio"
     },
     { 
-      href: "/cursos/periodismo/media-training", 
+      href: "/cursos/comunicacion/media-training", 
       img: imgMedia, 
       title: "Media Training",
       duration: "25 horas",
       level: "Avanzado"
     },
     { 
-      href: "/cursos/periodismo/presentador-tv-medios-digitales", 
+      href: "/cursos/comunicacion/presentador-tv-medios-digitales", 
       img: imgPresentador, 
       title: "Presentador de TV y Medios Digitales",
       duration: "40 horas",
@@ -62,7 +62,7 @@ export function Periodismo() {
       <div className="periodismo-header">
         <div className="periodismo-title-wrapper">
           <i className="fas fa-microphone-alt"></i>
-          <h1>PERIODISMO</h1>
+          <h1>Comunicación</h1>
           <i className="fas fa-microphone-alt"></i>
         </div>
         <p className="periodismo-description">Desarrolla tus habilidades en comunicación y medios profesionales</p>

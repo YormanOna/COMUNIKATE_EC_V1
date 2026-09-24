@@ -6,6 +6,12 @@ export const oratoriaFaqData = [
     answer: "Sí. Es un curso abierto para cualquier persona que quiera desarrollar nuevas habilidades y conocimientos en el área de comunicación, expresión y desenvolvimiento personal o profesional."
   },
   {
+    id: "edad-minima",
+    category: "Metodología y Clases",
+    question: "¿Cuál es la edad mínima para inscribirse?",
+    answer: "Desde los 12 años en adelante.."
+  },
+  {
     id: "instructores",
     category: "Metodología y Clases",
     question: "¿Quiénes son los instructores?",

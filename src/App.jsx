@@ -33,11 +33,11 @@ function App() {
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/cursos" element={<Cursos />} />
         <Route path="/contacto" element={<PageContac />} />
-        <Route path="/cursos/periodismo/oratoria-locucion" element={<OratoriaLocucion />} />
-        <Route path="/cursos/periodismo/periodismo-deportivo" element={<PeriodismoDeportivo />} />
-        <Route path="/cursos/periodismo/locucion-radial" element={<LocucionRadial />} />
-        <Route path="/cursos/periodismo/media-training" element={<MediaTraining />} />
-        <Route path="/cursos/periodismo/presentador-tv-medios-digitales" element={<PresentadorTvMediosDigitales />} />
+        <Route path="/cursos/comunicacion/oratoria-locucion" element={<OratoriaLocucion />} />
+        <Route path="/cursos/comunicacion/periodismo-deportivo" element={<PeriodismoDeportivo />} />
+        <Route path="/cursos/comunicacion/locucion-radial" element={<LocucionRadial />} />
+        <Route path="/cursos/comunicacion/media-training" element={<MediaTraining />} />
+        <Route path="/cursos/comunicacion/presentador-tv-medios-digitales" element={<PresentadorTvMediosDigitales />} />
         <Route path="/cursos/social-media/marketing-digital" element={<MarketingDigital />} />
         <Route path="/cursos/audiovisual/produccion-audiovisual" element={<ProduccionAudiovisual />} />
         <Route path="/cursos/audiovisual/fotografia" element={<Fotografia />} />

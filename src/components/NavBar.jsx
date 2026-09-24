@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../styles/menuBar.css";
 import Logo from "../img/LOGO_NEGRO.png";
+import LogoWhite from "../img/LOGO-BLANCO.png";
 
 export function NavigationMenu() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -10,6 +11,7 @@ export function NavigationMenu() {
   const isCourseDetail = pathname.startsWith("/cursos/");
   const transparentPage = ["/", "/nosotros", "/cursos"].includes(pathname);
   const navPageClass = isCourseDetail ? "detail-menu" : transparentPage ? (pathname === "/cursos" ? "courses-menu" : "light-menu") : "";
+  const currentLogo = !isScrolled && (transparentPage || isCourseDetail) ? LogoWhite : Logo;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,7 +76,7 @@ export function NavigationMenu() {
           <ul className="submenu">
             <li>
               <Link to="/cursos#periodismo" className="submenu-link">
-                Periodismo
+                Comunicación
               </Link>
             </li>
             <li>
@@ -98,7 +100,7 @@ export function NavigationMenu() {
 
       <div className="logo-wrapper-menu">
         <Link to="/">
-          <img src={Logo} alt="Logo" className="logo-image-menu" />
+          <img src={currentLogo} alt="Comunikate Academy" className="logo-image-menu" />
         </Link>
       </div>
 

@@ -12,6 +12,7 @@ export function CourseFaqAccordion({
 
   const [activeCategory, setActiveCategory] = useState("Todos");
   const [openId, setOpenId] = useState(null);
+  const [showAllItems, setShowAllItems] = useState(false);
 
   // Extraer categorías únicas disponibles en los items suministrados
   const categories = useMemo(() => {
@@ -28,6 +29,11 @@ export function CourseFaqAccordion({
     }
     return safeItems.filter((it) => it.category === activeCategory);
   }, [safeItems, activeCategory, categories]);
+
+  const isAllCategory = categories.length > 0 && activeCategory === "Todos";
+  const visibleItems = isAllCategory && !showAllItems
+    ? filteredItems.slice(0, 4)
+    : filteredItems;
 
   const toggleAccordion = (id) => {
     setOpenId((prev) => (prev === id ? null : id));
@@ -67,6 +73,7 @@ export function CourseFaqAccordion({
                   onClick={() => {
                     setActiveCategory(cat);
                     setOpenId(null);
+                    setShowAllItems(false);
                   }}
                 >
                   <span>{cat}</span>
@@ -80,7 +87,7 @@ export function CourseFaqAccordion({
 
       {/* Lista de acordeones */}
       <div className="course-faq-list">
-        {filteredItems.map((item, index) => {
+        {visibleItems.map((item, index) => {
           const itemId = item.id || `faq-${index}`;
           const isOpen = openId === itemId;
 
@@ -120,6 +127,20 @@ export function CourseFaqAccordion({
           );
         })}
       </div>
+
+      {isAllCategory && filteredItems.length > 4 && (
+        <button
+          type="button"
+          className="course-faq-more-btn"
+          onClick={() => setShowAllItems((prev) => !prev)}
+          aria-expanded={showAllItems}
+        >
+          {showAllItems ? "Ver menos" : "Ver más"}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <polyline points={showAllItems ? "18 15 12 9 6 15" : "6 9 12 15 18 9"} />
+          </svg>
+        </button>
+      )}
 
       {/* Tarjeta de soporte / dudas personalizadas */}
       <div className="course-faq-cta-card">

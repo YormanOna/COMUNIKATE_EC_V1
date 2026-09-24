@@ -12,9 +12,9 @@
 }
 
 .footer-logo img {
-  width: 100px; /* Ajusta el tamaño del logo según lo necesites */
+  width: 130px; /* Ajuste ligero del tamaño del logo */
   height: auto;
-  margin-bottom: 1rem;
+  
 }
 
 .footer-copyright {
