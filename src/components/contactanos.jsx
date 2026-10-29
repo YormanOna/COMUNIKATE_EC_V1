@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
-import { faFacebook, faInstagram, faTiktok } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faInstagram, faTiktok, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faLocationDot, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import '../styles/contact.css'
 export function ContactComponent () {
@@ -53,6 +53,9 @@ export function ContactComponent () {
                 </a>
                 <a href="https://www.tiktok.com/@comunikate.academy" className="social-link" target="_blank" rel="noreferrer" aria-label="TikTok de Comunikate">
                   <FontAwesomeIcon icon={faTiktok} />
+                </a>
+                <a href="https://www.linkedin.com/company/comunikateacademyec" className="social-link" target="_blank" rel="noreferrer" aria-label="LinkedIn de Comunikate">
+                  <FontAwesomeIcon icon={faLinkedin} />
                 </a>
               </div>
             </div>

@@ -18,7 +18,7 @@ export function OratoriaLocucion() {
       <NavigationMenu />
 
       <div className="SectionTilteBlack">
-        <h1>Periodismo</h1>
+        <h1>COMUNICACIÓN</h1>
       </div>
 
       <div className="SectionTitleOrange">

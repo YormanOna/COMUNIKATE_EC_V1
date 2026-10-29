@@ -76,8 +76,9 @@ Header de la sección
 Grid de cursos
 ************************************************************/
 .periodismo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 30px;
   max-width: 1400px;
   margin: 0 auto;
@@ -99,6 +100,9 @@ Tarjetas de cursos
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   background: white;
   height: 400px;
+  flex: 0 0 calc((100% - 60px) / 3);
+  max-width: calc((100% - 60px) / 3);
+  box-sizing: border-box;
 }
 
 @keyframes cardFadeIn {
@@ -251,6 +255,11 @@ Responsividad
 }
 
 @media (max-width: 992px) {
+  .periodismo-card {
+    flex: 0 0 calc((100% - 30px) / 2);
+    max-width: calc((100% - 30px) / 2);
+  }
+
   .periodismo-header h1 {
     font-size: 2.5rem;
   }
@@ -266,8 +275,13 @@ Responsividad
   }
 
   .periodismo-grid {
-    grid-template-columns: 1fr;
     gap: 25px;
+  }
+
+  .periodismo-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+    height: 380px;
   }
 
   .periodismo-header h1 {

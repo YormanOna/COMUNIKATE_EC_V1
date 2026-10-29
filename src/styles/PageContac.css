@@ -79,6 +79,11 @@
   color: #000000; /* TikTok */
 }
 
+.social-icon:hover:nth-child(4),
+.pageContac-social a:nth-child(4):hover .social-icon {
+  color: #0077b5; /* LinkedIn */
+}
+
 .pageContac-handle {
   color: #fff;
   font-weight: bold;

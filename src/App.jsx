@@ -14,6 +14,7 @@ const PeriodismoDeportivo = lazy(() => import('./pages/Cursos/Periodismo/Periodi
 const LocucionRadial = lazy(() => import('./pages/Cursos/Periodismo/LocucionRadial').then(({ LocucionRadial }) => ({ default: LocucionRadial })));
 const MediaTraining = lazy(() => import('./pages/Cursos/Periodismo/MediaTraining').then(({ MediaTraining }) => ({ default: MediaTraining })));
 const PresentadorTvMediosDigitales = lazy(() => import('./pages/Cursos/Periodismo/PresentadorMediosDigitales').then(({ PresentadorTvMediosDigitales }) => ({ default: PresentadorTvMediosDigitales })));
+const PequenosOradores = lazy(() => import('./pages/Cursos/Periodismo/PequenosOradores').then(({ PequenosOradores }) => ({ default: PequenosOradores })));
 const MarketingDigital = lazy(() => import('./pages/Cursos/SocialMedia/MarketingDigital').then(({ MarketingDigital }) => ({ default: MarketingDigital })));
 const ProduccionAudiovisual = lazy(() => import('./pages/Cursos/Audiovisual/ProduccionAudiovisual').then(({ ProduccionAudiovisual }) => ({ default: ProduccionAudiovisual })));
 const Fotografia = lazy(() => import('./pages/Cursos/Audiovisual/Fotografia').then(({ Fotografia }) => ({ default: Fotografia })));
@@ -38,6 +39,7 @@ function App() {
         <Route path="/cursos/comunicacion/locucion-radial" element={<LocucionRadial />} />
         <Route path="/cursos/comunicacion/media-training" element={<MediaTraining />} />
         <Route path="/cursos/comunicacion/presentador-tv-medios-digitales" element={<PresentadorTvMediosDigitales />} />
+        <Route path="/cursos/comunicacion/pequenos-oradores" element={<PequenosOradores />} />
         <Route path="/cursos/social-media/marketing-digital" element={<MarketingDigital />} />
         <Route path="/cursos/audiovisual/produccion-audiovisual" element={<ProduccionAudiovisual />} />
         <Route path="/cursos/audiovisual/fotografia" element={<Fotografia />} />

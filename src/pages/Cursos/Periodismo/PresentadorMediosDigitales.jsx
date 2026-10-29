@@ -16,7 +16,7 @@ export function PresentadorTvMediosDigitales(){
                         <br />
                         <br />
             <div className="SectionTilteBlack">
-                <h1>Periodismo</h1>
+                <h1>COMUNICACIÓN</h1>
             </div>
             <div className="SectionTitleOrange">
                 <h1>PRESENTADOR DE TV Y MEDIOS DIGITALES</h1>

@@ -105,6 +105,26 @@ export function NavigationMenu() {
       </div>
 
       <ul className="nav-right-menu desktop-menu">
+        <li className="nav-item-menu has-submenu">
+          <span className="nav-link-menu nav-dropdown-trigger" role="button" tabIndex={0}>
+            Nuestros Medios
+            <svg className="submenu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </span>
+          <ul className="submenu">
+            <li>
+              <a href="https://eqradio593.com/eqproducciones" target="_blank" rel="noopener noreferrer" className="submenu-link">
+                EQ Producciones
+              </a>
+            </li>
+            <li>
+              <a href="https://eqradio593.com/eq593" target="_blank" rel="noopener noreferrer" className="submenu-link">
+                EQ593 en vivo
+              </a>
+            </li>
+          </ul>
+        </li>
         <li className="nav-item-menu">
           <Link to="/contacto" className="nav-link-menu">
             Contáctanos
@@ -141,7 +161,7 @@ export function NavigationMenu() {
             <span>Cursos</span>
             <ul className="mobile-submenu">
               <li onClick={closeMobileMenu}>
-                <Link to="/cursos#periodismo">Periodismo</Link>
+                <Link to="/cursos#periodismo">Comunicación</Link>
               </li>
               <li onClick={closeMobileMenu}>
                 <Link to="/cursos#audiovisual">Audiovisual</Link>
@@ -151,6 +171,17 @@ export function NavigationMenu() {
               </li>
               <li onClick={closeMobileMenu}>
                 <Link to="/cursos#otros">Otros</Link>
+              </li>
+            </ul>
+          </li>
+          <li className="mobile-menu-item">
+            <span>Nuestros Medios</span>
+            <ul className="mobile-submenu">
+              <li onClick={closeMobileMenu}>
+                <a href="https://eqradio593.com/eqproducciones" target="_blank" rel="noopener noreferrer">EQ Producciones</a>
+              </li>
+              <li onClick={closeMobileMenu}>
+                <a href="https://eqradio593.com/eq593" target="_blank" rel="noopener noreferrer">EQ593 en vivo</a>
               </li>
             </ul>
           </li>

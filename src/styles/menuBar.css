@@ -53,6 +53,25 @@
     height: 84px;
     width: auto;
   }
+
+  /* En escritorio, ocultar el logo al inicio en todas las páginas de cursos hasta que se active el scroll */
+  @media (min-width: 769px) {
+    .nav-container-menu.initial-menu.detail-menu .logo-wrapper-menu {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translate(-50%, -10px);
+      transition: opacity 0.35s ease, visibility 0.35s ease, transform 0.35s ease;
+    }
+
+    .nav-container-menu.scrolled-menu.detail-menu .logo-wrapper-menu {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translate(-50%, 0);
+      transition: opacity 0.35s ease, visibility 0.35s ease, transform 0.35s ease;
+    }
+  }
   
   /* Menú de escritorio */
   .nav-left-menu,
@@ -155,6 +174,28 @@
     transition: all 0.3s ease;
     padding: 0.5rem 0;
     list-style: none;
+  }
+
+  /* Los submenús en la sección derecha abren alineados al borde derecho */
+  .nav-right-menu .submenu {
+    left: auto;
+    right: 0;
+  }
+
+  .nav-dropdown-trigger {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .submenu-arrow-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+    transition: transform 0.25s ease;
+  }
+
+  .has-submenu:hover .submenu-arrow-icon {
+    transform: rotate(180deg);
   }
   
   .has-submenu:hover .submenu {

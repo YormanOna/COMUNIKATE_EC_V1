@@ -1,0 +1,30 @@
+{
+  "titulo": "PEQUEÑOS ORADORES",
+  "categoria": "COMUNICACIÓN",
+  "presentacion": "Una de las mayores herramientas que dispone el ser humano es la VOZ, misma que educada y explotada todos sus recursos técnicos, ayudarán a la verdadera formación humana y fijar límites inalcanzables del mismo.",
+  "objetivo": "Con este curso tu peque logrará perder su timidez, mejorará su comunicación interpersonal, y también adquiera seguridad para expresarse en su vida diaria.",
+  "contenido": [
+    "Dinámicas de introducción a la oratoria y comunicación",
+    "Juegos de improvisación",
+    "La confianza personal y grupal",
+    "Lenguaje corporal: trabalenguas, técnicas para hablar claro.",
+    "Expresión corporal: manos, mirada y emociones.",
+    "La oratoria enfocada a niños",
+    "Locución para niños",
+    "Motivación y liderazgo",
+    "Manejo ante cámaras y medios como herramientas para la comunicación infantil.",
+    "Grabación de proyecto radial y de podcast."
+  ],
+  "fichaTecnica": {
+    "modalidades": {
+      "presencial": ["Quito", "Guayaquil"],
+      "virtual": "Vía Zoom (Clases en vivo)"
+    },
+    "metodoEducativo": "Técnico - Práctico",
+    "duracion": "16 horas reloj (2 Meses)",
+    "requisitos": "Ninguno",
+    "certificado": "Avalado por el Ministerio de Educación",
+    "dirigidoA": "Edad de 5 a 11 años",
+    "instructores": "Docentes activos en medios y comunicación"
+  }
+}

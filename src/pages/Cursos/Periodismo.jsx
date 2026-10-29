@@ -8,6 +8,7 @@ import imgRadial from "../../img/Cursos/Periodismo/Imagenes_Cursos/CURSOS_TRES.p
 import imgRRPP from "../../img/Cursos/Periodismo/Imagenes_Cursos/CURSOS_CUATRO.png";
 import imgMedia from "../../img/Cursos/Periodismo/Imagenes_Cursos/CURSOS_CINCO.png";
 import imgPresentador from "../../img/Cursos/Periodismo/Imagenes_Cursos/CURSOS_SEIS.png";
+import imgPequenosOradores from "../../img/Cursos/Periodismo/Imagenes_Cursos/CURSOS_SIETE.webp";
 
 export function Periodismo() {
   const [unavailableCourse, setUnavailableCourse] = useState("");
@@ -18,6 +19,13 @@ export function Periodismo() {
       title: "Oratoria y Locución",
       duration: "24 horas",
       level: "Básico - Intermedio"
+    },
+    { 
+      href: "/cursos/comunicacion/pequenos-oradores", 
+      img: imgPequenosOradores, 
+      title: "Pequeños Oradores",
+      duration: "16 horas",
+      level: "5 a 11 años"
     },
     { 
       href: "/cursos/comunicacion/periodismo-deportivo", 

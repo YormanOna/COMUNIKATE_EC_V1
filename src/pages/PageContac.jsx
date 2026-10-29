@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/PageContac.css"; 
 import { NavigationMenu } from "../components/NavBar";
 import { Footer } from "../components/footer"; 
-import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTiktok, FaLinkedinIn } from "react-icons/fa";
 import emailjs from "emailjs-com";
 import swal from 'sweetalert';
 
@@ -165,6 +165,7 @@ export function PageContac() {
             <a href="https://www.facebook.com/share/1EmVXMnZfz/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF className="social-icon" /></a>
             <a href="https://www.instagram.com/comunikate.academy" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram className="social-icon" /></a>
             <a href="https://www.tiktok.com/@comunikate.academy" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><FaTiktok className="social-icon" /></a>
+            <a href="https://www.linkedin.com/company/comunikateacademyec" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedinIn className="social-icon" /></a>
           </div>
           
         </div>

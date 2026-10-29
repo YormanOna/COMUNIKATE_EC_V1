@@ -3,7 +3,7 @@ import emailjs from "emailjs-com";
 import swal from "sweetalert";
 import "../styles/formInscripciones.css";
 
-const cursosDisponibles = ["CURSO DE ORATORIA Y LOCUCIÓN", "CURSO DE PRODUCCIÓN AUDIOVISUAL", "CURSO DE FOTOGRAFÍA", "CURSO DE PRESENTADOR DE TV Y MEDIOS DIGITALES", "CURSO DE STREAMING", "CURSO DE PERIODISMO DEPORTIVO", "CURSO DE MEDIA TRAINING", "CURSO DE RELACIONES PÚBLICAS", "CURSO DE LOCUCIÓN COMERCIAL", "CURSO DE REDACCIÓN PERIODÍSTICA", "CURSO DE MARKETING DIGITAL", "CURSO DE PODCAST", "CURSO DE FOTOGRAFÍA DE PRODUCTOS Y ALIMENTOS", "CURSO DE EDICIÓN Y GRABACIÓN DE AUDIO", "CURSO DE VENTAS", "OTROS"];
+const cursosDisponibles = ["CURSO DE ORATORIA Y LOCUCIÓN", "CURSO DE PRODUCCIÓN AUDIOVISUAL", "CURSO DE FOTOGRAFÍA", "CURSO DE PRESENTADOR DE TV Y MEDIOS DIGITALES", "CURSO DE STREAMING", "CURSO DE PERIODISMO DEPORTIVO", "CURSO DE MEDIA TRAINING", "CURSO DE RELACIONES PÚBLICAS", "CURSO DE LOCUCIÓN COMERCIAL", "CURSO DE REDACCIÓN PERIODÍSTICA", "CURSO DE MARKETING DIGITAL", "CURSO DE PODCAST", "CURSO DE FOTOGRAFÍA DE PRODUCTOS Y ALIMENTOS", "CURSO DE EDICIÓN Y GRABACIÓN DE AUDIO", "CURSO DE VENTAS", "PEQUEÑOS ORADORES", "OTROS"];
 const initialValues = { nombres: "", apellidos: "", email: "", movil: "", cedula: "", edad: "", estadoCivil: "", ciudad: "", direccion: "", ocupacion: "", curso: "", comentarios: "" };
 const requiredFields = ["nombres", "apellidos", "email", "movil", "cedula", "edad", "estadoCivil", "ciudad", "direccion", "ocupacion", "curso"];
 
